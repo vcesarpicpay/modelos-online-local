@@ -1,0 +1,411 @@
+SEGMENTAÇÃO FINAL,rangeScoreInterno,segmentacaoPolitica,faixaRendaBruta,flagFuncionario,FLAG_CC_ROT,mean_total_balance_d0,cpf6e7Digito,isApprovedBauAux,isApprovedSmallLimits, limiteFixo,alavancagem, limiteTeto,limitePiso
+FU_4K_01,R1,P1 - Funcionarios,a. < 4k,1,N/A,N/A,N/A ,1,0,0,1.0,4000 ,300 
+FU_4K_02,R2,P1 - Funcionarios,a. < 4k,1,N/A,N/A,N/A ,1,0,0,1.0,3200 ,300 
+FU_4K_03,R3,P1 - Funcionarios,a. < 4k,1,N/A,N/A,N/A ,1,0,0,0.8,2400 ,300 
+FU_4K_04,R4,P1 - Funcionarios,a. < 4k,1,N/A,N/A,N/A ,1,0,0,0.8,2000 ,300 
+FU_4K_05,R5,P1 - Funcionarios,a. < 4k,1,N/A,N/A,N/A ,1,0,0,0.7,2000 ,300 
+FU_4K_06,R6,P1 - Funcionarios,a. < 4k,1,N/A,N/A,N/A ,1,0,0,0.6,2000 ,300 
+FU_4K_07,R7,P1 - Funcionarios,a. < 4k,1,N/A,N/A,N/A ,1,0,0,0.4,1200 ,300 
+FU_4K_08,R8,P1 - Funcionarios,a. < 4k,1,N/A,N/A,N/A ,1,0,0,0.4,1200 ,300 
+FU_4K_09,R9,P1 - Funcionarios,a. < 4k,1,N/A,N/A,N/A ,1,0,0,0.3,1200 ,300 
+FU_4K_10,R10,P1 - Funcionarios,a. < 4k,1,N/A,N/A,N/A ,1,0,0,0.3,1200 ,300 
+FU_10K_01,R1,P1 - Funcionarios,b. 4k - 10k,1,N/A,N/A,N/A ,1,0,0,1.2,7500 ,300 
+FU_10K_02,R2,P1 - Funcionarios,b. 4k - 10k,1,N/A,N/A,N/A ,1,0,0,1.2,6000 ,300 
+FU_10K_03,R3,P1 - Funcionarios,b. 4k - 10k,1,N/A,N/A,N/A ,1,0,0,1.0,4500 ,300 
+FU_10K_04,R4,P1 - Funcionarios,b. 4k - 10k,1,N/A,N/A,N/A ,1,0,0,1.0,4000 ,300 
+FU_10K_05,R5,P1 - Funcionarios,b. 4k - 10k,1,N/A,N/A,N/A ,1,0,0,0.8,4000 ,300 
+FU_10K_06,R6,P1 - Funcionarios,b. 4k - 10k,1,N/A,N/A,N/A ,1,0,0,0.7,4000 ,300 
+FU_10K_07,R7,P1 - Funcionarios,b. 4k - 10k,1,N/A,N/A,N/A ,1,0,0,0.5,2500 ,300 
+FU_10K_08,R8,P1 - Funcionarios,b. 4k - 10k,1,N/A,N/A,N/A ,1,0,0,0.5,2500 ,300 
+FU_10K_09,R9,P1 - Funcionarios,b. 4k - 10k,1,N/A,N/A,N/A ,1,0,0,0.5,2500 ,300 
+FU_10K_10,R10,P1 - Funcionarios,b. 4k - 10k,1,N/A,N/A,N/A ,1,0,0,0.5,2500 ,300 
+FU_15K_01,R1,P1 - Funcionarios,c. 10k - 15k,1,N/A,N/A,N/A ,1,0,0,1.2,12000 ,7500 
+FU_15K_02,R2,P1 - Funcionarios,c. 10k - 15k,1,N/A,N/A,N/A ,1,0,0,1.2,10000 ,6000 
+FU_15K_03,R3,P1 - Funcionarios,c. 10k - 15k,1,N/A,N/A,N/A ,1,0,0,1.0,7200 ,4500 
+FU_15K_04,R4,P1 - Funcionarios,c. 10k - 15k,1,N/A,N/A,N/A ,1,0,0,1.0,6000 ,4000 
+FU_15K_05,R5,P1 - Funcionarios,c. 10k - 15k,1,N/A,N/A,N/A ,1,0,0,0.8,6000 ,4000 
+FU_15K_06,R6,P1 - Funcionarios,c. 10k - 15k,1,N/A,N/A,N/A ,1,0,0,0.7,6000 ,4000 
+FU_15K_07,R7,P1 - Funcionarios,c. 10k - 15k,1,N/A,N/A,N/A ,1,0,0,0.5,4000 ,4000 
+FU_15K_08,R8,P1 - Funcionarios,c. 10k - 15k,1,N/A,N/A,N/A ,1,0,0,0.5,4000 ,4000 
+FU_15K_09,R9,P1 - Funcionarios,c. 10k - 15k,1,N/A,N/A,N/A ,1,0,0,0.5,4000 ,4000 
+FU_15K_10,R10,P1 - Funcionarios,c. 10k - 15k,1,N/A,N/A,N/A ,1,0,0,0.5,4000 ,4000 
+FU_P15K_01,R1,P1 - Funcionarios,d. >= 15k,1,N/A,N/A,N/A ,1,0,0,1.5,30000 ,10000 
+FU_P15K_02,R2,P1 - Funcionarios,d. >= 15k,1,N/A,N/A,N/A ,1,0,0,1.5,30000 ,10000 
+FU_P15K_03,R3,P1 - Funcionarios,d. >= 15k,1,N/A,N/A,N/A ,1,0,0,1.3,30000 ,10000 
+FU_P15K_04,R4,P1 - Funcionarios,d. >= 15k,1,N/A,N/A,N/A ,1,0,0,1.3,30000 ,10000 
+FU_P15K_05,R5,P1 - Funcionarios,d. >= 15k,1,N/A,N/A,N/A ,1,0,0,0.9,30000 ,10000 
+FU_P15K_06,R6,P1 - Funcionarios,d. >= 15k,1,N/A,N/A,N/A ,1,0,0,0.8,30000 ,10000 
+FU_P15K_07,R7,P1 - Funcionarios,d. >= 15k,1,N/A,N/A,N/A ,1,0,0,0.7,30000 ,10000 
+FU_P15K_08,R8,P1 - Funcionarios,d. >= 15k,1,N/A,N/A,N/A ,1,0,0,0.7,30000 ,10000 
+FU_P15K_09,R9,P1 - Funcionarios,d. >= 15k,1,N/A,N/A,N/A ,1,0,0,0.7,30000 ,10000 
+FU_P15K_10,R10,P1 - Funcionarios,d. >= 15k,1,N/A,N/A,N/A ,1,0,0,0.7,30000 ,10000 
+FO_4K_01,R1,P2 - FOPAG,a. < 4k,0,N/A,N/A,N/A ,1,0,0,0.8,4000 ,300 
+FO_4K_02,R2,P2 - FOPAG,a. < 4k,0,N/A,N/A,N/A ,1,0,0,0.6,3200 ,300 
+FO_4K_03,R3,P2 - FOPAG,a. < 4k,0,N/A,N/A,N/A ,1,0,0,0.5,2400 ,300 
+FO_4K_04,R4,P2 - FOPAG,a. < 4k,0,N/A,N/A,N/A ,1,0,0,0.4,2000 ,300 
+FO_4K_05,R5,P2 - FOPAG,a. < 4k,0,N/A,N/A,N/A ,1,0,0,0.3,2000 ,300 
+FO_4K_06,R6,P2 - FOPAG,a. < 4k,0,N/A,N/A,N/A ,1,0,0,0.3,2000 ,300 
+FO_4K_07,R7,P2 - FOPAG,a. < 4k,0,N/A,N/A,N/A ,1,0,0,0.3,1200 ,300 
+FO_4K_08,R8,P2 - FOPAG,a. < 4k,0,N/A,N/A,N/A ,1,0,0,0.3,1200 ,300 
+FO_4K_09,R9,P2 - FOPAG,a. < 4k,0,N/A,N/A,N/A ,1,0,0,0.3,1200 ,300 
+FO_4K_10,R10,P2 - FOPAG,a. < 4k,0,N/A,N/A,N/A ,1,0,0,0.3,1200 ,300 
+FO_10K_01,R1,P2 - FOPAG,b. 4k - 10k,0,N/A,N/A,N/A ,1,0,0,1.0,7500 ,300 
+FO_10K_02,R2,P2 - FOPAG,b. 4k - 10k,0,N/A,N/A,N/A ,1,0,0,0.8,6000 ,300 
+FO_10K_03,R3,P2 - FOPAG,b. 4k - 10k,0,N/A,N/A,N/A ,1,0,0,0.7,4500 ,300 
+FO_10K_04,R4,P2 - FOPAG,b. 4k - 10k,0,N/A,N/A,N/A ,1,0,0,0.6,4000 ,300 
+FO_10K_05,R5,P2 - FOPAG,b. 4k - 10k,0,N/A,N/A,N/A ,1,0,0,0.5,4000 ,300 
+FO_10K_06,R6,P2 - FOPAG,b. 4k - 10k,0,N/A,N/A,N/A ,1,0,0,0.4,4000 ,300 
+FO_10K_07,R7,P2 - FOPAG,b. 4k - 10k,0,N/A,N/A,N/A ,1,0,0,0.4,2500 ,300 
+FO_10K_08,R8,P2 - FOPAG,b. 4k - 10k,0,N/A,N/A,N/A ,1,0,0,0.3,2500 ,300 
+FO_10K_09,R9,P2 - FOPAG,b. 4k - 10k,0,N/A,N/A,N/A ,1,0,0,0.3,2500 ,300 
+FO_10K_10,R10,P2 - FOPAG,b. 4k - 10k,0,N/A,N/A,N/A ,1,0,0,0.3,2500 ,300 
+FO_15K_01,R1,P2 - FOPAG,c. 10k - 15k,0,N/A,N/A,N/A ,1,0,0,1.0,12000 ,7500 
+FO_15K_02,R2,P2 - FOPAG,c. 10k - 15k,0,N/A,N/A,N/A ,1,0,0,0.8,10000 ,6000 
+FO_15K_03,R3,P2 - FOPAG,c. 10k - 15k,0,N/A,N/A,N/A ,1,0,0,0.7,7200 ,4500 
+FO_15K_04,R4,P2 - FOPAG,c. 10k - 15k,0,N/A,N/A,N/A ,1,0,0,0.6,6000 ,4000 
+FO_15K_05,R5,P2 - FOPAG,c. 10k - 15k,0,N/A,N/A,N/A ,1,0,0,0.5,6000 ,4000 
+FO_15K_06,R6,P2 - FOPAG,c. 10k - 15k,0,N/A,N/A,N/A ,1,0,0,0.4,6000 ,4000 
+FO_15K_07,R7,P2 - FOPAG,c. 10k - 15k,0,N/A,N/A,N/A ,1,0,0,0.4,4000 ,4000 
+FO_15K_08,R8,P2 - FOPAG,c. 10k - 15k,0,N/A,N/A,N/A ,1,0,0,0.3,4000 ,4000 
+FO_15K_09,R9,P2 - FOPAG,c. 10k - 15k,0,N/A,N/A,N/A ,1,0,0,0.3,4000 ,4000 
+FO_15K_10,R10,P2 - FOPAG,c. 10k - 15k,0,N/A,N/A,N/A ,1,0,0,0.3,4000 ,4000 
+FO_P15K_01,R1,P2 - FOPAG,d. >= 15k,0,N/A,N/A,N/A ,1,0,0,1.5,30000 ,10000 
+FO_P15K_02,R2,P2 - FOPAG,d. >= 15k,0,N/A,N/A,N/A ,1,0,0,1.5,30000 ,10000 
+FO_P15K_03,R3,P2 - FOPAG,d. >= 15k,0,N/A,N/A,N/A ,1,0,0,1.3,30000 ,10000 
+FO_P15K_04,R4,P2 - FOPAG,d. >= 15k,0,N/A,N/A,N/A ,1,0,0,1.3,30000 ,10000 
+FO_P15K_05,R5,P2 - FOPAG,d. >= 15k,0,N/A,N/A,N/A ,1,0,0,0.9,30000 ,10000 
+FO_P15K_06,R6,P2 - FOPAG,d. >= 15k,0,N/A,N/A,N/A ,1,0,0,0.8,30000 ,10000 
+FO_P15K_07,R7,P2 - FOPAG,d. >= 15k,0,N/A,N/A,N/A ,1,0,0,0.7,30000 ,10000 
+FO_P15K_08,R8,P2 - FOPAG,d. >= 15k,0,N/A,N/A,N/A ,1,0,0,0.7,30000 ,10000 
+FO_P15K_09,R9,P2 - FOPAG,d. >= 15k,0,N/A,N/A,N/A ,1,0,0,0.7,30000 ,10000 
+FO_P15K_10,R10,P2 - FOPAG,d. >= 15k,0,N/A,N/A,N/A ,1,0,0,0.7,30000 ,10000 
+IN_NI_01,R1,P3 - Investidor Alta Renda,N/A,0,0,>= 40000,N/A ,1,0,0,0.7,30000 ,10000 
+IN_NI_02,R2,P3 - Investidor Alta Renda,N/A,0,0,>= 40000,N/A ,1,0,0,0.6,30000 ,10000 
+IN_NI_03,R3,P3 - Investidor Alta Renda,N/A,0,0,>= 40000,N/A ,1,0,0,0.5,30000 ,10000 
+IN_NI_04,R4,P3 - Investidor Alta Renda,N/A,0,0,>= 40000,N/A ,1,0,0,0.4,30000 ,10000 
+IN_NI_05,R5,P3 - Investidor Alta Renda,N/A,0,0,>= 40000,N/A ,1,0,0,0.4,30000 ,10000 
+IN_NI_06,R6,P3 - Investidor Alta Renda,N/A,0,0,>= 40000,N/A ,1,0,0,0.4,30000 ,10000 
+IN_NI_07,R7,P3 - Investidor Alta Renda,N/A,0,0,>= 40000,N/A ,1,0,0,0.3,30000 ,10000 
+IN_NI_08,R8,P3 - Investidor Alta Renda,N/A,0,0,>= 40000,N/A ,1,0,0,0.3,30000 ,10000 
+IN_NI_09,R9,P3 - Investidor Alta Renda,N/A,0,0,>= 40000,N/A ,1,0,0,0.3,30000 ,10000 
+IN_NI_10,R10,P3 - Investidor Alta Renda,N/A,0,0,>= 40000,N/A ,0,0,0,0.3,30000 ,10000 
+IN_I_01,R1,P3 - Investidor Alta Renda,N/A,0,0,< 40000,N/A ,1,0,0,0.7,40000 ,10000 
+IN_I_02,R2,P3 - Investidor Alta Renda,N/A,0,0,< 40000,N/A ,1,0,0,0.6,40000 ,10000 
+IN_I_03,R3,P3 - Investidor Alta Renda,N/A,0,0,< 40000,N/A ,1,0,0,0.5,40000 ,10000 
+IN_I_04,R4,P3 - Investidor Alta Renda,N/A,0,0,< 40000,N/A ,1,0,0,0.4,40000 ,10000 
+IN_I_05,R5,P3 - Investidor Alta Renda,N/A,0,0,< 40000,N/A ,1,0,0,0.4,40000 ,10000 
+IN_I_06,R6,P3 - Investidor Alta Renda,N/A,0,0,< 40000,N/A ,1,0,0,0.4,40000 ,10000 
+IN_I_07,R7,P3 - Investidor Alta Renda,N/A,0,0,< 40000,N/A ,1,0,0,0.3,40000 ,10000 
+IN_I_08,R8,P3 - Investidor Alta Renda,N/A,0,0,< 40000,N/A ,1,0,0,0.3,40000 ,10000 
+IN_I_09,R9,P3 - Investidor Alta Renda,N/A,0,0,< 40000,N/A ,1,0,0,0.3,40000 ,10000 
+IN_I_10,R10,P3 - Investidor Alta Renda,N/A,0,0,< 40000,N/A ,0,0,0,0.3,40000 ,10000 
+IN_I_01,R1,P3 - Investidor Alta Renda,N/A,0,1,< 40000,N/A ,1,0,0,0.7,40000 ,10000 
+IN_I_02,R2,P3 - Investidor Alta Renda,N/A,0,1,< 40000,N/A ,1,0,0,0.6,40000 ,10000 
+IN_I_03,R3,P3 - Investidor Alta Renda,N/A,0,1,< 40000,N/A ,1,0,0,0.5,40000 ,10000 
+IN_I_04,R4,P3 - Investidor Alta Renda,N/A,0,1,< 40000,N/A ,1,0,0,0.4,40000 ,10000 
+IN_I_05,R5,P3 - Investidor Alta Renda,N/A,0,1,< 40000,N/A ,1,0,0,0.4,40000 ,10000 
+IN_I_06,R6,P3 - Investidor Alta Renda,N/A,0,1,< 40000,N/A ,1,0,0,0.4,40000 ,10000 
+IN_I_07,R7,P3 - Investidor Alta Renda,N/A,0,1,< 40000,N/A ,1,0,0,0.3,40000 ,10000 
+IN_I_08,R8,P3 - Investidor Alta Renda,N/A,0,1,< 40000,N/A ,1,0,0,0.3,40000 ,10000 
+IN_I_09,R9,P3 - Investidor Alta Renda,N/A,0,1,< 40000,N/A ,1,0,0,0.3,40000 ,10000 
+IN_I_10,R10,P3 - Investidor Alta Renda,N/A,0,1,< 40000,N/A ,0,0,0,0.3,40000 ,10000 
+IN_I_01,R1,P3 - Investidor Alta Renda,N/A,0,1,>= 40000,N/A ,1,0,0,0.7,40000 ,10000 
+IN_I_02,R2,P3 - Investidor Alta Renda,N/A,0,1,>= 40000,N/A ,1,0,0,0.6,40000 ,10000 
+IN_I_03,R3,P3 - Investidor Alta Renda,N/A,0,1,>= 40000,N/A ,1,0,0,0.5,40000 ,10000 
+IN_I_04,R4,P3 - Investidor Alta Renda,N/A,0,1,>= 40000,N/A ,1,0,0,0.4,40000 ,10000 
+IN_I_05,R5,P3 - Investidor Alta Renda,N/A,0,1,>= 40000,N/A ,1,0,0,0.4,40000 ,10000 
+IN_I_06,R6,P3 - Investidor Alta Renda,N/A,0,1,>= 40000,N/A ,1,0,0,0.4,40000 ,10000 
+IN_I_07,R7,P3 - Investidor Alta Renda,N/A,0,1,>= 40000,N/A ,1,0,0,0.3,40000 ,10000 
+IN_I_08,R8,P3 - Investidor Alta Renda,N/A,0,1,>= 40000,N/A ,1,0,0,0.3,40000 ,10000 
+IN_I_09,R9,P3 - Investidor Alta Renda,N/A,0,1,>= 40000,N/A ,1,0,0,0.3,40000 ,10000 
+IN_I_10,R10,P3 - Investidor Alta Renda,N/A,0,1,>= 40000,N/A ,0,0,0,0.3,40000 ,10000 
+AR_P_01,R1,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.6,20000 ,4000 
+AR_P_02,R2,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.4,20000 ,4000 
+AR_P_03,R3,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,20000 ,4000 
+AR_P_04,R4,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,20000 ,4000 
+AR_P_05,R5,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,20000 ,4000 
+AR_M_01,R1,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.6,15000 ,4000 
+AR_M_02,R2,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,15000 ,4000 
+AR_M_03,R3,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,15000 ,4000 
+AR_M_04,R4,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,15000 ,4000 
+AR_M_05,R5,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,15000 ,4000 
+AR_P_01,R1,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.8,20000 ,4000 
+AR_P_02,R2,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.6,20000 ,4000 
+AR_P_03,R3,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,20000 ,4000 
+AR_P_04,R4,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,20000 ,4000 
+AR_P_05,R5,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,20000 ,4000 
+AR_M_01,R1,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.8,15000 ,4000 
+AR_M_02,R2,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,15000 ,4000 
+AR_M_03,R3,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,15000 ,4000 
+AR_M_04,R4,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,15000 ,4000 
+AR_M_05,R5,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,15000 ,4000 
+AR_I_01,R1,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,10000 ,4000 
+AR_I_02,R2,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,10000 ,4000 
+AR_I_03,R3,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,10000 ,4000 
+AR_I_04,R4,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,10000 ,4000 
+AR_P_01,R1,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.7,20000 ,4000 
+AR_P_02,R2,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.5,20000 ,4000 
+AR_P_03,R3,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.3,20000 ,4000 
+AR_P_04,R4,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.3,20000 ,4000 
+AR_P_05,R5,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.3,20000 ,4000 
+AR_P_06,R6,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,N/A,0,0,0,0.3,20000 ,4000 
+AR_P_07,R7,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,N/A,0,0,0,0.3,20000 ,4000 
+AR_P_08,R8,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,N/A,0,0,0,0.3,20000 ,4000 
+AR_P_09,R9,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,N/A,0,0,0,0.3,20000 ,4000 
+AR_P_10,R10,P4.1 - Alta Renda Principalidade,N/A,0,N/A,N/A,N/A,0,0,0,0.3,20000 ,4000 
+AR_M_01,R1,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.7,15000 ,4000 
+AR_M_02,R2,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.3,15000 ,4000 
+AR_M_03,R3,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.3,15000 ,4000 
+AR_M_04,R4,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.3,15000 ,4000 
+AR_M_05,R5,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.3,15000 ,4000 
+AR_M_06,R6,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,15000 ,4000 
+AR_M_07,R7,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,15000 ,4000 
+AR_M_08,R8,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,15000 ,4000 
+AR_M_09,R9,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,15000 ,4000 
+AR_M_10,R10,P4.2 - Alta Renda MAT,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,15000 ,4000 
+AR_I_01,R1,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,10<= ..<=99,1,0,0,0.2,10000 ,4000 
+AR_I_02,R2,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,10<= ..<=99,1,0,0,0.2,10000 ,4000 
+AR_I_03,R3,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,10<= ..<=99,1,0,0,0.2,10000 ,4000 
+AR_I_04,R4,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,10<= ..<=99,1,0,0,0.2,10000 ,4000 
+AR_I_05,R5,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,00<=.. <=19,1,0,0,0.2,10000 ,4000 
+AR_I_05,R5,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,20<=.. <=99,0,0,0,0.2,10000 ,4000 
+AR_I_06,R6,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,10000 ,4000 
+AR_I_07,R7,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,10000 ,4000 
+AR_I_08,R8,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,10000 ,4000 
+AR_I_09,R9,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,10000 ,4000 
+AR_I_10,R10,P4.3 - Alta Renda Inativo,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,10000 ,4000 
+VP_P1_01,R1,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.6,6000 ,1000 
+VP_P1_02,R2,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.4,5500 ,1000 
+VP_P1_03,R3,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.4,4500 ,1000 
+VP_P1_04,R4,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,4000 ,1000 
+VP_P1_01,R1,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.8,6000 ,1000 
+VP_P1_02,R2,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.6,5500 ,1000 
+VP_P1_03,R3,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.6,4500 ,1000 
+VP_P1_04,R4,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.5,4000 ,1000 
+VP_P1_01,R1,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.7,6000 ,1000 
+VP_P1_02,R2,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.5,5500 ,1000 
+VP_P1_03,R3,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.5,4500 ,1000 
+VP_P1_04,R4,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.4,4000 ,1000 
+VP_P1_05,R5,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,4000 ,1000 
+VP_P1_06,R6,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,4000 ,1000 
+VP_P1_07,R7,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,4000 ,1000 
+VP_P1_08,R8,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,4000 ,1000 
+VP_P1_09,R9,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,4000 ,1000 
+VP_P1_10,R10,P5.1 - Varejo+ Principalidade Renda >= 4k,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,4000 ,1000 
+VP_M_01,R1,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.6,6000 ,300 
+VP_M_02,R2,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.4,4000 ,300 
+VP_M_03,R3,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,4000 ,300 
+VP_M_04,R4,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,4000 ,300 
+VP_M_01,R1,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.8,6000 ,300 
+VP_M_02,R2,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.6,4000 ,300 
+VP_M_03,R3,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.5,4000 ,300 
+VP_M_04,R4,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,4000 ,300 
+VP_M_01,R1,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.7,6000 ,300 
+VP_M_02,R2,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.5,4000 ,300 
+VP_M_03,R3,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.4,4000 ,300 
+VP_M_04,R4,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.3,4000 ,300 
+VP_M_05,R5,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,00<= ..<=19,1,0,0,0.2,4000 ,300 
+VP_M_05,R5,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,20<= ..<=99,0,0,0,0.2,4000 ,300 
+VP_M_06,R6,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,4000 ,300 
+VP_M_07,R7,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,4000 ,300 
+VP_M_08,R8,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,4000 ,300 
+VP_M_09,R9,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,4000 ,300 
+VP_M_10,R10,P5.2 - Varejo+ MAT,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,4000 ,300 
+VP_I_01,R1,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,3000 ,300 
+VP_I_02,R2,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,3000 ,300 
+VP_I_03,R3,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,3000 ,300 
+VP_I_04,R4,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,3000 ,300 
+VP_I_01,R1,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,10<=.. <=99,1,0,0,0.2,3000 ,300 
+VP_I_02,R2,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,10<=.. <=99,1,0,0,0.2,3000 ,300 
+VP_I_03,R3,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,10<=.. <=99,1,0,0,0.2,3000 ,300 
+VP_I_04,R4,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,10<=.. <=99,1,0,0,0.2,3000 ,300 
+VP_I_05,R5,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,00<= ..<=19,1,0,0,0.2,3000 ,300 
+VP_I_05,R5,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,20<= ..<=99,0,0,0,0.2,3000 ,300 
+VP_I_06,R6,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,3000 ,300 
+VP_I_07,R7,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,3000 ,300 
+VP_I_08,R8,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,3000 ,300 
+VP_I_09,R9,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,3000 ,300 
+VP_I_10,R10,P5.3 - Varejo+ Inativos,N/A,0,N/A,N/A,N/A ,0,0,0,0.2,3000 ,300 
+VP_P2_01,R1,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.5,3000 ,300 
+VP_P2_02,R2,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.4,2500 ,300 
+VP_P2_03,R3,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,2000 ,300 
+VP_P2_04,R4,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,1200 ,300 
+VP_P2_01,R1,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.7,3000 ,300 
+VP_P2_02,R2,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.6,2500 ,300 
+VP_P2_03,R3,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.5,2000 ,300 
+VP_P2_04,R4,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,1200 ,300 
+VP_P2_01,R1,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.6,3000 ,300 
+VP_P2_02,R2,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.5,2500 ,300 
+VP_P2_03,R3,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.4,2000 ,300 
+VP_P2_04,R4,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,20<= ..<=99,1,0,0,0.3,1200 ,300 
+VP_P2_05_A,R5,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,50 <=.. <=59,0,1,100 ,100,100 ,100 
+VP_P2_05_B,R5,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,60 <=.. <=99,0,1,200 ,200,200 ,200 
+VP_P2_05,R5,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,00 <= ..<= 09,1,0,0,0.4,1200 ,300 
+VP_P2_05,R5,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,10 <= ..<= 19,1,0,0,0.2,1200 ,300 
+VP_P2_05,R5,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,20 <= ..<= 49,1,0,0,0.3,1200 ,300 
+VP_P2_06_A,R6,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,50 <= ..<= 59,0,1,100 ,100,100 ,100 
+VP_P2_06_B,R6,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,60 <= ..<= 99,0,1,200 ,200,200 ,200 
+VP_P2_06,R6,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,00 <= ..<= 09,1,0,0,0.4,1200 ,300 
+VP_P2_06,R6,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,10 <= ..<= 19,1,0,0,0.2,1200 ,300 
+VP_P2_06,R6,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,20 <= ..<= 49,1,0,0,0.3,1200 ,300 
+VP_P2_07_A,R7,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,50 <= ..<= 59,0,1,100 ,100,100 ,100 
+VP_P2_07_B,R7,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,60 <= ..<= 99,0,1,200 ,200,200 ,200 
+VP_P2_07,R7,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,00 <= ..<= 09,1,0,0,0.4,1200 ,300 
+VP_P2_07,R7,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,10 <= ..<= 19,1,0,0,0.2,1200 ,300 
+VP_P2_07,R7,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,20 <= ..<= 49,1,0,0,0.3,1200 ,300 
+VP_P2_08_A,R8,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100 ,100,100 ,100 
+VP_P2_08_B,R8,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200 ,200,200 ,200 
+VP_P2_08_C,R8,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VP_P2_09_A,R9,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100 ,100,100 ,100 
+VP_P2_09_B,R9,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200 ,200,200 ,200 
+VP_P2_09_C,R9,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VP_P2_10_A,R10,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100 ,100,100 ,100 
+VP_P2_10_B,R10,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200 ,200,200 ,200 
+VP_P2_10_C,R10,P5.4 - Varejo+ Principalidade Renda < 4k,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VR_M_01,R1,P6.1 - Varejo MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.5,2500 ,300 
+VR_M_02,R2,P6.1 - Varejo MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.4,2000 ,300 
+VR_M_03,R3,P6.1 - Varejo MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,1200 ,300 
+VR_M_04,R4,P6.1 - Varejo MAT,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.2,1200 ,300 
+VR_M_01,R1,P6.1 - Varejo MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.7,2500 ,300 
+VR_M_02,R2,P6.1 - Varejo MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.6,2000 ,300 
+VR_M_03,R3,P6.1 - Varejo MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,1200 ,300 
+VR_M_04,R4,P6.1 - Varejo MAT,N/A,0,N/A,N/A,10<= ..<=19,1,0,0,0.4,1200 ,300 
+VR_M_01,R1,P6.1 - Varejo MAT,N/A,0,N/A,N/A,20<=.. <=99,1,0,0,0.6,2500 ,300 
+VR_M_02,R2,P6.1 - Varejo MAT,N/A,0,N/A,N/A,20<=.. <=99,1,0,0,0.5,2000 ,300 
+VR_M_03,R3,P6.1 - Varejo MAT,N/A,0,N/A,N/A,20<=.. <=99,1,0,0,0.3,1200 ,300 
+VR_M_04,R4,P6.1 - Varejo MAT,N/A,0,N/A,N/A,20<=.. <=99,1,0,0,0.3,1200 ,300 
+VR_M_05_A,R5,P6.1 - Varejo MAT,N/A,0,N/A,N/A,50 <= ..<= 59,0,1,100 ,100,100 ,100 
+VR_M_05_B,R5,P6.1 - Varejo MAT,N/A,0,N/A,N/A,60 <= ..<= 99,0,1,200 ,200,200 ,200 
+VR_M_05,R5,P6.1 - Varejo MAT,N/A,0,N/A,N/A,00 <= ..<= 09,1,0,0,0.2,1200 ,300 
+VR_M_05,R5,P6.1 - Varejo MAT,N/A,0,N/A,N/A,10 <= ..<= 19,1,0,0,0.4,1200 ,300 
+VR_M_05,R5,P6.1 - Varejo MAT,N/A,0,N/A,N/A,20 <= ..<= 49,1,0,0,0.3,1200 ,300 
+VR_M_06_A,R6,P6.1 - Varejo MAT,N/A,0,N/A,N/A,00 <= ..<= 19,0,1,100 ,100,100 ,100 
+VR_M_06_B,R6,P6.1 - Varejo MAT,N/A,0,N/A,N/A,20 <= ..<= 89,0,1,200 ,200,200 ,200 
+VR_M_06_C,R6,P6.1 - Varejo MAT,N/A,0,N/A,N/A,90 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VR_M_07_A,R7,P6.1 - Varejo MAT,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,100 ,100,100 ,100 
+VR_M_07_B,R7,P6.1 - Varejo MAT,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,200 ,200,200 ,200 
+VR_M_07_C,R7,P6.1 - Varejo MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VR_M_08_A,R8,P6.1 - Varejo MAT,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,100 ,100,100 ,100 
+VR_M_08_B,R8,P6.1 - Varejo MAT,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,200 ,200,200 ,200 
+VR_M_08_C,R8,P6.1 - Varejo MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VR_M_09_A,R9,P6.1 - Varejo MAT,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,100 ,100,100 ,100 
+VR_M_09_B,R9,P6.1 - Varejo MAT,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,200 ,200,200 ,200 
+VR_M_09_C,R9,P6.1 - Varejo MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VR_M_10_A,R10,P6.1 - Varejo MAT,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100 ,100,100 ,100 
+VR_M_10_E,R10,P6.1 - Varejo MAT,N/A,0,N/A,N/A,15 <= .. <=94,0,1,50,50,50,50
+VR_M_10_C,R10,P6.1 - Varejo MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VR_I_01,R1,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,1200 ,300 
+VR_I_02,R2,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,1200 ,300 
+VR_I_03,R3,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,1200 ,300 
+VR_I_04,R4,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,00<=.. <=09,1,0,0,0.3,1200 ,300 
+VR_I_01,R1,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,10 <= ..<= 99,1,0,0,0.2,1200 ,300 
+VR_I_02,R2,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,10 <= ..<= 99,1,0,0,0.2,1200 ,300 
+VR_I_03,R3,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,10 <= ..<= 99,1,0,0,0.2,1200 ,300 
+VR_I_04,R4,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,10 <= ..<= 99,1,0,0,0.2,1200 ,300 
+VR_I_05_A,R5,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,60 <= ..<= 99,0,1,100 ,100,100 ,100 
+VR_I_05_B,R5,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,50 <= ..<= 59,0,1,200 ,200,200 ,200 
+VR_I_05,R5,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,10 <= ..<= 49,1,0,0,0.2,1200 ,300 
+VR_I_05,R5,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,00 <= ..<= 09,1,0,0,0.3,1200 ,300 
+VR_I_06_A,R6,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100 ,100,100 ,100 
+VR_I_06_B,R6,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200 ,200,200 ,200 
+VR_I_06_C,R6,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VR_I_07_A,R7,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,100 ,100,100 ,100 
+VR_I_07_B,R7,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,200 ,200,200 ,200 
+VR_I_07_C,R7,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VR_I_08_A,R8,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,100 ,100,100 ,100 
+VR_I_08_B,R8,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,200 ,200,200 ,200 
+VR_I_08_C,R8,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VR_I_09_A,R9,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100 ,100,100 ,100 
+VR_I_09_E,R9,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,50,50,50,50
+VR_I_09_C,R9,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+VR_I_10_A,R10,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100 ,100,100 ,100 
+VR_I_10_E,R10,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,50,50,50,50
+VR_I_10_C,R10,P6.2 - Varejo Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200 ,300 
+J_PR_01_A,R1,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,00 <= ..<= 09,0,1,100,100,100,100
+J_PR_01_B,R1,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,10 <= ..<= 79,0,1,200,200,200,200
+J_PR_01_C,R1,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,80 <= ..<= 99,0,1,0,0.3,1200,300
+J_PR_02_A,R2,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,00 <= ..<= 09,0,1,100,100,100,100
+J_PR_02_B,R2,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,10 <= ..<= 79,0,1,200,200,200,200
+J_PR_02_C,R2,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,80 <= ..<= 99,0,1,0,0.3,1200,300
+J_PR_03_A,R3,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_PR_03_B,R3,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200,200,200,200
+J_PR_03_C,R3,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_PR_04_A,R4,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_PR_04_B,R4,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200,200,200,200
+J_PR_04_C,R4,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_PR_05_A,R5,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_PR_05_B,R5,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200,200,200,200
+J_PR_05_C,R5,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_PR_06_A,R6,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_PR_06_B,R6,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200,200,200,200
+J_PR_06_C,R6,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_PR_07_A,R7,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_PR_07_B,R7,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200,200,200,200
+J_PR_07_C,R7,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_PR_08_A,R8,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_PR_08_B,R8,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200,200,200,200
+J_PR_08_C,R8,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_PR_09_A,R9,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_PR_09_B,R9,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200,200,200,200
+J_PR_09_C,R9,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_PR_10_A,R10,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_PR_10_B,R10,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200,200,200,200
+J_PR_10_C,R10,P7.1 – Jovem Cliente Principalidade,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_M_01_A,R1,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,00 <= ..<= 69,0,1,100,100,100,100
+J_M_01_B,R1,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,70 <= ..<= 79,0,1,200,200,200,200
+J_M_01_C,R1,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,80 <= ..<= 99,0,1,0,0.3,1200,300
+J_M_02_A,R2,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,00 <= ..<= 69,0,1,100,100,100,100
+J_M_02_B,R2,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,70 <= ..<= 79,0,1,200,200,200,200
+J_M_02_C,R2,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,80 <= ..<= 99,0,1,0,0.3,1200,300
+J_M_03_A,R3,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,00 <= ..<= 79,0,1,100,100,100,100
+J_M_03_B,R3,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,80 <= ..<= 94,0,1,200,200,200,200
+J_M_03_C,R3,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_M_04_A,R4,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,00 <= ..<= 79,0,1,100,100,100,100
+J_M_04_B,R4,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,80 <= ..<= 94,0,1,200,200,200,200
+J_M_04_C,R4,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_M_05_A,R5,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,00 <= ..<= 79,0,1,100,100,100,100
+J_M_05_B,R5,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,80 <= ..<= 94,0,1,200,200,200,200
+J_M_05_C,R5,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_M_06_A,R6,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,00 <= ..<= 79,0,1,100,100,100,100
+J_M_06_B,R6,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,80 <= ..<= 94,0,1,200,200,200,200
+J_M_06_C,R6,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_M_07_A,R7,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,00 <= ..<= 79,0,1,100,100,100,100
+J_M_07_B,R7,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,80 <= ..<= 94,0,1,200,200,200,200
+J_M_07_C,R7,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_M_08_A,R8,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,00 <= ..<= 79,0,1,100,100,100,100
+J_M_08_B,R8,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,80 <= ..<= 94,0,1,200,200,200,200
+J_M_08_C,R8,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_M_09_A,R9,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_M_09_E,R9,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,50,50,50,50
+J_M_09_C,R9,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_M_10_A,R10,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_M_10_E,R10,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,50,50,50,50
+J_M_10_C,R10,P7.2 – Jovem Cliente MAT,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_I_01_A,R1,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,00 <= ..<= 69,0,1,100,100,100,100
+J_I_01_B,R1,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,70 <= ..<= 79,0,1,200,200,200,200
+J_I_01_C,R1,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,80 <= ..<= 99,0,1,0,0.3,1200,300
+J_I_02_A,R2,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,00 <= ..<= 69,0,1,100,100,100,100
+J_I_02_B,R2,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,70 <= ..<= 79,0,1,200,200,200,200
+J_I_02_C,R2,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,80 <= ..<= 99,0,1,0,0.3,1200,300
+J_I_03_A,R3,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,00 <= ..<= 79,0,1,100,100,100,100
+J_I_03_B,R3,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,80 <= ..<= 94,0,1,200,200,200,200
+J_I_03_C,R3,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_I_04_A,R4,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,00 <= ..<= 79,0,1,100,100,100,100
+J_I_04_B,R4,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,80 <= ..<= 94,0,1,200,200,200,200
+J_I_04_C,R4,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_I_05_A,R5,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,00 <= ..<= 79,0,1,100,100,100,100
+J_I_05_B,R5,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,80 <= ..<= 94,0,1,200,200,200,200
+J_I_05_C,R5,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_I_06_A,R6,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,00 <= ..<= 79,0,1,100,100,100,100
+J_I_06_B,R6,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,80 <= ..<= 94,0,1,200,200,200,200
+J_I_06_C,R6,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_I_07_A,R7,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_I_07_B,R7,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200,200,200,200
+J_I_07_C,R7,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_I_08_A,R8,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_I_08_B,R8,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,200,200,200,200
+J_I_08_C,R8,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_I_09_A,R9,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,00 <= ..<= 14,0,1,100,100,100,100
+J_I_09_E,R9,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,15 <= ..<= 94,0,1,50,50,50,50
+J_I_09_C,R9,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,95 <= ..<= 99,0,1,0,0.3,1200,300
+J_I_10,R10,P7.3 – Jovem Cliente Inativos,N/A,0,N/A,N/A,N/A ,0,0,0,0.3,1200,300

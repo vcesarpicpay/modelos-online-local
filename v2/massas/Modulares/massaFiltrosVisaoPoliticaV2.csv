@@ -1,0 +1,539 @@
+Data-ID,Result-State,Result-Detail,payloadParam.solicitante.flagCartaoCreditoContratado,payloadParam.solicitante.flagLimiteGarantidoContratado,clienteBlindado,clienteBloqueado,payloadParam.mensagemFiltro,scoreInexistente,payloadParam.solicitante.rendaLiquidaPicpayBatch,result:saida.mensagemFiltroPolitica,expected:saida.mensagemFiltroPolitica,result:statusDecisao,expected:statusDecisao
+1,,,0,0,0,0,99. Accepted,0,10000,,99. Accepted,,APROVADO
+2,,,0,0,0,0,-99999,0,10000,,-99999,,NEGADO
+3,,,0,0,0,0,02. Cadastro Irregular,0,10000,,02. Cadastro Irregular,,NEGADO
+4,,,0,0,0,0,03. Cadastro Negado ou Em Andamento,0,10000,,03. Cadastro Negado ou Em Andamento,,NEGADO
+5,,,0,0,0,0,04. Conta Inativa ou Conta Teste PicPay,0,10000,,04. Conta Inativa ou Conta Teste PicPay,,NEGADO
+6,,,0,0,0,0,05. Sistema Operacional Defasado,0,10000,,05. Sistema Operacional Defasado,,NEGADO
+7,,,0,0,0,0,06. CPF Invalido,0,10000,,06. CPF Invalido,,NEGADO
+8,,,0,0,0,0,07. Obito,0,10000,,07. Obito,,NEGADO
+9,,,0,0,0,0,09. Fraude PicPay,0,10000,,09. Fraude PicPay,,NEGADO
+10,,,0,0,0,0,10. Chargeback PicPay,0,10000,,10. Chargeback PicPay,,NEGADO
+11,,,0,0,0,0,11. Idade <= 20 ou >= 80,0,10000,,11. Idade <= 20 ou >= 80,,NEGADO
+12,,,0,0,0,0,12. Atraso PicPay,0,10000,,12. Atraso PicPay,,NEGADO
+13,,,0,0,0,0,13. Atraso Original,0,10000,,13. Atraso Original,,NEGADO
+14,,,0,0,0,0,14. Reneg ou FNV Ativo,0,10000,,14. Reneg ou FNV Ativo,,NEGADO
+15,,,0,0,0,0,15. Valor de Restritivo BVS >= 10% da Renda,0,10000,,15. Valor de Restritivo BVS >= 10% da Renda,,NEGADO
+16,,,0,0,0,0,16. Valor de Restritivo Serasa >= 10% da Renda,0,10000,,16. Valor de Restritivo Serasa >= 10% da Renda,,NEGADO
+17,,,0,0,0,0,17. Quantidade de IFs = 0,0,10000,,17. Quantidade de IFs = 0,,NEGADO
+18,,,0,0,0,0,18. Atraso Bacen >= 10% da Renda,0,10000,,18. Atraso Bacen >= 10% da Renda,,NEGADO
+19,,,0,0,0,0,19. Prejuizo Bacen >= 10% da Renda,0,10000,,19. Prejuizo Bacen >= 10% da Renda,,NEGADO
+20,,,0,0,0,0,20. Reneg Bacen,0,10000,,20. Reneg Bacen,,NEGADO
+21,,,0,0,0,0,21. Saldo Financiado de Cartao > 70% do Limite,0,10000,,21. Saldo Financiado de Cartao > 70% do Limite,,NEGADO
+22,,,0,0,0,0,22. IU Cheque > 90%,0,10000,,22. IU Cheque > 90%,,NEGADO
+23,,,0,0,0,0,23. AD Bacen,0,10000,,23. AD Bacen,,NEGADO
+24,,,0,0,0,0,24. Desenrola,0,10000,,24. Desenrola,,NEGADO
+25,,,0,0,0,0,25. No hit Bureaus,0,10000,,25. No hit Bureaus,,NEGADO
+26,,,0,0,0,0,99. Accepted,0,10000,,99. Accepted,,APROVADO
+27,,,0,0,0,0,-99999,0,1000,,-99999,,NEGADO
+28,,,0,0,0,0,24. Desenrola,0,1000,,24. Desenrola,,NEGADO
+29,,,0,0,0,0,25. No hit Bureaus,0,1000,,25. No hit Bureaus,,NEGADO
+30,,,0,0,0,0,99. Accepted,0,1000,,99. Accepted,,APROVADO
+31,,,0,0,0,0,-99999,0,-99999,,-99999,,NEGADO
+32,,,0,0,0,0,24. Desenrola,0,-99999,,24. Desenrola,,NEGADO
+33,,,0,0,0,0,25. No hit Bureaus,0,-99999,,25. No hit Bureaus,,NEGADO
+34,,,0,0,0,0,99. Accepted,0,-99999,,99. Accepted,,APROVADO
+35,,,0,0,0,0,-99999,0,0,,-99999,,NEGADO
+36,,,0,0,0,0,24. Desenrola,0,0,,24. Desenrola,,NEGADO
+37,,,0,0,0,0,25. No hit Bureaus,0,0,,25. No hit Bureaus,,NEGADO
+38,,,0,0,0,0,99. Accepted,0,0,,99. Accepted,,APROVADO
+39,,,0,0,0,0,-99999,0,600,,-99999,,NEGADO
+40,,,0,0,0,0,24. Desenrola,0,600,,24. Desenrola,,NEGADO
+41,,,0,0,0,0,25. No hit Bureaus,0,600,,25. No hit Bureaus,,NEGADO
+42,,,0,0,0,0,99. Accepted,0,600,,99. Accepted,,APROVADO
+43,,,0,0,0,0,-99999,1,1000,,-99999,,NEGADO
+44,,,0,0,0,0,24. Desenrola,1,1000,,24. Desenrola,,NEGADO
+45,,,0,0,0,0,25. No hit Bureaus,1,1000,,25. No hit Bureaus,,NEGADO
+46,,,0,0,0,0,99. Accepted,1,1000,,27. Score Invalido Concessao,,NEGADO
+47,,,0,0,0,0,-99999,1,-99999,,-99999,,NEGADO
+48,,,0,0,0,0,24. Desenrola,1,-99999,,24. Desenrola,,NEGADO
+49,,,0,0,0,0,25. No hit Bureaus,1,-99999,,25. No hit Bureaus,,NEGADO
+50,,,0,0,0,0,99. Accepted,1,-99999,,27. Score Invalido Concessao,,NEGADO
+51,,,0,0,0,0,-99999,1,0,,-99999,,NEGADO
+52,,,0,0,0,0,24. Desenrola,1,0,,24. Desenrola,,NEGADO
+53,,,0,0,0,0,25. No hit Bureaus,1,0,,25. No hit Bureaus,,NEGADO
+54,,,0,0,0,0,99. Accepted,1,0,,27. Score Invalido Concessao,,NEGADO
+55,,,0,0,0,0,-99999,1,600,,-99999,,NEGADO
+56,,,0,0,0,0,24. Desenrola,1,600,,24. Desenrola,,NEGADO
+57,,,0,0,0,0,25. No hit Bureaus,1,600,,25. No hit Bureaus,,NEGADO
+58,,,0,0,0,0,99. Accepted,1,600,,27. Score Invalido Concessao,,NEGADO
+59,,,0,0,0,1,-99999,0,1000,,-99999,,NEGADO
+60,,,0,0,0,1,24. Desenrola,0,1000,,24. Desenrola,,NEGADO
+61,,,0,0,0,1,25. No hit Bureaus,0,1000,,25. No hit Bureaus,,NEGADO
+62,,,0,0,0,1,99. Accepted,0,1000,,29. BlockList Concessao,,NEGADO
+63,,,0,0,0,1,-99999,0,-99999,,-99999,,NEGADO
+64,,,0,0,0,1,24. Desenrola,0,-99999,,24. Desenrola,,NEGADO
+65,,,0,0,0,1,25. No hit Bureaus,0,-99999,,25. No hit Bureaus,,NEGADO
+66,,,0,0,0,1,99. Accepted,0,-99999,,29. BlockList Concessao,,NEGADO
+67,,,0,0,0,1,-99999,0,0,,-99999,,NEGADO
+68,,,0,0,0,1,24. Desenrola,0,0,,24. Desenrola,,NEGADO
+69,,,0,0,0,1,25. No hit Bureaus,0,0,,25. No hit Bureaus,,NEGADO
+70,,,0,0,0,1,99. Accepted,0,0,,29. BlockList Concessao,,NEGADO
+71,,,0,0,0,1,-99999,0,600,,-99999,,NEGADO
+72,,,0,0,0,1,24. Desenrola,0,600,,24. Desenrola,,NEGADO
+73,,,0,0,0,1,25. No hit Bureaus,0,600,,25. No hit Bureaus,,NEGADO
+74,,,0,0,0,1,99. Accepted,0,600,,29. BlockList Concessao,,NEGADO
+75,,,0,0,0,1,-99999,1,1000,,-99999,,NEGADO
+76,,,0,0,0,1,24. Desenrola,1,1000,,24. Desenrola,,NEGADO
+77,,,0,0,0,1,25. No hit Bureaus,1,1000,,25. No hit Bureaus,,NEGADO
+78,,,0,0,0,1,99. Accepted,1,1000,,27. Score Invalido Concessao,,NEGADO
+79,,,0,0,0,1,-99999,1,-99999,,-99999,,NEGADO
+80,,,0,0,0,1,24. Desenrola,1,-99999,,24. Desenrola,,NEGADO
+81,,,0,0,0,1,25. No hit Bureaus,1,-99999,,25. No hit Bureaus,,NEGADO
+82,,,0,0,0,1,99. Accepted,1,-99999,,27. Score Invalido Concessao,,NEGADO
+83,,,0,0,0,1,-99999,1,0,,-99999,,NEGADO
+84,,,0,0,0,1,24. Desenrola,1,0,,24. Desenrola,,NEGADO
+85,,,0,0,0,1,25. No hit Bureaus,1,0,,25. No hit Bureaus,,NEGADO
+86,,,0,0,0,1,99. Accepted,1,0,,27. Score Invalido Concessao,,NEGADO
+87,,,0,0,0,1,-99999,1,600,,-99999,,NEGADO
+88,,,0,0,0,1,24. Desenrola,1,600,,24. Desenrola,,NEGADO
+89,,,0,0,0,1,25. No hit Bureaus,1,600,,25. No hit Bureaus,,NEGADO
+90,,,0,0,0,1,99. Accepted,1,600,,27. Score Invalido Concessao,,NEGADO
+91,,,0,0,1,0,-99999,0,1000,,-99999,,NEGADO
+92,,,0,0,1,0,24. Desenrola,0,1000,,24. Desenrola,,NEGADO
+93,,,0,0,1,0,25. No hit Bureaus,0,1000,,25. No hit Bureaus,,NEGADO
+94,,,0,0,1,0,99. Accepted,0,1000,,99. Accepted,,APROVADO
+95,,,0,0,1,0,-99999,0,-99999,,-99999,,NEGADO
+96,,,0,0,1,0,24. Desenrola,0,-99999,,24. Desenrola,,NEGADO
+97,,,0,0,1,0,25. No hit Bureaus,0,-99999,,25. No hit Bureaus,,NEGADO
+98,,,0,0,1,0,99. Accepted,0,-99999,,99. Accepted,,APROVADO
+99,,,0,0,1,0,-99999,0,0,,-99999,,NEGADO
+100,,,0,0,1,0,24. Desenrola,0,0,,24. Desenrola,,NEGADO
+101,,,0,0,1,0,25. No hit Bureaus,0,0,,25. No hit Bureaus,,NEGADO
+102,,,0,0,1,0,99. Accepted,0,0,,99. Accepted,,APROVADO
+103,,,0,0,1,0,-99999,0,600,,-99999,,NEGADO
+104,,,0,0,1,0,24. Desenrola,0,600,,24. Desenrola,,NEGADO
+105,,,0,0,1,0,25. No hit Bureaus,0,600,,25. No hit Bureaus,,NEGADO
+106,,,0,0,1,0,99. Accepted,0,600,,99. Accepted,,APROVADO
+107,,,0,0,1,0,-99999,1,1000,,-99999,,NEGADO
+108,,,0,0,1,0,24. Desenrola,1,1000,,24. Desenrola,,NEGADO
+109,,,0,0,1,0,25. No hit Bureaus,1,1000,,25. No hit Bureaus,,NEGADO
+110,,,0,0,1,0,99. Accepted,1,1000,,99. Accepted,,APROVADO
+111,,,0,0,1,0,-99999,1,-99999,,-99999,,NEGADO
+112,,,0,0,1,0,24. Desenrola,1,-99999,,24. Desenrola,,NEGADO
+113,,,0,0,1,0,25. No hit Bureaus,1,-99999,,25. No hit Bureaus,,NEGADO
+114,,,0,0,1,0,99. Accepted,1,-99999,,99. Accepted,,APROVADO
+115,,,0,0,1,0,-99999,1,0,,-99999,,NEGADO
+116,,,0,0,1,0,24. Desenrola,1,0,,24. Desenrola,,NEGADO
+117,,,0,0,1,0,25. No hit Bureaus,1,0,,25. No hit Bureaus,,NEGADO
+118,,,0,0,1,0,99. Accepted,1,0,,99. Accepted,,APROVADO
+119,,,0,0,1,0,-99999,1,600,,-99999,,NEGADO
+120,,,0,0,1,0,24. Desenrola,1,600,,24. Desenrola,,NEGADO
+121,,,0,0,1,0,25. No hit Bureaus,1,600,,25. No hit Bureaus,,NEGADO
+122,,,0,0,1,0,99. Accepted,1,600,,99. Accepted,,APROVADO
+123,,,0,0,1,1,-99999,0,1000,,-99999,,NEGADO
+124,,,0,0,1,1,24. Desenrola,0,1000,,24. Desenrola,,NEGADO
+125,,,0,0,1,1,25. No hit Bureaus,0,1000,,25. No hit Bureaus,,NEGADO
+126,,,0,0,1,1,99. Accepted,0,1000,,99. Accepted,,APROVADO
+127,,,0,0,1,1,-99999,0,-99999,,-99999,,NEGADO
+128,,,0,0,1,1,24. Desenrola,0,-99999,,24. Desenrola,,NEGADO
+129,,,0,0,1,1,25. No hit Bureaus,0,-99999,,25. No hit Bureaus,,NEGADO
+130,,,0,0,1,1,99. Accepted,0,-99999,,99. Accepted,,APROVADO
+131,,,0,0,1,1,-99999,0,0,,-99999,,NEGADO
+132,,,0,0,1,1,24. Desenrola,0,0,,24. Desenrola,,NEGADO
+133,,,0,0,1,1,25. No hit Bureaus,0,0,,25. No hit Bureaus,,NEGADO
+134,,,0,0,1,1,99. Accepted,0,0,,99. Accepted,,APROVADO
+135,,,0,0,1,1,-99999,0,600,,-99999,,NEGADO
+136,,,0,0,1,1,24. Desenrola,0,600,,24. Desenrola,,NEGADO
+137,,,0,0,1,1,25. No hit Bureaus,0,600,,25. No hit Bureaus,,NEGADO
+138,,,0,0,1,1,99. Accepted,0,600,,99. Accepted,,APROVADO
+139,,,0,0,1,1,-99999,1,1000,,-99999,,NEGADO
+140,,,0,0,1,1,24. Desenrola,1,1000,,24. Desenrola,,NEGADO
+141,,,0,0,1,1,25. No hit Bureaus,1,1000,,25. No hit Bureaus,,NEGADO
+142,,,0,0,1,1,99. Accepted,1,1000,,99. Accepted,,APROVADO
+143,,,0,0,1,1,-99999,1,-99999,,-99999,,NEGADO
+144,,,0,0,1,1,24. Desenrola,1,-99999,,24. Desenrola,,NEGADO
+145,,,0,0,1,1,25. No hit Bureaus,1,-99999,,25. No hit Bureaus,,NEGADO
+146,,,0,0,1,1,99. Accepted,1,-99999,,99. Accepted,,APROVADO
+147,,,0,0,1,1,-99999,1,0,,-99999,,NEGADO
+148,,,0,0,1,1,24. Desenrola,1,0,,24. Desenrola,,NEGADO
+149,,,0,0,1,1,25. No hit Bureaus,1,0,,25. No hit Bureaus,,NEGADO
+150,,,0,0,1,1,99. Accepted,1,0,,99. Accepted,,APROVADO
+151,,,0,0,1,1,-99999,1,600,,-99999,,NEGADO
+152,,,0,0,1,1,24. Desenrola,1,600,,24. Desenrola,,NEGADO
+153,,,0,0,1,1,25. No hit Bureaus,1,600,,25. No hit Bureaus,,NEGADO
+154,,,0,0,1,1,99. Accepted,1,600,,99. Accepted,,APROVADO
+155,,,0,1,0,0,-99999,0,1000,,98. LG Contratado,,NEGADO
+156,,,0,1,0,0,24. Desenrola,0,1000,,98. LG Contratado,,NEGADO
+157,,,0,1,0,0,25. No hit Bureaus,0,1000,,98. LG Contratado,,NEGADO
+158,,,0,1,0,0,99. Accepted,0,1000,,98. LG Contratado,,NEGADO
+159,,,0,1,0,0,-99999,0,-99999,,98. LG Contratado,,NEGADO
+160,,,0,1,0,0,24. Desenrola,0,-99999,,98. LG Contratado,,NEGADO
+161,,,0,1,0,0,25. No hit Bureaus,0,-99999,,98. LG Contratado,,NEGADO
+162,,,0,1,0,0,99. Accepted,0,-99999,,98. LG Contratado,,NEGADO
+163,,,0,1,0,0,-99999,0,0,,98. LG Contratado,,NEGADO
+164,,,0,1,0,0,24. Desenrola,0,0,,98. LG Contratado,,NEGADO
+165,,,0,1,0,0,25. No hit Bureaus,0,0,,98. LG Contratado,,NEGADO
+166,,,0,1,0,0,99. Accepted,0,0,,98. LG Contratado,,NEGADO
+167,,,0,1,0,0,-99999,0,600,,98. LG Contratado,,NEGADO
+168,,,0,1,0,0,24. Desenrola,0,600,,98. LG Contratado,,NEGADO
+169,,,0,1,0,0,25. No hit Bureaus,0,600,,98. LG Contratado,,NEGADO
+170,,,0,1,0,0,99. Accepted,0,600,,98. LG Contratado,,NEGADO
+171,,,0,1,0,0,-99999,1,1000,,98. LG Contratado,,NEGADO
+172,,,0,1,0,0,24. Desenrola,1,1000,,98. LG Contratado,,NEGADO
+173,,,0,1,0,0,25. No hit Bureaus,1,1000,,98. LG Contratado,,NEGADO
+174,,,0,1,0,0,99. Accepted,1,1000,,98. LG Contratado,,NEGADO
+175,,,0,1,0,0,-99999,1,-99999,,98. LG Contratado,,NEGADO
+176,,,0,1,0,0,24. Desenrola,1,-99999,,98. LG Contratado,,NEGADO
+177,,,0,1,0,0,25. No hit Bureaus,1,-99999,,98. LG Contratado,,NEGADO
+178,,,0,1,0,0,99. Accepted,1,-99999,,98. LG Contratado,,NEGADO
+179,,,0,1,0,0,-99999,1,0,,98. LG Contratado,,NEGADO
+180,,,0,1,0,0,24. Desenrola,1,0,,98. LG Contratado,,NEGADO
+181,,,0,1,0,0,25. No hit Bureaus,1,0,,98. LG Contratado,,NEGADO
+182,,,0,1,0,0,99. Accepted,1,0,,98. LG Contratado,,NEGADO
+183,,,0,1,0,0,-99999,1,600,,98. LG Contratado,,NEGADO
+184,,,0,1,0,0,24. Desenrola,1,600,,98. LG Contratado,,NEGADO
+185,,,0,1,0,0,25. No hit Bureaus,1,600,,98. LG Contratado,,NEGADO
+186,,,0,1,0,0,99. Accepted,1,600,,98. LG Contratado,,NEGADO
+187,,,0,1,0,1,-99999,0,1000,,98. LG Contratado,,NEGADO
+188,,,0,1,0,1,24. Desenrola,0,1000,,98. LG Contratado,,NEGADO
+189,,,0,1,0,1,25. No hit Bureaus,0,1000,,98. LG Contratado,,NEGADO
+190,,,0,1,0,1,99. Accepted,0,1000,,98. LG Contratado,,NEGADO
+191,,,0,1,0,1,-99999,0,-99999,,98. LG Contratado,,NEGADO
+192,,,0,1,0,1,24. Desenrola,0,-99999,,98. LG Contratado,,NEGADO
+193,,,0,1,0,1,25. No hit Bureaus,0,-99999,,98. LG Contratado,,NEGADO
+194,,,0,1,0,1,99. Accepted,0,-99999,,98. LG Contratado,,NEGADO
+195,,,0,1,0,1,-99999,0,0,,98. LG Contratado,,NEGADO
+196,,,0,1,0,1,24. Desenrola,0,0,,98. LG Contratado,,NEGADO
+197,,,0,1,0,1,25. No hit Bureaus,0,0,,98. LG Contratado,,NEGADO
+198,,,0,1,0,1,99. Accepted,0,0,,98. LG Contratado,,NEGADO
+199,,,0,1,0,1,-99999,0,600,,98. LG Contratado,,NEGADO
+200,,,0,1,0,1,24. Desenrola,0,600,,98. LG Contratado,,NEGADO
+201,,,0,1,0,1,25. No hit Bureaus,0,600,,98. LG Contratado,,NEGADO
+202,,,0,1,0,1,99. Accepted,0,600,,98. LG Contratado,,NEGADO
+203,,,0,1,0,1,-99999,1,1000,,98. LG Contratado,,NEGADO
+204,,,0,1,0,1,24. Desenrola,1,1000,,98. LG Contratado,,NEGADO
+205,,,0,1,0,1,25. No hit Bureaus,1,1000,,98. LG Contratado,,NEGADO
+206,,,0,1,0,1,99. Accepted,1,1000,,98. LG Contratado,,NEGADO
+207,,,0,1,0,1,-99999,1,-99999,,98. LG Contratado,,NEGADO
+208,,,0,1,0,1,24. Desenrola,1,-99999,,98. LG Contratado,,NEGADO
+209,,,0,1,0,1,25. No hit Bureaus,1,-99999,,98. LG Contratado,,NEGADO
+210,,,0,1,0,1,99. Accepted,1,-99999,,98. LG Contratado,,NEGADO
+211,,,0,1,0,1,-99999,1,0,,98. LG Contratado,,NEGADO
+212,,,0,1,0,1,24. Desenrola,1,0,,98. LG Contratado,,NEGADO
+213,,,0,1,0,1,25. No hit Bureaus,1,0,,98. LG Contratado,,NEGADO
+214,,,0,1,0,1,99. Accepted,1,0,,98. LG Contratado,,NEGADO
+215,,,0,1,0,1,-99999,1,600,,98. LG Contratado,,NEGADO
+216,,,0,1,0,1,24. Desenrola,1,600,,98. LG Contratado,,NEGADO
+217,,,0,1,0,1,25. No hit Bureaus,1,600,,98. LG Contratado,,NEGADO
+218,,,0,1,0,1,99. Accepted,1,600,,98. LG Contratado,,NEGADO
+219,,,0,1,1,0,-99999,0,1000,,98. LG Contratado,,NEGADO
+220,,,0,1,1,0,24. Desenrola,0,1000,,98. LG Contratado,,NEGADO
+221,,,0,1,1,0,25. No hit Bureaus,0,1000,,98. LG Contratado,,NEGADO
+222,,,0,1,1,0,99. Accepted,0,1000,,98. LG Contratado,,NEGADO
+223,,,0,1,1,0,-99999,0,-99999,,98. LG Contratado,,NEGADO
+224,,,0,1,1,0,24. Desenrola,0,-99999,,98. LG Contratado,,NEGADO
+225,,,0,1,1,0,25. No hit Bureaus,0,-99999,,98. LG Contratado,,NEGADO
+226,,,0,1,1,0,99. Accepted,0,-99999,,98. LG Contratado,,NEGADO
+227,,,0,1,1,0,-99999,0,0,,98. LG Contratado,,NEGADO
+228,,,0,1,1,0,24. Desenrola,0,0,,98. LG Contratado,,NEGADO
+229,,,0,1,1,0,25. No hit Bureaus,0,0,,98. LG Contratado,,NEGADO
+230,,,0,1,1,0,99. Accepted,0,0,,98. LG Contratado,,NEGADO
+231,,,0,1,1,0,-99999,0,600,,98. LG Contratado,,NEGADO
+232,,,0,1,1,0,24. Desenrola,0,600,,98. LG Contratado,,NEGADO
+233,,,0,1,1,0,25. No hit Bureaus,0,600,,98. LG Contratado,,NEGADO
+234,,,0,1,1,0,99. Accepted,0,600,,98. LG Contratado,,NEGADO
+235,,,0,1,1,0,-99999,1,1000,,98. LG Contratado,,NEGADO
+236,,,0,1,1,0,24. Desenrola,1,1000,,98. LG Contratado,,NEGADO
+237,,,0,1,1,0,25. No hit Bureaus,1,1000,,98. LG Contratado,,NEGADO
+238,,,0,1,1,0,99. Accepted,1,1000,,98. LG Contratado,,NEGADO
+239,,,0,1,1,0,-99999,1,-99999,,98. LG Contratado,,NEGADO
+240,,,0,1,1,0,24. Desenrola,1,-99999,,98. LG Contratado,,NEGADO
+241,,,0,1,1,0,25. No hit Bureaus,1,-99999,,98. LG Contratado,,NEGADO
+242,,,0,1,1,0,99. Accepted,1,-99999,,98. LG Contratado,,NEGADO
+243,,,0,1,1,0,-99999,1,0,,98. LG Contratado,,NEGADO
+244,,,0,1,1,0,24. Desenrola,1,0,,98. LG Contratado,,NEGADO
+245,,,0,1,1,0,25. No hit Bureaus,1,0,,98. LG Contratado,,NEGADO
+246,,,0,1,1,0,99. Accepted,1,0,,98. LG Contratado,,NEGADO
+247,,,0,1,1,0,-99999,1,600,,98. LG Contratado,,NEGADO
+248,,,0,1,1,0,24. Desenrola,1,600,,98. LG Contratado,,NEGADO
+249,,,0,1,1,0,25. No hit Bureaus,1,600,,98. LG Contratado,,NEGADO
+250,,,0,1,1,0,99. Accepted,1,600,,98. LG Contratado,,NEGADO
+251,,,0,1,1,1,-99999,0,1000,,98. LG Contratado,,NEGADO
+252,,,0,1,1,1,24. Desenrola,0,1000,,98. LG Contratado,,NEGADO
+253,,,0,1,1,1,25. No hit Bureaus,0,1000,,98. LG Contratado,,NEGADO
+254,,,0,1,1,1,99. Accepted,0,1000,,98. LG Contratado,,NEGADO
+255,,,0,1,1,1,-99999,0,-99999,,98. LG Contratado,,NEGADO
+256,,,0,1,1,1,24. Desenrola,0,-99999,,98. LG Contratado,,NEGADO
+257,,,0,1,1,1,25. No hit Bureaus,0,-99999,,98. LG Contratado,,NEGADO
+258,,,0,1,1,1,99. Accepted,0,-99999,,98. LG Contratado,,NEGADO
+259,,,0,1,1,1,-99999,0,0,,98. LG Contratado,,NEGADO
+260,,,0,1,1,1,24. Desenrola,0,0,,98. LG Contratado,,NEGADO
+261,,,0,1,1,1,25. No hit Bureaus,0,0,,98. LG Contratado,,NEGADO
+262,,,0,1,1,1,99. Accepted,0,0,,98. LG Contratado,,NEGADO
+263,,,0,1,1,1,-99999,0,600,,98. LG Contratado,,NEGADO
+264,,,0,1,1,1,24. Desenrola,0,600,,98. LG Contratado,,NEGADO
+265,,,0,1,1,1,25. No hit Bureaus,0,600,,98. LG Contratado,,NEGADO
+266,,,0,1,1,1,99. Accepted,0,600,,98. LG Contratado,,NEGADO
+267,,,0,1,1,1,-99999,1,1000,,98. LG Contratado,,NEGADO
+268,,,0,1,1,1,24. Desenrola,1,1000,,98. LG Contratado,,NEGADO
+269,,,0,1,1,1,25. No hit Bureaus,1,1000,,98. LG Contratado,,NEGADO
+270,,,0,1,1,1,99. Accepted,1,1000,,98. LG Contratado,,NEGADO
+271,,,0,1,1,1,-99999,1,-99999,,98. LG Contratado,,NEGADO
+272,,,0,1,1,1,24. Desenrola,1,-99999,,98. LG Contratado,,NEGADO
+273,,,0,1,1,1,25. No hit Bureaus,1,-99999,,98. LG Contratado,,NEGADO
+274,,,0,1,1,1,99. Accepted,1,-99999,,98. LG Contratado,,NEGADO
+275,,,0,1,1,1,-99999,1,0,,98. LG Contratado,,NEGADO
+276,,,0,1,1,1,24. Desenrola,1,0,,98. LG Contratado,,NEGADO
+277,,,0,1,1,1,25. No hit Bureaus,1,0,,98. LG Contratado,,NEGADO
+278,,,0,1,1,1,99. Accepted,1,0,,98. LG Contratado,,NEGADO
+279,,,0,1,1,1,-99999,1,600,,98. LG Contratado,,NEGADO
+280,,,0,1,1,1,24. Desenrola,1,600,,98. LG Contratado,,NEGADO
+281,,,0,1,1,1,25. No hit Bureaus,1,600,,98. LG Contratado,,NEGADO
+282,,,0,1,1,1,99. Accepted,1,600,,98. LG Contratado,,NEGADO
+283,,,1,0,0,0,-99999,0,1000,,97. PPCard Credito Contratado,,NEGADO
+284,,,1,0,0,0,24. Desenrola,0,1000,,97. PPCard Credito Contratado,,NEGADO
+285,,,1,0,0,0,25. No hit Bureaus,0,1000,,97. PPCard Credito Contratado,,NEGADO
+286,,,1,0,0,0,99. Accepted,0,1000,,97. PPCard Credito Contratado,,NEGADO
+287,,,1,0,0,0,-99999,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+288,,,1,0,0,0,24. Desenrola,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+289,,,1,0,0,0,25. No hit Bureaus,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+290,,,1,0,0,0,99. Accepted,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+291,,,1,0,0,0,-99999,0,0,,97. PPCard Credito Contratado,,NEGADO
+292,,,1,0,0,0,24. Desenrola,0,0,,97. PPCard Credito Contratado,,NEGADO
+293,,,1,0,0,0,25. No hit Bureaus,0,0,,97. PPCard Credito Contratado,,NEGADO
+294,,,1,0,0,0,99. Accepted,0,0,,97. PPCard Credito Contratado,,NEGADO
+295,,,1,0,0,0,-99999,0,600,,97. PPCard Credito Contratado,,NEGADO
+296,,,1,0,0,0,24. Desenrola,0,600,,97. PPCard Credito Contratado,,NEGADO
+297,,,1,0,0,0,25. No hit Bureaus,0,600,,97. PPCard Credito Contratado,,NEGADO
+298,,,1,0,0,0,99. Accepted,0,600,,97. PPCard Credito Contratado,,NEGADO
+299,,,1,0,0,0,-99999,1,1000,,97. PPCard Credito Contratado,,NEGADO
+300,,,1,0,0,0,24. Desenrola,1,1000,,97. PPCard Credito Contratado,,NEGADO
+301,,,1,0,0,0,25. No hit Bureaus,1,1000,,97. PPCard Credito Contratado,,NEGADO
+302,,,1,0,0,0,99. Accepted,1,1000,,97. PPCard Credito Contratado,,NEGADO
+303,,,1,0,0,0,-99999,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+304,,,1,0,0,0,24. Desenrola,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+305,,,1,0,0,0,25. No hit Bureaus,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+306,,,1,0,0,0,99. Accepted,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+307,,,1,0,0,0,-99999,1,0,,97. PPCard Credito Contratado,,NEGADO
+308,,,1,0,0,0,24. Desenrola,1,0,,97. PPCard Credito Contratado,,NEGADO
+309,,,1,0,0,0,25. No hit Bureaus,1,0,,97. PPCard Credito Contratado,,NEGADO
+310,,,1,0,0,0,99. Accepted,1,0,,97. PPCard Credito Contratado,,NEGADO
+311,,,1,0,0,0,-99999,1,600,,97. PPCard Credito Contratado,,NEGADO
+312,,,1,0,0,0,24. Desenrola,1,600,,97. PPCard Credito Contratado,,NEGADO
+313,,,1,0,0,0,25. No hit Bureaus,1,600,,97. PPCard Credito Contratado,,NEGADO
+314,,,1,0,0,0,99. Accepted,1,600,,97. PPCard Credito Contratado,,NEGADO
+315,,,1,0,0,1,-99999,0,1000,,97. PPCard Credito Contratado,,NEGADO
+316,,,1,0,0,1,24. Desenrola,0,1000,,97. PPCard Credito Contratado,,NEGADO
+317,,,1,0,0,1,25. No hit Bureaus,0,1000,,97. PPCard Credito Contratado,,NEGADO
+318,,,1,0,0,1,99. Accepted,0,1000,,97. PPCard Credito Contratado,,NEGADO
+319,,,1,0,0,1,-99999,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+320,,,1,0,0,1,24. Desenrola,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+321,,,1,0,0,1,25. No hit Bureaus,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+322,,,1,0,0,1,99. Accepted,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+323,,,1,0,0,1,-99999,0,0,,97. PPCard Credito Contratado,,NEGADO
+324,,,1,0,0,1,24. Desenrola,0,0,,97. PPCard Credito Contratado,,NEGADO
+325,,,1,0,0,1,25. No hit Bureaus,0,0,,97. PPCard Credito Contratado,,NEGADO
+326,,,1,0,0,1,99. Accepted,0,0,,97. PPCard Credito Contratado,,NEGADO
+327,,,1,0,0,1,-99999,0,600,,97. PPCard Credito Contratado,,NEGADO
+328,,,1,0,0,1,24. Desenrola,0,600,,97. PPCard Credito Contratado,,NEGADO
+329,,,1,0,0,1,25. No hit Bureaus,0,600,,97. PPCard Credito Contratado,,NEGADO
+330,,,1,0,0,1,99. Accepted,0,600,,97. PPCard Credito Contratado,,NEGADO
+331,,,1,0,0,1,-99999,1,1000,,97. PPCard Credito Contratado,,NEGADO
+332,,,1,0,0,1,24. Desenrola,1,1000,,97. PPCard Credito Contratado,,NEGADO
+333,,,1,0,0,1,25. No hit Bureaus,1,1000,,97. PPCard Credito Contratado,,NEGADO
+334,,,1,0,0,1,99. Accepted,1,1000,,97. PPCard Credito Contratado,,NEGADO
+335,,,1,0,0,1,-99999,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+336,,,1,0,0,1,24. Desenrola,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+337,,,1,0,0,1,25. No hit Bureaus,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+338,,,1,0,0,1,99. Accepted,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+339,,,1,0,0,1,-99999,1,0,,97. PPCard Credito Contratado,,NEGADO
+340,,,1,0,0,1,24. Desenrola,1,0,,97. PPCard Credito Contratado,,NEGADO
+341,,,1,0,0,1,25. No hit Bureaus,1,0,,97. PPCard Credito Contratado,,NEGADO
+342,,,1,0,0,1,99. Accepted,1,0,,97. PPCard Credito Contratado,,NEGADO
+343,,,1,0,0,1,-99999,1,600,,97. PPCard Credito Contratado,,NEGADO
+344,,,1,0,0,1,24. Desenrola,1,600,,97. PPCard Credito Contratado,,NEGADO
+345,,,1,0,0,1,25. No hit Bureaus,1,600,,97. PPCard Credito Contratado,,NEGADO
+346,,,1,0,0,1,99. Accepted,1,600,,97. PPCard Credito Contratado,,NEGADO
+347,,,1,0,1,0,-99999,0,1000,,97. PPCard Credito Contratado,,NEGADO
+348,,,1,0,1,0,24. Desenrola,0,1000,,97. PPCard Credito Contratado,,NEGADO
+349,,,1,0,1,0,25. No hit Bureaus,0,1000,,97. PPCard Credito Contratado,,NEGADO
+350,,,1,0,1,0,99. Accepted,0,1000,,97. PPCard Credito Contratado,,NEGADO
+351,,,1,0,1,0,-99999,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+352,,,1,0,1,0,24. Desenrola,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+353,,,1,0,1,0,25. No hit Bureaus,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+354,,,1,0,1,0,99. Accepted,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+355,,,1,0,1,0,-99999,0,0,,97. PPCard Credito Contratado,,NEGADO
+356,,,1,0,1,0,24. Desenrola,0,0,,97. PPCard Credito Contratado,,NEGADO
+357,,,1,0,1,0,25. No hit Bureaus,0,0,,97. PPCard Credito Contratado,,NEGADO
+358,,,1,0,1,0,99. Accepted,0,0,,97. PPCard Credito Contratado,,NEGADO
+359,,,1,0,1,0,-99999,0,600,,97. PPCard Credito Contratado,,NEGADO
+360,,,1,0,1,0,24. Desenrola,0,600,,97. PPCard Credito Contratado,,NEGADO
+361,,,1,0,1,0,25. No hit Bureaus,0,600,,97. PPCard Credito Contratado,,NEGADO
+362,,,1,0,1,0,99. Accepted,0,600,,97. PPCard Credito Contratado,,NEGADO
+363,,,1,0,1,0,-99999,1,1000,,97. PPCard Credito Contratado,,NEGADO
+364,,,1,0,1,0,24. Desenrola,1,1000,,97. PPCard Credito Contratado,,NEGADO
+365,,,1,0,1,0,25. No hit Bureaus,1,1000,,97. PPCard Credito Contratado,,NEGADO
+366,,,1,0,1,0,99. Accepted,1,1000,,97. PPCard Credito Contratado,,NEGADO
+367,,,1,0,1,0,-99999,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+368,,,1,0,1,0,24. Desenrola,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+369,,,1,0,1,0,25. No hit Bureaus,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+370,,,1,0,1,0,99. Accepted,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+371,,,1,0,1,0,-99999,1,0,,97. PPCard Credito Contratado,,NEGADO
+372,,,1,0,1,0,24. Desenrola,1,0,,97. PPCard Credito Contratado,,NEGADO
+373,,,1,0,1,0,25. No hit Bureaus,1,0,,97. PPCard Credito Contratado,,NEGADO
+374,,,1,0,1,0,99. Accepted,1,0,,97. PPCard Credito Contratado,,NEGADO
+375,,,1,0,1,0,-99999,1,600,,97. PPCard Credito Contratado,,NEGADO
+376,,,1,0,1,0,24. Desenrola,1,600,,97. PPCard Credito Contratado,,NEGADO
+377,,,1,0,1,0,25. No hit Bureaus,1,600,,97. PPCard Credito Contratado,,NEGADO
+378,,,1,0,1,0,99. Accepted,1,600,,97. PPCard Credito Contratado,,NEGADO
+379,,,1,0,1,1,-99999,0,1000,,97. PPCard Credito Contratado,,NEGADO
+380,,,1,0,1,1,24. Desenrola,0,1000,,97. PPCard Credito Contratado,,NEGADO
+381,,,1,0,1,1,25. No hit Bureaus,0,1000,,97. PPCard Credito Contratado,,NEGADO
+382,,,1,0,1,1,99. Accepted,0,1000,,97. PPCard Credito Contratado,,NEGADO
+383,,,1,0,1,1,-99999,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+384,,,1,0,1,1,24. Desenrola,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+385,,,1,0,1,1,25. No hit Bureaus,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+386,,,1,0,1,1,99. Accepted,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+387,,,1,0,1,1,-99999,0,0,,97. PPCard Credito Contratado,,NEGADO
+388,,,1,0,1,1,24. Desenrola,0,0,,97. PPCard Credito Contratado,,NEGADO
+389,,,1,0,1,1,25. No hit Bureaus,0,0,,97. PPCard Credito Contratado,,NEGADO
+390,,,1,0,1,1,99. Accepted,0,0,,97. PPCard Credito Contratado,,NEGADO
+391,,,1,0,1,1,-99999,0,600,,97. PPCard Credito Contratado,,NEGADO
+392,,,1,0,1,1,24. Desenrola,0,600,,97. PPCard Credito Contratado,,NEGADO
+393,,,1,0,1,1,25. No hit Bureaus,0,600,,97. PPCard Credito Contratado,,NEGADO
+394,,,1,0,1,1,99. Accepted,0,600,,97. PPCard Credito Contratado,,NEGADO
+395,,,1,0,1,1,-99999,1,1000,,97. PPCard Credito Contratado,,NEGADO
+396,,,1,0,1,1,24. Desenrola,1,1000,,97. PPCard Credito Contratado,,NEGADO
+397,,,1,0,1,1,25. No hit Bureaus,1,1000,,97. PPCard Credito Contratado,,NEGADO
+398,,,1,0,1,1,99. Accepted,1,1000,,97. PPCard Credito Contratado,,NEGADO
+399,,,1,0,1,1,-99999,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+400,,,1,0,1,1,24. Desenrola,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+401,,,1,0,1,1,25. No hit Bureaus,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+402,,,1,0,1,1,99. Accepted,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+403,,,1,0,1,1,-99999,1,0,,97. PPCard Credito Contratado,,NEGADO
+404,,,1,0,1,1,24. Desenrola,1,0,,97. PPCard Credito Contratado,,NEGADO
+405,,,1,0,1,1,25. No hit Bureaus,1,0,,97. PPCard Credito Contratado,,NEGADO
+406,,,1,0,1,1,99. Accepted,1,0,,97. PPCard Credito Contratado,,NEGADO
+407,,,1,0,1,1,-99999,1,600,,97. PPCard Credito Contratado,,NEGADO
+408,,,1,0,1,1,24. Desenrola,1,600,,97. PPCard Credito Contratado,,NEGADO
+409,,,1,0,1,1,25. No hit Bureaus,1,600,,97. PPCard Credito Contratado,,NEGADO
+410,,,1,0,1,1,99. Accepted,1,600,,97. PPCard Credito Contratado,,NEGADO
+411,,,1,1,0,0,-99999,0,1000,,97. PPCard Credito Contratado,,NEGADO
+412,,,1,1,0,0,24. Desenrola,0,1000,,97. PPCard Credito Contratado,,NEGADO
+413,,,1,1,0,0,25. No hit Bureaus,0,1000,,97. PPCard Credito Contratado,,NEGADO
+414,,,1,1,0,0,99. Accepted,0,1000,,97. PPCard Credito Contratado,,NEGADO
+415,,,1,1,0,0,-99999,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+416,,,1,1,0,0,24. Desenrola,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+417,,,1,1,0,0,25. No hit Bureaus,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+418,,,1,1,0,0,99. Accepted,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+419,,,1,1,0,0,-99999,0,0,,97. PPCard Credito Contratado,,NEGADO
+420,,,1,1,0,0,24. Desenrola,0,0,,97. PPCard Credito Contratado,,NEGADO
+421,,,1,1,0,0,25. No hit Bureaus,0,0,,97. PPCard Credito Contratado,,NEGADO
+422,,,1,1,0,0,99. Accepted,0,0,,97. PPCard Credito Contratado,,NEGADO
+423,,,1,1,0,0,-99999,0,600,,97. PPCard Credito Contratado,,NEGADO
+424,,,1,1,0,0,24. Desenrola,0,600,,97. PPCard Credito Contratado,,NEGADO
+425,,,1,1,0,0,25. No hit Bureaus,0,600,,97. PPCard Credito Contratado,,NEGADO
+426,,,1,1,0,0,99. Accepted,0,600,,97. PPCard Credito Contratado,,NEGADO
+427,,,1,1,0,0,-99999,1,1000,,97. PPCard Credito Contratado,,NEGADO
+428,,,1,1,0,0,24. Desenrola,1,1000,,97. PPCard Credito Contratado,,NEGADO
+429,,,1,1,0,0,25. No hit Bureaus,1,1000,,97. PPCard Credito Contratado,,NEGADO
+430,,,1,1,0,0,99. Accepted,1,1000,,97. PPCard Credito Contratado,,NEGADO
+431,,,1,1,0,0,-99999,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+432,,,1,1,0,0,24. Desenrola,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+433,,,1,1,0,0,25. No hit Bureaus,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+434,,,1,1,0,0,99. Accepted,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+435,,,1,1,0,0,-99999,1,0,,97. PPCard Credito Contratado,,NEGADO
+436,,,1,1,0,0,24. Desenrola,1,0,,97. PPCard Credito Contratado,,NEGADO
+437,,,1,1,0,0,25. No hit Bureaus,1,0,,97. PPCard Credito Contratado,,NEGADO
+438,,,1,1,0,0,99. Accepted,1,0,,97. PPCard Credito Contratado,,NEGADO
+439,,,1,1,0,0,-99999,1,600,,97. PPCard Credito Contratado,,NEGADO
+440,,,1,1,0,0,24. Desenrola,1,600,,97. PPCard Credito Contratado,,NEGADO
+441,,,1,1,0,0,25. No hit Bureaus,1,600,,97. PPCard Credito Contratado,,NEGADO
+442,,,1,1,0,0,99. Accepted,1,600,,97. PPCard Credito Contratado,,NEGADO
+443,,,1,1,0,1,-99999,0,1000,,97. PPCard Credito Contratado,,NEGADO
+444,,,1,1,0,1,24. Desenrola,0,1000,,97. PPCard Credito Contratado,,NEGADO
+445,,,1,1,0,1,25. No hit Bureaus,0,1000,,97. PPCard Credito Contratado,,NEGADO
+446,,,1,1,0,1,99. Accepted,0,1000,,97. PPCard Credito Contratado,,NEGADO
+447,,,1,1,0,1,-99999,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+448,,,1,1,0,1,24. Desenrola,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+449,,,1,1,0,1,25. No hit Bureaus,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+450,,,1,1,0,1,99. Accepted,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+451,,,1,1,0,1,-99999,0,0,,97. PPCard Credito Contratado,,NEGADO
+452,,,1,1,0,1,24. Desenrola,0,0,,97. PPCard Credito Contratado,,NEGADO
+453,,,1,1,0,1,25. No hit Bureaus,0,0,,97. PPCard Credito Contratado,,NEGADO
+454,,,1,1,0,1,99. Accepted,0,0,,97. PPCard Credito Contratado,,NEGADO
+455,,,1,1,0,1,-99999,0,600,,97. PPCard Credito Contratado,,NEGADO
+456,,,1,1,0,1,24. Desenrola,0,600,,97. PPCard Credito Contratado,,NEGADO
+457,,,1,1,0,1,25. No hit Bureaus,0,600,,97. PPCard Credito Contratado,,NEGADO
+458,,,1,1,0,1,99. Accepted,0,600,,97. PPCard Credito Contratado,,NEGADO
+459,,,1,1,0,1,-99999,1,1000,,97. PPCard Credito Contratado,,NEGADO
+460,,,1,1,0,1,24. Desenrola,1,1000,,97. PPCard Credito Contratado,,NEGADO
+461,,,1,1,0,1,25. No hit Bureaus,1,1000,,97. PPCard Credito Contratado,,NEGADO
+462,,,1,1,0,1,99. Accepted,1,1000,,97. PPCard Credito Contratado,,NEGADO
+463,,,1,1,0,1,-99999,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+464,,,1,1,0,1,24. Desenrola,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+465,,,1,1,0,1,25. No hit Bureaus,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+466,,,1,1,0,1,99. Accepted,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+467,,,1,1,0,1,-99999,1,0,,97. PPCard Credito Contratado,,NEGADO
+468,,,1,1,0,1,24. Desenrola,1,0,,97. PPCard Credito Contratado,,NEGADO
+469,,,1,1,0,1,25. No hit Bureaus,1,0,,97. PPCard Credito Contratado,,NEGADO
+470,,,1,1,0,1,99. Accepted,1,0,,97. PPCard Credito Contratado,,NEGADO
+471,,,1,1,0,1,-99999,1,600,,97. PPCard Credito Contratado,,NEGADO
+472,,,1,1,0,1,24. Desenrola,1,600,,97. PPCard Credito Contratado,,NEGADO
+473,,,1,1,0,1,25. No hit Bureaus,1,600,,97. PPCard Credito Contratado,,NEGADO
+474,,,1,1,0,1,99. Accepted,1,600,,97. PPCard Credito Contratado,,NEGADO
+475,,,1,1,1,0,-99999,0,1000,,97. PPCard Credito Contratado,,NEGADO
+476,,,1,1,1,0,24. Desenrola,0,1000,,97. PPCard Credito Contratado,,NEGADO
+477,,,1,1,1,0,25. No hit Bureaus,0,1000,,97. PPCard Credito Contratado,,NEGADO
+478,,,1,1,1,0,99. Accepted,0,1000,,97. PPCard Credito Contratado,,NEGADO
+479,,,1,1,1,0,-99999,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+480,,,1,1,1,0,24. Desenrola,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+481,,,1,1,1,0,25. No hit Bureaus,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+482,,,1,1,1,0,99. Accepted,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+483,,,1,1,1,0,-99999,0,0,,97. PPCard Credito Contratado,,NEGADO
+484,,,1,1,1,0,24. Desenrola,0,0,,97. PPCard Credito Contratado,,NEGADO
+485,,,1,1,1,0,25. No hit Bureaus,0,0,,97. PPCard Credito Contratado,,NEGADO
+486,,,1,1,1,0,99. Accepted,0,0,,97. PPCard Credito Contratado,,NEGADO
+487,,,1,1,1,0,-99999,0,600,,97. PPCard Credito Contratado,,NEGADO
+488,,,1,1,1,0,24. Desenrola,0,600,,97. PPCard Credito Contratado,,NEGADO
+489,,,1,1,1,0,25. No hit Bureaus,0,600,,97. PPCard Credito Contratado,,NEGADO
+490,,,1,1,1,0,99. Accepted,0,600,,97. PPCard Credito Contratado,,NEGADO
+491,,,1,1,1,0,-99999,1,1000,,97. PPCard Credito Contratado,,NEGADO
+492,,,1,1,1,0,24. Desenrola,1,1000,,97. PPCard Credito Contratado,,NEGADO
+493,,,1,1,1,0,25. No hit Bureaus,1,1000,,97. PPCard Credito Contratado,,NEGADO
+494,,,1,1,1,0,99. Accepted,1,1000,,97. PPCard Credito Contratado,,NEGADO
+495,,,1,1,1,0,-99999,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+496,,,1,1,1,0,24. Desenrola,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+497,,,1,1,1,0,25. No hit Bureaus,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+498,,,1,1,1,0,99. Accepted,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+499,,,1,1,1,0,-99999,1,0,,97. PPCard Credito Contratado,,NEGADO
+500,,,1,1,1,0,24. Desenrola,1,0,,97. PPCard Credito Contratado,,NEGADO
+501,,,1,1,1,0,25. No hit Bureaus,1,0,,97. PPCard Credito Contratado,,NEGADO
+502,,,1,1,1,0,99. Accepted,1,0,,97. PPCard Credito Contratado,,NEGADO
+503,,,1,1,1,0,-99999,1,600,,97. PPCard Credito Contratado,,NEGADO
+504,,,1,1,1,0,24. Desenrola,1,600,,97. PPCard Credito Contratado,,NEGADO
+505,,,1,1,1,0,25. No hit Bureaus,1,600,,97. PPCard Credito Contratado,,NEGADO
+506,,,1,1,1,0,99. Accepted,1,600,,97. PPCard Credito Contratado,,NEGADO
+507,,,1,1,1,1,-99999,0,1000,,97. PPCard Credito Contratado,,NEGADO
+508,,,1,1,1,1,24. Desenrola,0,1000,,97. PPCard Credito Contratado,,NEGADO
+509,,,1,1,1,1,25. No hit Bureaus,0,1000,,97. PPCard Credito Contratado,,NEGADO
+510,,,1,1,1,1,99. Accepted,0,1000,,97. PPCard Credito Contratado,,NEGADO
+511,,,1,1,1,1,-99999,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+512,,,1,1,1,1,24. Desenrola,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+513,,,1,1,1,1,25. No hit Bureaus,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+514,,,1,1,1,1,99. Accepted,0,-99999,,97. PPCard Credito Contratado,,NEGADO
+515,,,1,1,1,1,-99999,0,0,,97. PPCard Credito Contratado,,NEGADO
+516,,,1,1,1,1,24. Desenrola,0,0,,97. PPCard Credito Contratado,,NEGADO
+517,,,1,1,1,1,25. No hit Bureaus,0,0,,97. PPCard Credito Contratado,,NEGADO
+518,,,1,1,1,1,99. Accepted,0,0,,97. PPCard Credito Contratado,,NEGADO
+519,,,1,1,1,1,-99999,0,600,,97. PPCard Credito Contratado,,NEGADO
+520,,,1,1,1,1,24. Desenrola,0,600,,97. PPCard Credito Contratado,,NEGADO
+521,,,1,1,1,1,25. No hit Bureaus,0,600,,97. PPCard Credito Contratado,,NEGADO
+522,,,1,1,1,1,99. Accepted,0,600,,97. PPCard Credito Contratado,,NEGADO
+523,,,1,1,1,1,-99999,1,1000,,97. PPCard Credito Contratado,,NEGADO
+524,,,1,1,1,1,24. Desenrola,1,1000,,97. PPCard Credito Contratado,,NEGADO
+525,,,1,1,1,1,25. No hit Bureaus,1,1000,,97. PPCard Credito Contratado,,NEGADO
+526,,,1,1,1,1,99. Accepted,1,1000,,97. PPCard Credito Contratado,,NEGADO
+527,,,1,1,1,1,-99999,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+528,,,1,1,1,1,24. Desenrola,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+529,,,1,1,1,1,25. No hit Bureaus,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+530,,,1,1,1,1,99. Accepted,1,-99999,,97. PPCard Credito Contratado,,NEGADO
+531,,,1,1,1,1,-99999,1,0,,97. PPCard Credito Contratado,,NEGADO
+532,,,1,1,1,1,24. Desenrola,1,0,,97. PPCard Credito Contratado,,NEGADO
+533,,,1,1,1,1,25. No hit Bureaus,1,0,,97. PPCard Credito Contratado,,NEGADO
+534,,,1,1,1,1,99. Accepted,1,0,,97. PPCard Credito Contratado,,NEGADO
+535,,,1,1,1,1,-99999,1,600,,97. PPCard Credito Contratado,,NEGADO
+536,,,1,1,1,1,24. Desenrola,1,600,,97. PPCard Credito Contratado,,NEGADO
+537,,,1,1,1,1,25. No hit Bureaus,1,600,,97. PPCard Credito Contratado,,NEGADO
+538,,,1,1,1,1,99. Accepted,1,600,,97. PPCard Credito Contratado,,NEGADO
