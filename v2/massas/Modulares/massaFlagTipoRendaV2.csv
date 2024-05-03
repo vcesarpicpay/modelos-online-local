@@ -1,0 +1,11 @@
+Data-ID,Result-State,Result-Detail,fonteRenda,result:flagTipoRenda,expected:flagTipoRenda
+1,,,02. Funcionários Não FOPAG (J&F),,BATCH
+2,,,04. Renda OPF Confirmada,,OPEN FINANCE
+3,,,08. Blend Externo,,OPEN FINANCE MODELO
+4,,,06. Servidor Público,,OPEN FINANCE SERVIDOR
+5,,,03. Portabilidade,,BATCH
+6,,,07. Blend Interno,,OPEN FINANCE MODELO
+7,,,99. Não encontrada,,OPEN FINANCE MODELO
+8,,,01. Fopag,,BATCH
+9,,,-99999,,OPEN FINANCE MODELO
+10,,,00. Dominio X Nao Previsto,,OPEN FINANCE MODELO

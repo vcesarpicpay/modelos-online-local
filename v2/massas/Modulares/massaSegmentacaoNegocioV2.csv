@@ -1,0 +1,449 @@
+Data-ID,Result-State,Result-Detail,payloadParam.solicitante.saldoMedio,payloadParam.solicitante.rendaLiquidaPicpay,payloadParam.solicitante.flagPrincipalidadeAll,payloadParam.solicitante.idade,result:segmentacaoNegocio,expected:segmentacaoNegocio
+1,,,-99999,-99999.0,1,17,,Varejo+
+2,,,-99999,-99999.0,1,18,,Jovem Cliente
+3,,,-99999,-99999.0,1,19,,Jovem Cliente
+4,,,-99999,-99999.0,1,20,,Varejo+
+5,,,-99999,-99999.0,0,17,,Varejo
+6,,,-99999,-99999.0,0,18,,Jovem Cliente
+7,,,-99999,-99999.0,0,19,,Jovem Cliente
+8,,,-99999,-99999.0,0,20,,Varejo
+9,,,-99999,11124.15,1,17,,Alta renda
+10,,,-99999,11124.15,1,18,,Jovem Cliente
+11,,,-99999,11124.15,1,19,,Jovem Cliente
+12,,,-99999,11124.15,1,20,,Alta renda
+13,,,-99999,11124.15,0,17,,Varejo+
+14,,,-99999,11124.15,0,18,,Jovem Cliente
+15,,,-99999,11124.15,0,19,,Jovem Cliente
+16,,,-99999,11124.15,0,20,,Varejo+
+17,,,-99999,11124.16,1,17,,Alta renda
+18,,,-99999,11124.16,1,18,,Jovem Cliente
+19,,,-99999,11124.16,1,19,,Jovem Cliente
+20,,,-99999,11124.16,1,20,,Alta renda
+21,,,-99999,11124.16,0,17,,Alta renda
+22,,,-99999,11124.16,0,18,,Jovem Cliente
+23,,,-99999,11124.16,0,19,,Jovem Cliente
+24,,,-99999,11124.16,0,20,,Alta renda
+25,,,-99999,11124.17,1,17,,Alta renda
+26,,,-99999,11124.17,1,18,,Jovem Cliente
+27,,,-99999,11124.17,1,19,,Jovem Cliente
+28,,,-99999,11124.17,1,20,,Alta renda
+29,,,-99999,11124.17,0,17,,Alta renda
+30,,,-99999,11124.17,0,18,,Jovem Cliente
+31,,,-99999,11124.17,0,19,,Jovem Cliente
+32,,,-99999,11124.17,0,20,,Alta renda
+33,,,-99999,3442.36,1,17,,Varejo+
+34,,,-99999,3442.36,1,18,,Jovem Cliente
+35,,,-99999,3442.36,1,19,,Jovem Cliente
+36,,,-99999,3442.36,1,20,,Varejo+
+37,,,-99999,3442.36,0,17,,Varejo
+38,,,-99999,3442.36,0,18,,Jovem Cliente
+39,,,-99999,3442.36,0,19,,Jovem Cliente
+40,,,-99999,3442.36,0,20,,Varejo
+41,,,-99999,3442.37,1,17,,Varejo+
+42,,,-99999,3442.37,1,18,,Jovem Cliente
+43,,,-99999,3442.37,1,19,,Jovem Cliente
+44,,,-99999,3442.37,1,20,,Varejo+
+45,,,-99999,3442.37,0,17,,Varejo+
+46,,,-99999,3442.37,0,18,,Jovem Cliente
+47,,,-99999,3442.37,0,19,,Jovem Cliente
+48,,,-99999,3442.37,0,20,,Varejo+
+49,,,-99999,3442.38,1,17,,Varejo+
+50,,,-99999,3442.38,1,18,,Jovem Cliente
+51,,,-99999,3442.38,1,19,,Jovem Cliente
+52,,,-99999,3442.38,1,20,,Varejo+
+53,,,-99999,3442.38,0,17,,Varejo+
+54,,,-99999,3442.38,0,18,,Jovem Cliente
+55,,,-99999,3442.38,0,19,,Jovem Cliente
+56,,,-99999,3442.38,0,20,,Varejo+
+57,,,0,-99999.0,1,17,,Varejo+
+58,,,0,-99999.0,1,18,,Jovem Cliente
+59,,,0,-99999.0,1,19,,Jovem Cliente
+60,,,0,-99999.0,1,20,,Varejo+
+61,,,0,-99999.0,0,17,,Varejo
+62,,,0,-99999.0,0,18,,Jovem Cliente
+63,,,0,-99999.0,0,19,,Jovem Cliente
+64,,,0,-99999.0,0,20,,Varejo
+65,,,0,11124.15,1,17,,Alta renda
+66,,,0,11124.15,1,18,,Jovem Cliente
+67,,,0,11124.15,1,19,,Jovem Cliente
+68,,,0,11124.15,1,20,,Alta renda
+69,,,0,11124.15,0,17,,Varejo+
+70,,,0,11124.15,0,18,,Jovem Cliente
+71,,,0,11124.15,0,19,,Jovem Cliente
+72,,,0,11124.15,0,20,,Varejo+
+73,,,0,11124.16,1,17,,Alta renda
+74,,,0,11124.16,1,18,,Jovem Cliente
+75,,,0,11124.16,1,19,,Jovem Cliente
+76,,,0,11124.16,1,20,,Alta renda
+77,,,0,11124.16,0,17,,Alta renda
+78,,,0,11124.16,0,18,,Jovem Cliente
+79,,,0,11124.16,0,19,,Jovem Cliente
+80,,,0,11124.16,0,20,,Alta renda
+81,,,0,11124.17,1,17,,Alta renda
+82,,,0,11124.17,1,18,,Jovem Cliente
+83,,,0,11124.17,1,19,,Jovem Cliente
+84,,,0,11124.17,1,20,,Alta renda
+85,,,0,11124.17,0,17,,Alta renda
+86,,,0,11124.17,0,18,,Jovem Cliente
+87,,,0,11124.17,0,19,,Jovem Cliente
+88,,,0,11124.17,0,20,,Alta renda
+89,,,0,3442.36,1,17,,Varejo+
+90,,,0,3442.36,1,18,,Jovem Cliente
+91,,,0,3442.36,1,19,,Jovem Cliente
+92,,,0,3442.36,1,20,,Varejo+
+93,,,0,3442.36,0,17,,Varejo
+94,,,0,3442.36,0,18,,Jovem Cliente
+95,,,0,3442.36,0,19,,Jovem Cliente
+96,,,0,3442.36,0,20,,Varejo
+97,,,0,3442.37,1,17,,Varejo+
+98,,,0,3442.37,1,18,,Jovem Cliente
+99,,,0,3442.37,1,19,,Jovem Cliente
+100,,,0,3442.37,1,20,,Varejo+
+101,,,0,3442.37,0,17,,Varejo+
+102,,,0,3442.37,0,18,,Jovem Cliente
+103,,,0,3442.37,0,19,,Jovem Cliente
+104,,,0,3442.37,0,20,,Varejo+
+105,,,0,3442.38,1,17,,Varejo+
+106,,,0,3442.38,1,18,,Jovem Cliente
+107,,,0,3442.38,1,19,,Jovem Cliente
+108,,,0,3442.38,1,20,,Varejo+
+109,,,0,3442.38,0,17,,Varejo+
+110,,,0,3442.38,0,18,,Jovem Cliente
+111,,,0,3442.38,0,19,,Jovem Cliente
+112,,,0,3442.38,0,20,,Varejo+
+113,,,99999,-99999.0,1,17,,Alta renda
+114,,,99999,-99999.0,1,18,,Jovem Cliente
+115,,,99999,-99999.0,1,19,,Jovem Cliente
+116,,,99999,-99999.0,1,20,,Alta renda
+117,,,99999,-99999.0,0,17,,Alta renda
+118,,,99999,-99999.0,0,18,,Jovem Cliente
+119,,,99999,-99999.0,0,19,,Jovem Cliente
+120,,,99999,-99999.0,0,20,,Alta renda
+121,,,99999,11124.15,1,17,,Alta renda
+122,,,99999,11124.15,1,18,,Jovem Cliente
+123,,,99999,11124.15,1,19,,Jovem Cliente
+124,,,99999,11124.15,1,20,,Alta renda
+125,,,99999,11124.15,0,17,,Alta renda
+126,,,99999,11124.15,0,18,,Jovem Cliente
+127,,,99999,11124.15,0,19,,Jovem Cliente
+128,,,99999,11124.15,0,20,,Alta renda
+129,,,99999,11124.16,1,17,,Alta renda
+130,,,99999,11124.16,1,18,,Jovem Cliente
+131,,,99999,11124.16,1,19,,Jovem Cliente
+132,,,99999,11124.16,1,20,,Alta renda
+133,,,99999,11124.16,0,17,,Alta renda
+134,,,99999,11124.16,0,18,,Jovem Cliente
+135,,,99999,11124.16,0,19,,Jovem Cliente
+136,,,99999,11124.16,0,20,,Alta renda
+137,,,99999,11124.17,1,17,,Alta renda
+138,,,99999,11124.17,1,18,,Jovem Cliente
+139,,,99999,11124.17,1,19,,Jovem Cliente
+140,,,99999,11124.17,1,20,,Alta renda
+141,,,99999,11124.17,0,17,,Alta renda
+142,,,99999,11124.17,0,18,,Jovem Cliente
+143,,,99999,11124.17,0,19,,Jovem Cliente
+144,,,99999,11124.17,0,20,,Alta renda
+145,,,99999,3442.36,1,17,,Alta renda
+146,,,99999,3442.36,1,18,,Jovem Cliente
+147,,,99999,3442.36,1,19,,Jovem Cliente
+148,,,99999,3442.36,1,20,,Alta renda
+149,,,99999,3442.36,0,17,,Alta renda
+150,,,99999,3442.36,0,18,,Jovem Cliente
+151,,,99999,3442.36,0,19,,Jovem Cliente
+152,,,99999,3442.36,0,20,,Alta renda
+153,,,99999,3442.37,1,17,,Alta renda
+154,,,99999,3442.37,1,18,,Jovem Cliente
+155,,,99999,3442.37,1,19,,Jovem Cliente
+156,,,99999,3442.37,1,20,,Alta renda
+157,,,99999,3442.37,0,17,,Alta renda
+158,,,99999,3442.37,0,18,,Jovem Cliente
+159,,,99999,3442.37,0,19,,Jovem Cliente
+160,,,99999,3442.37,0,20,,Alta renda
+161,,,99999,3442.38,1,17,,Alta renda
+162,,,99999,3442.38,1,18,,Jovem Cliente
+163,,,99999,3442.38,1,19,,Jovem Cliente
+164,,,99999,3442.38,1,20,,Alta renda
+165,,,99999,3442.38,0,17,,Alta renda
+166,,,99999,3442.38,0,18,,Jovem Cliente
+167,,,99999,3442.38,0,19,,Jovem Cliente
+168,,,99999,3442.38,0,20,,Alta renda
+169,,,100000,-99999.0,1,17,,Alta renda investidor
+170,,,100000,-99999.0,1,18,,Alta renda investidor
+171,,,100000,-99999.0,1,19,,Alta renda investidor
+172,,,100000,-99999.0,1,20,,Alta renda investidor
+173,,,100000,-99999.0,0,17,,Alta renda investidor
+174,,,100000,-99999.0,0,18,,Alta renda investidor
+175,,,100000,-99999.0,0,19,,Alta renda investidor
+176,,,100000,-99999.0,0,20,,Alta renda investidor
+177,,,100000,11124.15,1,17,,Alta renda investidor
+178,,,100000,11124.15,1,18,,Alta renda investidor
+179,,,100000,11124.15,1,19,,Alta renda investidor
+180,,,100000,11124.15,1,20,,Alta renda investidor
+181,,,100000,11124.15,0,17,,Alta renda investidor
+182,,,100000,11124.15,0,18,,Alta renda investidor
+183,,,100000,11124.15,0,19,,Alta renda investidor
+184,,,100000,11124.15,0,20,,Alta renda investidor
+185,,,100000,11124.16,1,17,,Alta renda investidor
+186,,,100000,11124.16,1,18,,Alta renda investidor
+187,,,100000,11124.16,1,19,,Alta renda investidor
+188,,,100000,11124.16,1,20,,Alta renda investidor
+189,,,100000,11124.16,0,17,,Alta renda investidor
+190,,,100000,11124.16,0,18,,Alta renda investidor
+191,,,100000,11124.16,0,19,,Alta renda investidor
+192,,,100000,11124.16,0,20,,Alta renda investidor
+193,,,100000,11124.17,1,17,,Alta renda investidor
+194,,,100000,11124.17,1,18,,Alta renda investidor
+195,,,100000,11124.17,1,19,,Alta renda investidor
+196,,,100000,11124.17,1,20,,Alta renda investidor
+197,,,100000,11124.17,0,17,,Alta renda investidor
+198,,,100000,11124.17,0,18,,Alta renda investidor
+199,,,100000,11124.17,0,19,,Alta renda investidor
+200,,,100000,11124.17,0,20,,Alta renda investidor
+201,,,100000,3442.36,1,17,,Alta renda investidor
+202,,,100000,3442.36,1,18,,Alta renda investidor
+203,,,100000,3442.36,1,19,,Alta renda investidor
+204,,,100000,3442.36,1,20,,Alta renda investidor
+205,,,100000,3442.36,0,17,,Alta renda investidor
+206,,,100000,3442.36,0,18,,Alta renda investidor
+207,,,100000,3442.36,0,19,,Alta renda investidor
+208,,,100000,3442.36,0,20,,Alta renda investidor
+209,,,100000,3442.37,1,17,,Alta renda investidor
+210,,,100000,3442.37,1,18,,Alta renda investidor
+211,,,100000,3442.37,1,19,,Alta renda investidor
+212,,,100000,3442.37,1,20,,Alta renda investidor
+213,,,100000,3442.37,0,17,,Alta renda investidor
+214,,,100000,3442.37,0,18,,Alta renda investidor
+215,,,100000,3442.37,0,19,,Alta renda investidor
+216,,,100000,3442.37,0,20,,Alta renda investidor
+217,,,100000,3442.38,1,17,,Alta renda investidor
+218,,,100000,3442.38,1,18,,Alta renda investidor
+219,,,100000,3442.38,1,19,,Alta renda investidor
+220,,,100000,3442.38,1,20,,Alta renda investidor
+221,,,100000,3442.38,0,17,,Alta renda investidor
+222,,,100000,3442.38,0,18,,Alta renda investidor
+223,,,100000,3442.38,0,19,,Alta renda investidor
+224,,,100000,3442.38,0,20,,Alta renda investidor
+225,,,100001,-99999.0,1,17,,Alta renda investidor
+226,,,100001,-99999.0,1,18,,Alta renda investidor
+227,,,100001,-99999.0,1,19,,Alta renda investidor
+228,,,100001,-99999.0,1,20,,Alta renda investidor
+229,,,100001,-99999.0,0,17,,Alta renda investidor
+230,,,100001,-99999.0,0,18,,Alta renda investidor
+231,,,100001,-99999.0,0,19,,Alta renda investidor
+232,,,100001,-99999.0,0,20,,Alta renda investidor
+233,,,100001,11124.15,1,17,,Alta renda investidor
+234,,,100001,11124.15,1,18,,Alta renda investidor
+235,,,100001,11124.15,1,19,,Alta renda investidor
+236,,,100001,11124.15,1,20,,Alta renda investidor
+237,,,100001,11124.15,0,17,,Alta renda investidor
+238,,,100001,11124.15,0,18,,Alta renda investidor
+239,,,100001,11124.15,0,19,,Alta renda investidor
+240,,,100001,11124.15,0,20,,Alta renda investidor
+241,,,100001,11124.16,1,17,,Alta renda investidor
+242,,,100001,11124.16,1,18,,Alta renda investidor
+243,,,100001,11124.16,1,19,,Alta renda investidor
+244,,,100001,11124.16,1,20,,Alta renda investidor
+245,,,100001,11124.16,0,17,,Alta renda investidor
+246,,,100001,11124.16,0,18,,Alta renda investidor
+247,,,100001,11124.16,0,19,,Alta renda investidor
+248,,,100001,11124.16,0,20,,Alta renda investidor
+249,,,100001,11124.17,1,17,,Alta renda investidor
+250,,,100001,11124.17,1,18,,Alta renda investidor
+251,,,100001,11124.17,1,19,,Alta renda investidor
+252,,,100001,11124.17,1,20,,Alta renda investidor
+253,,,100001,11124.17,0,17,,Alta renda investidor
+254,,,100001,11124.17,0,18,,Alta renda investidor
+255,,,100001,11124.17,0,19,,Alta renda investidor
+256,,,100001,11124.17,0,20,,Alta renda investidor
+257,,,100001,3442.36,1,17,,Alta renda investidor
+258,,,100001,3442.36,1,18,,Alta renda investidor
+259,,,100001,3442.36,1,19,,Alta renda investidor
+260,,,100001,3442.36,1,20,,Alta renda investidor
+261,,,100001,3442.36,0,17,,Alta renda investidor
+262,,,100001,3442.36,0,18,,Alta renda investidor
+263,,,100001,3442.36,0,19,,Alta renda investidor
+264,,,100001,3442.36,0,20,,Alta renda investidor
+265,,,100001,3442.37,1,17,,Alta renda investidor
+266,,,100001,3442.37,1,18,,Alta renda investidor
+267,,,100001,3442.37,1,19,,Alta renda investidor
+268,,,100001,3442.37,1,20,,Alta renda investidor
+269,,,100001,3442.37,0,17,,Alta renda investidor
+270,,,100001,3442.37,0,18,,Alta renda investidor
+271,,,100001,3442.37,0,19,,Alta renda investidor
+272,,,100001,3442.37,0,20,,Alta renda investidor
+273,,,100001,3442.38,1,17,,Alta renda investidor
+274,,,100001,3442.38,1,18,,Alta renda investidor
+275,,,100001,3442.38,1,19,,Alta renda investidor
+276,,,100001,3442.38,1,20,,Alta renda investidor
+277,,,100001,3442.38,0,17,,Alta renda investidor
+278,,,100001,3442.38,0,18,,Alta renda investidor
+279,,,100001,3442.38,0,19,,Alta renda investidor
+280,,,100001,3442.38,0,20,,Alta renda investidor
+281,,,39999,-99999.0,1,17,,Varejo+
+282,,,39999,-99999.0,1,18,,Jovem Cliente
+283,,,39999,-99999.0,1,19,,Jovem Cliente
+284,,,39999,-99999.0,1,20,,Varejo+
+285,,,39999,-99999.0,0,17,,Varejo
+286,,,39999,-99999.0,0,18,,Jovem Cliente
+287,,,39999,-99999.0,0,19,,Jovem Cliente
+288,,,39999,-99999.0,0,20,,Varejo
+289,,,39999,11124.15,1,17,,Alta renda
+290,,,39999,11124.15,1,18,,Jovem Cliente
+291,,,39999,11124.15,1,19,,Jovem Cliente
+292,,,39999,11124.15,1,20,,Alta renda
+293,,,39999,11124.15,0,17,,Varejo+
+294,,,39999,11124.15,0,18,,Jovem Cliente
+295,,,39999,11124.15,0,19,,Jovem Cliente
+296,,,39999,11124.15,0,20,,Varejo+
+297,,,39999,11124.16,1,17,,Alta renda
+298,,,39999,11124.16,1,18,,Jovem Cliente
+299,,,39999,11124.16,1,19,,Jovem Cliente
+300,,,39999,11124.16,1,20,,Alta renda
+301,,,39999,11124.16,0,17,,Alta renda
+302,,,39999,11124.16,0,18,,Jovem Cliente
+303,,,39999,11124.16,0,19,,Jovem Cliente
+304,,,39999,11124.16,0,20,,Alta renda
+305,,,39999,11124.17,1,17,,Alta renda
+306,,,39999,11124.17,1,18,,Jovem Cliente
+307,,,39999,11124.17,1,19,,Jovem Cliente
+308,,,39999,11124.17,1,20,,Alta renda
+309,,,39999,11124.17,0,17,,Alta renda
+310,,,39999,11124.17,0,18,,Jovem Cliente
+311,,,39999,11124.17,0,19,,Jovem Cliente
+312,,,39999,11124.17,0,20,,Alta renda
+313,,,39999,3442.36,1,17,,Varejo+
+314,,,39999,3442.36,1,18,,Jovem Cliente
+315,,,39999,3442.36,1,19,,Jovem Cliente
+316,,,39999,3442.36,1,20,,Varejo+
+317,,,39999,3442.36,0,17,,Varejo
+318,,,39999,3442.36,0,18,,Jovem Cliente
+319,,,39999,3442.36,0,19,,Jovem Cliente
+320,,,39999,3442.36,0,20,,Varejo
+321,,,39999,3442.37,1,17,,Varejo+
+322,,,39999,3442.37,1,18,,Jovem Cliente
+323,,,39999,3442.37,1,19,,Jovem Cliente
+324,,,39999,3442.37,1,20,,Varejo+
+325,,,39999,3442.37,0,17,,Varejo+
+326,,,39999,3442.37,0,18,,Jovem Cliente
+327,,,39999,3442.37,0,19,,Jovem Cliente
+328,,,39999,3442.37,0,20,,Varejo+
+329,,,39999,3442.38,1,17,,Varejo+
+330,,,39999,3442.38,1,18,,Jovem Cliente
+331,,,39999,3442.38,1,19,,Jovem Cliente
+332,,,39999,3442.38,1,20,,Varejo+
+333,,,39999,3442.38,0,17,,Varejo+
+334,,,39999,3442.38,0,18,,Jovem Cliente
+335,,,39999,3442.38,0,19,,Jovem Cliente
+336,,,39999,3442.38,0,20,,Varejo+
+337,,,40000,-99999.0,1,17,,Alta renda
+338,,,40000,-99999.0,1,18,,Jovem Cliente
+339,,,40000,-99999.0,1,19,,Jovem Cliente
+340,,,40000,-99999.0,1,20,,Alta renda
+341,,,40000,-99999.0,0,17,,Alta renda
+342,,,40000,-99999.0,0,18,,Jovem Cliente
+343,,,40000,-99999.0,0,19,,Jovem Cliente
+344,,,40000,-99999.0,0,20,,Alta renda
+345,,,40000,11124.15,1,17,,Alta renda
+346,,,40000,11124.15,1,18,,Jovem Cliente
+347,,,40000,11124.15,1,19,,Jovem Cliente
+348,,,40000,11124.15,1,20,,Alta renda
+349,,,40000,11124.15,0,17,,Alta renda
+350,,,40000,11124.15,0,18,,Jovem Cliente
+351,,,40000,11124.15,0,19,,Jovem Cliente
+352,,,40000,11124.15,0,20,,Alta renda
+353,,,40000,11124.16,1,17,,Alta renda
+354,,,40000,11124.16,1,18,,Jovem Cliente
+355,,,40000,11124.16,1,19,,Jovem Cliente
+356,,,40000,11124.16,1,20,,Alta renda
+357,,,40000,11124.16,0,17,,Alta renda
+358,,,40000,11124.16,0,18,,Jovem Cliente
+359,,,40000,11124.16,0,19,,Jovem Cliente
+360,,,40000,11124.16,0,20,,Alta renda
+361,,,40000,11124.17,1,17,,Alta renda
+362,,,40000,11124.17,1,18,,Jovem Cliente
+363,,,40000,11124.17,1,19,,Jovem Cliente
+364,,,40000,11124.17,1,20,,Alta renda
+365,,,40000,11124.17,0,17,,Alta renda
+366,,,40000,11124.17,0,18,,Jovem Cliente
+367,,,40000,11124.17,0,19,,Jovem Cliente
+368,,,40000,11124.17,0,20,,Alta renda
+369,,,40000,3442.36,1,17,,Alta renda
+370,,,40000,3442.36,1,18,,Jovem Cliente
+371,,,40000,3442.36,1,19,,Jovem Cliente
+372,,,40000,3442.36,1,20,,Alta renda
+373,,,40000,3442.36,0,17,,Alta renda
+374,,,40000,3442.36,0,18,,Jovem Cliente
+375,,,40000,3442.36,0,19,,Jovem Cliente
+376,,,40000,3442.36,0,20,,Alta renda
+377,,,40000,3442.37,1,17,,Alta renda
+378,,,40000,3442.37,1,18,,Jovem Cliente
+379,,,40000,3442.37,1,19,,Jovem Cliente
+380,,,40000,3442.37,1,20,,Alta renda
+381,,,40000,3442.37,0,17,,Alta renda
+382,,,40000,3442.37,0,18,,Jovem Cliente
+383,,,40000,3442.37,0,19,,Jovem Cliente
+384,,,40000,3442.37,0,20,,Alta renda
+385,,,40000,3442.38,1,17,,Alta renda
+386,,,40000,3442.38,1,18,,Jovem Cliente
+387,,,40000,3442.38,1,19,,Jovem Cliente
+388,,,40000,3442.38,1,20,,Alta renda
+389,,,40000,3442.38,0,17,,Alta renda
+390,,,40000,3442.38,0,18,,Jovem Cliente
+391,,,40000,3442.38,0,19,,Jovem Cliente
+392,,,40000,3442.38,0,20,,Alta renda
+393,,,40001,-99999.0,1,17,,Alta renda
+394,,,40001,-99999.0,1,18,,Jovem Cliente
+395,,,40001,-99999.0,1,19,,Jovem Cliente
+396,,,40001,-99999.0,1,20,,Alta renda
+397,,,40001,-99999.0,0,17,,Alta renda
+398,,,40001,-99999.0,0,18,,Jovem Cliente
+399,,,40001,-99999.0,0,19,,Jovem Cliente
+400,,,40001,-99999.0,0,20,,Alta renda
+401,,,40001,11124.15,1,17,,Alta renda
+402,,,40001,11124.15,1,18,,Jovem Cliente
+403,,,40001,11124.15,1,19,,Jovem Cliente
+404,,,40001,11124.15,1,20,,Alta renda
+405,,,40001,11124.15,0,17,,Alta renda
+406,,,40001,11124.15,0,18,,Jovem Cliente
+407,,,40001,11124.15,0,19,,Jovem Cliente
+408,,,40001,11124.15,0,20,,Alta renda
+409,,,40001,11124.16,1,17,,Alta renda
+410,,,40001,11124.16,1,18,,Jovem Cliente
+411,,,40001,11124.16,1,19,,Jovem Cliente
+412,,,40001,11124.16,1,20,,Alta renda
+413,,,40001,11124.16,0,17,,Alta renda
+414,,,40001,11124.16,0,18,,Jovem Cliente
+415,,,40001,11124.16,0,19,,Jovem Cliente
+416,,,40001,11124.16,0,20,,Alta renda
+417,,,40001,11124.17,1,17,,Alta renda
+418,,,40001,11124.17,1,18,,Jovem Cliente
+419,,,40001,11124.17,1,19,,Jovem Cliente
+420,,,40001,11124.17,1,20,,Alta renda
+421,,,40001,11124.17,0,17,,Alta renda
+422,,,40001,11124.17,0,18,,Jovem Cliente
+423,,,40001,11124.17,0,19,,Jovem Cliente
+424,,,40001,11124.17,0,20,,Alta renda
+425,,,40001,3442.36,1,17,,Alta renda
+426,,,40001,3442.36,1,18,,Jovem Cliente
+427,,,40001,3442.36,1,19,,Jovem Cliente
+428,,,40001,3442.36,1,20,,Alta renda
+429,,,40001,3442.36,0,17,,Alta renda
+430,,,40001,3442.36,0,18,,Jovem Cliente
+431,,,40001,3442.36,0,19,,Jovem Cliente
+432,,,40001,3442.36,0,20,,Alta renda
+433,,,40001,3442.37,1,17,,Alta renda
+434,,,40001,3442.37,1,18,,Jovem Cliente
+435,,,40001,3442.37,1,19,,Jovem Cliente
+436,,,40001,3442.37,1,20,,Alta renda
+437,,,40001,3442.37,0,17,,Alta renda
+438,,,40001,3442.37,0,18,,Jovem Cliente
+439,,,40001,3442.37,0,19,,Jovem Cliente
+440,,,40001,3442.37,0,20,,Alta renda
+441,,,40001,3442.38,1,17,,Alta renda
+442,,,40001,3442.38,1,18,,Jovem Cliente
+443,,,40001,3442.38,1,19,,Jovem Cliente
+444,,,40001,3442.38,1,20,,Alta renda
+445,,,40001,3442.38,0,17,,Alta renda
+446,,,40001,3442.38,0,18,,Jovem Cliente
+447,,,40001,3442.38,0,19,,Jovem Cliente
+448,,,40001,3442.38,0,20,,Alta renda

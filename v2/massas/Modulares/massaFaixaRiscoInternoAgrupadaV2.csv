@@ -1,0 +1,57 @@
+Data-ID,Result-State,Result-Detail,payloadParamBTS.segmentacaoPolitica,faixaScoreAppcardBlend,result:rangeScoreInterno,expected:rangeScoreInterno
+1,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",verificar,,verificar
+2,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",Sem info,,Sem info
+3,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R1,,R1
+4,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R2,,R2
+5,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R3,,R3
+6,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R4,,R4
+7,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R5,,R5
+8,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R6,,R6
+9,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R7,,R7
+10,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R8,,R8
+11,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R9,,R9
+12,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R10,,R10
+13,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R11,,R10
+14,,,"('P4.3 - Alta Renda Inativo', 'P5.3 - Varejo+ Inativos')",R12,,R10
+15,,,P6.2 - Varejo Inativos,verificar,,verificar
+16,,,P6.2 - Varejo Inativos,Sem info,,Sem info
+17,,,P6.2 - Varejo Inativos,R1,,R3
+18,,,P6.2 - Varejo Inativos,R2,,R3
+19,,,P6.2 - Varejo Inativos,R3,,R3
+20,,,P6.2 - Varejo Inativos,R4,,R4
+21,,,P6.2 - Varejo Inativos,R5,,R5
+22,,,P6.2 - Varejo Inativos,R6,,R6
+23,,,P6.2 - Varejo Inativos,R7,,R7
+24,,,P6.2 - Varejo Inativos,R8,,R8
+25,,,P6.2 - Varejo Inativos,R9,,R9
+26,,,P6.2 - Varejo Inativos,R10,,R10
+27,,,P6.2 - Varejo Inativos,R11,,R10
+28,,,P6.2 - Varejo Inativos,R12,,R10
+29,,,P5.1 - Varejo+ Principalidade Renda >= 4k,verificar,,verificar
+30,,,P5.1 - Varejo+ Principalidade Renda >= 4k,Sem info,,Sem info
+31,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R1,,R1
+32,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R2,,R1
+33,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R3,,R2
+34,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R4,,R3
+35,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R5,,R4
+36,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R6,,R4
+37,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R7,,R5
+38,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R8,,R6
+39,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R9,,R7
+40,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R10,,R8
+41,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R11,,R9
+42,,,P5.1 - Varejo+ Principalidade Renda >= 4k,R12,,R10
+43,,,Outros,verificar,,verificar
+44,,,Outros,Sem info,,Sem info
+45,,,Outros,R1,,R1
+46,,,Outros,R2,,R2
+47,,,Outros,R3,,R3
+48,,,Outros,R4,,R4
+49,,,Outros,R5,,R5
+50,,,Outros,R6,,R6
+51,,,Outros,R7,,R7
+52,,,Outros,R8,,R8
+53,,,Outros,R9,,R9
+54,,,Outros,R10,,R10
+55,,,Outros,R11,,R10
+56,,,Outros,R12,,R10

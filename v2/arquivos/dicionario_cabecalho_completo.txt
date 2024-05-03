@@ -52,14 +52,18 @@
     "solicitante.indReneg":"indReneg",
 
 
-    "solicitante.ghAppcardsBlendInterno":"ghAppcardsBlendInterno",
+    "solicitante.ghAppcardsBlendInternoOnline":"ghAppcardsBlendInternoOnline",
     "solicitante.scoreAppcardsBlendInternoOnline":"scoreAppcardsBlendInternoOnline",
-    "solicitante.ghAppcardsBlendExterno":"ghAppcardsBlendExterno",
+    "solicitante.ghAppcardsBlendExternoOnline":"ghAppcardsBlendExternoOnline",
     "solicitante.scoreAppcardsBlendExternoOnline":"scoreAppcardsBlendExternoOnline",
     "solicitante.ghBlendIntExt":"ghBlendIntExt",
-    "solicitante.scoreBlendIntExtOnline":"scoreBlendIntExtOnline",
+    "solicitante.scoreBlendIntExt":"scoreBlendIntExt",
     "solicitante.ghSerasa":"ghSerasa",
-    "solicitante.scoreSerasaAlOnline":"scoreSerasaAlOnline",
+    "solicitante.scoreSerasaAl":"scoreSerasaAl",
+    "solicitante.blendFinalAl":"blendFinalAl",
+    "solicitante.ghFinalScr":"ghFinalScr",
+    "solicitante.origemBlend":"origemBlend",
+
 
     "etapa":"payloadParam.etapa",
     "flagErroBacen":"flagErroBacen",
@@ -121,7 +125,7 @@
     "payloadHomol.intermediarias.segmentacaoPolitica": "payloadParamBTS.segmentacaoPolitica",
     "payloadHomol.intermediarias.faixaRendaBruta": "faixaRendaBruta",
     "payloadHomol.intermediarias.faixaRendaLiquida": "faixaRendaLiquida",
-    "payloadHomol.intermediarias.cpf5e6Digito": "cpf5e6Digito",
+    "payloadHomol.intermediarias.cpf6e7Digito": "cpf6e7Digito",
     "payloadHomol.intermediarias.faixaScoreExterno": "faixaScoreExterno",
     "payloadHomol.intermediarias.admissaoMeses": "dataAdmissaoMeses",
     "payloadHomol.intermediarias.alavancagem": "alavancagem",
@@ -133,6 +137,9 @@
     "payloadHomol.intermediarias.aprovadoSLAux": "aprovadoSmallLimitsAux",
     "payloadHomol.intermediarias.serasaInvalido": "scoreSerasaInvalido",
     "payloadHomol.intermediarias.semInfoScore": "scoreInexistente",
+    "payloadHomol.intermediarias.flagClienteNovo": "clienteNovo",
+    "payloadHomol.intermediarias.flagNaoCliente": "naoCliente",
+
 
     "solicitante.flagCadastroIrregular":            "flagCadastroIrregular",
     "solicitante.flagCadastroNegado":               "flagCadastroNegado",
@@ -174,27 +181,27 @@
 
 
 
-    "payloadHomol.saidas.listaLogs.0.listaLogs.nome": "listaLogs#1.nome",
-    "payloadHomol.saidas.listaLogs.0.listaLogs.valor": "listaLogs#1.valor",
-    "payloadHomol.saidas.listaLogs.1.listaLogs.nome": "listaLogs#2.nome",
-    "payloadHomol.saidas.listaLogs.1.listaLogs.valor": "listaLogs#2.valor",
-    "payloadHomol.saidas.listaLogs.2.listaLogs.nome": "listaLogs#3.nome",
-    "payloadHomol.saidas.listaLogs.2.listaLogs.valor": "listaLogs#3.valor",
-    "payloadHomol.saidas.listaLogs.3.listaLogs.nome": "listaLogs#4.nome",
-    "payloadHomol.saidas.listaLogs.3.listaLogs.valor": "listaLogs#4.valor",
-    "payloadHomol.saidas.listaLogs.4.listaLogs.nome": "listaLogs#5.nome",
-    "payloadHomol.saidas.listaLogs.4.listaLogs.valor": "listaLogs#5.valor",
-    "payloadHomol.saidas.listaLogs.5.listaLogs.nome": "listaLogs#6.nome",
-    "payloadHomol.saidas.listaLogs.5.listaLogs.valor": "listaLogs#6.valor",
-    "payloadHomol.saidas.listaLogs.6.listaLogs.nome": "listaLogs#7.nome",
-    "payloadHomol.saidas.listaLogs.6.listaLogs.valor": "listaLogs#7.valor",
-    "payloadHomol.saidas.listaLogs.7.listaLogs.nome": "listaLogs#8.nome",
-    "payloadHomol.saidas.listaLogs.7.listaLogs.valor": "listaLogs#8.valor",
-    "payloadHomol.saidas.listaLogs.8.listaLogs.nome": "listaLogs#9.nome",
-    "payloadHomol.saidas.listaLogs.8.listaLogs.valor": "listaLogs#9.valor",
+    "payloadHomol.saidas.listaLogs.0.nome": "listaLogs#1.nome",
+    "payloadHomol.saidas.listaLogs.0.valor": "listaLogs#1.valor",
+    "payloadHomol.saidas.listaLogs.1.nome": "listaLogs#2.nome",
+    "payloadHomol.saidas.listaLogs.1.valor": "listaLogs#2.valor",
+    "payloadHomol.saidas.listaLogs.2.nome": "listaLogs#3.nome",
+    "payloadHomol.saidas.listaLogs.2.valor": "listaLogs#3.valor",
+    "payloadHomol.saidas.listaLogs.3.nome": "listaLogs#4.nome",
+    "payloadHomol.saidas.listaLogs.3.valor": "listaLogs#4.valor",
+    "payloadHomol.saidas.listaLogs.4.nome": "listaLogs#5.nome",
+    "payloadHomol.saidas.listaLogs.4.valor": "listaLogs#5.valor",
+    "payloadHomol.saidas.listaLogs.5.nome": "listaLogs#6.nome",
+    "payloadHomol.saidas.listaLogs.5.valor": "listaLogs#6.valor",
+    "payloadHomol.saidas.listaLogs.6.nome": "listaLogs#7.nome",
+    "payloadHomol.saidas.listaLogs.6.valor": "listaLogs#7.valor",
+    "payloadHomol.saidas.listaLogs.7.nome": "listaLogs#8.nome",
+    "payloadHomol.saidas.listaLogs.7.valor": "listaLogs#8.valor",
+    "payloadHomol.saidas.listaLogs.8.nome": "listaLogs#9.nome",
+    "payloadHomol.saidas.listaLogs.8.valor": "listaLogs#9.valor",
 
 
-    "payloadHomol.saidas.ghFinal": "ghFinal",
+    "payloadHomol.saidas.ghFinal": "ghFinal", 
     "payloadHomol.saidas.scoreFinal": "scoreFinal",
     "payloadHomol.saidas.origemModeloApplication": "origemModeloApplication"
 }

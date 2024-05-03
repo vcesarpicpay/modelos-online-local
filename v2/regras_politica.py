@@ -94,27 +94,29 @@ def ExecucaoModularConcurrent(modulo, payload_entrada, num_cores):
 def DefineFlagRenda(payload):
     fonteRenda = payload['solicitante']['fonteRenda']
     ######################################################################################################################
-
-    if fonteRenda not in ['01. Fopag', '02. Funcionários Não FOPAG (J&F)', '03. Portabilidade']:
-        flagRenda = "OPEN FINANCE"
-        if fonteRenda == '06. Servidor Público':
-            flagRenda = "OPEN FINANCE SERVIDOR"
-    else:
+    if fonteRenda in ['01. Fopag', '02. Funcionários Não FOPAG (J&F)', '03. Portabilidade']:
         flagRenda = "BATCH"
+    elif fonteRenda in ['04. Renda OPF Confirmada']:
+        flagRenda = "OPEN FINANCE"
+    elif fonteRenda in ['06. Servidor Público']:
+        flagRenda = "OPEN FINANCE SERVIDOR"
+    else:
+        flagRenda = "OPEN FINANCE MODELO"
         
     payload['payloadHomol']['saidas']['flagTipoRenda'] = flagRenda
-
     return payload
 
+
+# 1. Hard Filters ( REGRA DE HARD FILTERS )
 # 1. Hard Filters ( REGRA DE HARD FILTERS )
 def HardFilters(payload):
     etapa = payload['etapa']
-    flagCadastroIrregular = payload['solicitante']['flagCadastroIrregular'] 
-    flagCadastroNegado = payload['solicitante']['flagCadastroNegado'] 
-    flagCadastroEmAndamento = payload['solicitante']['flagCadastroEmAndamento'] 
-    flagContaInativa = payload['solicitante']['flagContaInativa']
-    flagContaTeste = payload['solicitante']['flagContaTeste']
-    flagOSDefasado = payload['solicitante']['flagOSDefasado']
+    #flagCadastroIrregular = payload['solicitante']['flagCadastroIrregular'] 
+    #flagCadastroNegado = payload['solicitante']['flagCadastroNegado'] 
+    #flagCadastroEmAndamento = payload['solicitante']['flagCadastroEmAndamento'] 
+    #flagContaInativa = payload['solicitante']['flagContaInativa']
+    #flagContaTeste = payload['solicitante']['flagContaTeste']
+    #flagOSDefasado = payload['solicitante']['flagOSDefasado']
     statusCPF = payload['solicitante']['statusCPF'] 
     flagFraudePicPay = payload['solicitante']['flagFraudePicpay'] 
     flagFraudeCartaoPicpay = payload['solicitante']['flagFraudeCartaoPicpay']
@@ -133,7 +135,7 @@ def HardFilters(payload):
     flagFNV = payload['solicitante']['flagFNV']
     flagReneg = payload['solicitante']['flagReneg']
     flagBloqueados = payload['solicitante']['flagBloqueados']
-    
+
     regrasNegativas = payload['payloadHomol']['saidas']['regrasNegativas']
     ######################################################################################################################
 
@@ -150,217 +152,223 @@ def HardFilters(payload):
         percentualRenda = 50
         rendaLiquidaPicpay = payload['solicitante']['rendaLiquidaPicpayBatch'] # renda liquida do batch para etapa que o hard filter é flexibilizado
     else:
-        percentualRenda = 10
+        percentualRenda = 20
         rendaLiquidaPicpay = payload['solicitante']['rendaLiquidaPicpay'] # renda liquida online para etapa que o hard filter é aplicado sem flexibilização
     pct = str(percentualRenda)
 
     # FLAGS DOS HARD FILTERS - UTILIZADA HOJE PELO TIME DE POLITICAS
     # Flag cadastro irregular:
     payload['payloadHomol']['saidas']['hasInvalidRegistration'] = 0
-    if (flagCadastroIrregular == 1 or verificaNulo(flagCadastroIrregular)):
-        payload['payloadHomol']['saidas']['hasInvalidRegistration'] = 1
-        passouFlagHardFilter = 1
+    #if (flagCadastroIrregular == 1):
+    #    payload['payloadHomol']['saidas']['hasInvalidRegistration'] = 1
+    #    passouFlagHardFilter = 1
 
     # Cadastro Negado ou Cadastro Em Andamento
     payload['payloadHomol']['saidas']['hasDeniedOngoingRegistration'] = 0
-    if (flagCadastroNegado == 1 or verificaNulo(flagCadastroNegado) or flagCadastroEmAndamento == 1 or verificaNulo(flagCadastroEmAndamento)):
-        payload['payloadHomol']['saidas']['hasDeniedOngoingRegistration'] = 1
-        passouFlagHardFilter = 2
+    #if (flagCadastroNegado == 1 or flagCadastroEmAndamento == 1):
+    #    payload['payloadHomol']['saidas']['hasDeniedOngoingRegistration'] = 1
+    #    passouFlagHardFilter = 2
 
     # Conta Inativa ou Conta Teste PicPay
     payload['payloadHomol']['saidas']['hasDeactivatedOrTestAccount'] = 0
-    if (flagContaInativa == 1 or verificaNulo(flagContaInativa) or flagContaTeste == 1 or verificaNulo(flagContaTeste)):
-        payload['payloadHomol']['saidas']['hasDeactivatedOrTestAccount'] = 1
-        passouFlagHardFilter = 3
+    #if (flagContaInativa == 1 or flagContaTeste == 1):
+    #    payload['payloadHomol']['saidas']['hasDeactivatedOrTestAccount'] = 1
+    #    passouFlagHardFilter = 3
 
     # Sistema Operacional Defasado
     payload['payloadHomol']['saidas']['hasOutdatedOs'] = 0
-    if (flagOSDefasado == 1 or verificaNulo(flagOSDefasado)):
-        payload['payloadHomol']['saidas']['hasOutdatedOs'] = 1
-        passouFlagHardFilter = 4
+    #if (flagOSDefasado == 1):
+    #    payload['payloadHomol']['saidas']['hasOutdatedOs'] = 1
+    #    passouFlagHardFilter = 4
 
     # CPF Invalido
     payload['payloadHomol']['saidas']['isInvalidCpf'] = 0
-    if (statusCPF in ['PENDENTE','CANCELADO','SUSPENSA','-99999']):
+    if (statusCPF in ['PENDENTE','CANCELADO','SUSPENSA']):
         payload['payloadHomol']['saidas']['isInvalidCpf'] = 1
         passouFlagHardFilter = 5
 
     # Obito
     payload['payloadHomol']['saidas']['isDeadUser'] = 0
-    if (statusCPF in ['TITULAR FALECIDO','-99999']):
+    if (statusCPF in ['TITULAR FALECIDO']):
         payload['payloadHomol']['saidas']['isDeadUser'] = 1
         passouFlagHardFilter = 6
 
     # Fraude PicPay
     payload['payloadHomol']['saidas']['isFraudPP'] = 0
-    if (flagFraudePicPay == 1 or verificaNulo(flagFraudePicPay) or flagFraudeCartaoPicpay == 1 or verificaNulo(flagFraudeCartaoPicpay) or flagHoldForced == 1 or verificaNulo(flagHoldForced)):
+    if (flagFraudePicPay == 1 or flagFraudeCartaoPicpay == 1 or flagHoldForced == 1):
         payload['payloadHomol']['saidas']['isFraudPP'] = 1
         passouFlagHardFilter = 7
 
     # Chargeback PicPay
     payload['payloadHomol']['saidas']['isChargebackPP'] = 0
-    if (flagChargebackPicPay == 1 or verificaNulo(flagChargebackPicPay)):
+    if (flagChargebackPicPay == 1):
         payload['payloadHomol']['saidas']['isChargebackPP'] = 1
         passouFlagHardFilter = 8
 
     # idade
     payload['payloadHomol']['saidas']['isOutAgeRange'] = 0
-    if (idade <= 20 or idade >= 80 or verificaNulo(idade)):
+    if (idade < 18 or idade >= 80 or idade == -99999):
         payload['payloadHomol']['saidas']['isOutAgeRange'] = 1
         passouFlagHardFilter = 9
 
     # Atraso PicPay
     payload['payloadHomol']['saidas']['isDelayPP'] = 0
-    if (max(qtdDiasAtrasoCartao,qtdDiasAtrasoParcelados,qtdDiasAtrasoBNPLMova,qtdDiasAtrasoP2PL) > 5 or verificaNulo(qtdDiasAtrasoCartao) or verificaNulo(qtdDiasAtrasoParcelados) or verificaNulo(qtdDiasAtrasoBNPLMova) or verificaNulo(qtdDiasAtrasoP2PL)):
+    if (max(qtdDiasAtrasoCartao,qtdDiasAtrasoParcelados,qtdDiasAtrasoBNPLMova,qtdDiasAtrasoP2PL) > 5):
         payload['payloadHomol']['saidas']['isDelayPP'] = 1 
         passouFlagHardFilter = 10
 
     # Atraso Original
     payload['payloadHomol']['saidas']['isDelayOr'] = 0
-    if (max(qtdDiasAtrasoCartao,qtdDiasAtrasoParcelados) > 5 or verificaNulo(qtdDiasAtrasoCartao) or verificaNulo(qtdDiasAtrasoParcelados)):
+    if (max(qtdDiasAtrasoCartao,qtdDiasAtrasoParcelados) > 5):
         payload['payloadHomol']['saidas']['isDelayOr'] = 1
         passouFlagHardFilter = 11
 
     # Reneg ou FNV Ativo
     payload['payloadHomol']['saidas']['isRenegFNV'] = 0
-    if (flagFNV == 1 or flagReneg == 1 or flagBloqueados == 1 or verificaNulo(flagFNV) or verificaNulo(flagReneg) or verificaNulo(flagBloqueados)):
+    if (flagFNV == 1 or flagReneg == 1 or flagBloqueados == 1 ):
         payload['payloadHomol']['saidas']['isRenegFNV'] = 1
         passouFlagHardFilter = 12
 
     # Valor de Restritivo BVS >= PCT da Renda
     payload['payloadHomol']['saidas']['hasRestrictionBVS'] = 0
-    if ((max(vlrMaxRestritivosBVSM1,vlrMaxRestritivosBVSM2,vlrMaxRestritivosBVSM3) >= (percentualRenda/100)*rendaLiquidaPicpay) or verificaNulo(vlrMaxRestritivosBVSM1) or verificaNulo(vlrMaxRestritivosBVSM2) or verificaNulo(vlrMaxRestritivosBVSM3) or verificaNulo(rendaLiquidaPicpay)):
+    if ((max(vlrMaxRestritivosBVSM1,vlrMaxRestritivosBVSM2,vlrMaxRestritivosBVSM3) >= (percentualRenda/100)*rendaLiquidaPicpay)):
         payload['payloadHomol']['saidas']['hasRestrictionBVS'] = 1
         passouFlagHardFilter = 13
 
     # Valor de Restritivo Serasa >= PCT da Renda
     payload['payloadHomol']['saidas']['hasRestrictionSerasa'] = 0
-    if ((vlrMaxRestritivosSerasa90Dias >= (percentualRenda/100)*rendaLiquidaPicpay) or verificaNulo(vlrMaxRestritivosSerasa90Dias) or verificaNulo(rendaLiquidaPicpay)):
+    if ((vlrMaxRestritivosSerasa90Dias >= (percentualRenda/100)*rendaLiquidaPicpay)):
         payload['payloadHomol']['saidas']['hasRestrictionSerasa'] = 1
         passouFlagHardFilter = 14
 
     # Desenrola
     payload['payloadHomol']['saidas']['isUserDesenrola'] = 0
-    if (flagDesenrola == 1 or verificaNulo(flagDesenrola)):
+    if (flagDesenrola == 1):
         payload['payloadHomol']['saidas']['isUserDesenrola'] = 1
         passouFlagHardFilter = 15
         
     # No Hit Bureaus
     payload['payloadHomol']['saidas']['isNoHitBureau'] = 0
     if  ((payload['payloadHomol']['saidas']['hasInvalidRegistration'] +
-          payload['payloadHomol']['saidas']['hasDeniedOngoingRegistration'] +
-          payload['payloadHomol']['saidas']['hasDeactivatedOrTestAccount'] +
-          payload['payloadHomol']['saidas']['hasOutdatedOs'] +
-          payload['payloadHomol']['saidas']['isInvalidCpf'] +
-          payload['payloadHomol']['saidas']['isDeadUser'] +
-          payload['payloadHomol']['saidas']['isFraudPP'] +
-          payload['payloadHomol']['saidas']['isChargebackPP'] +
-          payload['payloadHomol']['saidas']['isOutAgeRange'] +
-          payload['payloadHomol']['saidas']['isDelayPP'] +
-          payload['payloadHomol']['saidas']['isDelayOr'] +
-          payload['payloadHomol']['saidas']['isRenegFNV'] +
-          payload['payloadHomol']['saidas']['hasRestrictionBVS'] +
-          payload['payloadHomol']['saidas']['hasRestrictionSerasa'] +
-          payload['payloadHomol']['saidas']['isUserDesenrola']) == 0 and rendaLiquidaPicpay == -99999):
+            payload['payloadHomol']['saidas']['hasDeniedOngoingRegistration'] +
+            payload['payloadHomol']['saidas']['hasDeactivatedOrTestAccount'] +
+            payload['payloadHomol']['saidas']['hasOutdatedOs'] +
+            payload['payloadHomol']['saidas']['isInvalidCpf'] +
+            payload['payloadHomol']['saidas']['isDeadUser'] +
+            payload['payloadHomol']['saidas']['isFraudPP'] +
+            payload['payloadHomol']['saidas']['isChargebackPP'] +
+            payload['payloadHomol']['saidas']['isOutAgeRange'] +
+            payload['payloadHomol']['saidas']['isDelayPP'] +
+            payload['payloadHomol']['saidas']['isDelayOr'] +
+            payload['payloadHomol']['saidas']['isRenegFNV'] +
+            payload['payloadHomol']['saidas']['hasRestrictionBVS'] +
+            payload['payloadHomol']['saidas']['hasRestrictionSerasa'] +
+            payload['payloadHomol']['saidas']['isUserDesenrola']) == 0 and rendaLiquidaPicpay == -99999):
         payload['payloadHomol']['saidas']['isNoHitBureau'] = 1
         passouFlagHardFilter = 16
-    
+
     # MENSAGEM DOS HARD FILTERS - POR PRIORIZAÇÃO DAS FLAGS.
 
-    if (payload['payloadHomol']['saidas']['hasInvalidRegistration'] == 1):
-        hardFilter = "02. Cadastro Irregular"
-        statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
-        passouMsgHardFilter = 1
+    #if (payload['payloadHomol']['saidas']['hasInvalidRegistration'] == 1):
+    #    hardFilter = "02. Cadastro Irregular"
+    #    statusDecisao = "NEGADO"
+    #    regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+    #    passouMsgHardFilter = 1
 
-    elif (payload['payloadHomol']['saidas']['hasDeniedOngoingRegistration'] == 1):
-        hardFilter = "03. Cadastro Negado ou Em Andamento"
-        statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
-        passouMsgHardFilter = 2
+    #elif (payload['payloadHomol']['saidas']['hasDeniedOngoingRegistration'] == 1):
+    #    hardFilter = "03. Cadastro Negado ou Em Andamento"
+    #    statusDecisao = "NEGADO"
+    #    regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+    #    passouMsgHardFilter = 2
 
-    elif (payload['payloadHomol']['saidas']['hasDeactivatedOrTestAccount'] == 1):
-        hardFilter = "04. Conta Inativa ou Conta Teste PicPay"
-        statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
-        passouMsgHardFilter = 3
+    #elif (payload['payloadHomol']['saidas']['hasDeactivatedOrTestAccount'] == 1):
+    #    hardFilter = "04. Conta Inativa ou Conta Teste PicPay"
+    #    statusDecisao = "NEGADO"
+    #    regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+    #    passouMsgHardFilter = 3
 
-    elif (payload['payloadHomol']['saidas']['hasOutdatedOs'] == 1):
-        hardFilter = "05. Sistema Operacional Defasado"
-        statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
-        passouMsgHardFilter = 4
+    #elif (payload['payloadHomol']['saidas']['hasOutdatedOs'] == 1):
+    #    hardFilter = "05. Sistema Operacional Defasado"
+    #    statusDecisao = "NEGADO"
+    #    regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+    #    passouMsgHardFilter = 4
 
-    elif (payload['payloadHomol']['saidas']['isInvalidCpf']  == 1):
+    if (payload['payloadHomol']['saidas']['isInvalidCpf']  == 1):
         hardFilter = "06. CPF Invalido"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+        regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '129. CPF invalido'})
         passouMsgHardFilter = 5
 
     elif (payload['payloadHomol']['saidas']['isDeadUser'] == 1):
         hardFilter = "07. Obito"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+        regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '40. Obito = SIM'})
         passouMsgHardFilter = 6
 
     elif (payload['payloadHomol']['saidas']['isFraudPP']  == 1):
         hardFilter = "09. Fraude PicPay"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+        regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '21. Status fraude'})
         passouMsgHardFilter = 7
 
     elif (payload['payloadHomol']['saidas']['isChargebackPP'] == 1):
         hardFilter = "10. Chargeback PicPay"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+        regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '130. Chargeback PicPay'})
         passouMsgHardFilter = 8
 
     elif (payload['payloadHomol']['saidas']['isOutAgeRange']  == 1):
-        hardFilter = "11. Idade <= 20 ou >= 80"
+        hardFilter = "11. Idade < 18 ou >= 80"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+        regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '131. Idade < 18 ou >= 80'})
         passouMsgHardFilter = 9
 
     elif (payload['payloadHomol']['saidas']['isDelayPP'] == 1):
         hardFilter = "12. Atraso PicPay"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})  
+        regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '132. Atraso PicPay'})  
         passouMsgHardFilter = 10
 
     elif (payload['payloadHomol']['saidas']['isDelayOr'] == 1):
         hardFilter = "13. Atraso Original"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})  
+        regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '133. Atraso Original'})  
         passouMsgHardFilter = 11
 
     elif (payload['payloadHomol']['saidas']['isRenegFNV'] == 1):
         hardFilter = "14. Reneg ou FNV Ativo"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+        regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '134. Reneg ou FNV ativo'})
         passouMsgHardFilter = 12
 
     elif (payload['payloadHomol']['saidas']['hasRestrictionBVS'] == 1):
         hardFilter = "15. Valor de Restritivo BVS >= " + pct + "% da Renda"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+        if etapa == "":
+            regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '135. Valor de Restritivo BVS >= 50% da Renda'})
+        else:
+            regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '139. Valor de Restritivo BVS >= 20% da Renda'})
         passouMsgHardFilter = 13
 
     elif (payload['payloadHomol']['saidas']['hasRestrictionSerasa'] == 1):
         hardFilter = "16. Valor de Restritivo Serasa >= " + pct + "% da Renda"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+        if etapa == "":
+            regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '136. Valor de Restritivo Serasa >= 50% da Renda'})
+        else:
+            regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '140. Valor de Restritivo Serasa >= 20% da Renda'})
         passouMsgHardFilter = 14
 
     elif (payload['payloadHomol']['saidas']['isUserDesenrola'] == 1):
         hardFilter = "24. Desenrola"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+        regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '137. Desenrola'})
         passouMsgHardFilter = 15
 
     elif  (payload['payloadHomol']['saidas']['isNoHitBureau'] == 1):
         hardFilter = "25. No hit Bureaus"
         statusDecisao = "NEGADO"
-        regrasNegativas.append({'nomeRegra': 'hardFilter','descricao': hardFilter})
+        regrasNegativas.append({'nomeRegra': 'hardFilters','descricao': '138.  No hit Bureaus'})
         passouMsgHardFilter = 16
 
     else:
@@ -531,64 +539,69 @@ def RendaInexistente(payload):
     return payload
 
 #Cliente novo
-def ClienteNovo(payload):
-    hojeDate = date.today()  # Avaliar como pegar o dia da execução, pois teremos problemas no Pós acomp pois talvez a data da execução não será a mesma na qual avaliaremos a log
-    dataCriacaoConta = payload['solicitante']['dataRegistro']
-    dataCriacaoContaDate = datetime.datetime.strptime(dataCriacaoConta[:10], "%Y-%m-%d").date() # FORMATA A DATA EM YYYY-MM-DD
-    ######################################################################################################################
-    if verificaNulo(dataCriacaoConta):
-        flagClienteNovo = 0
-        regraClienteNovo = 1
-    else:
-        delta = hojeDate - dataCriacaoContaDate
-        if delta.days <= 60:
-            flagClienteNovo = 1
-            regraClienteNovo = 2
-        else:
-            flagClienteNovo = 0
-            regraClienteNovo = 3
+# def ClienteNovo(payload):
+#     hojeDate = date.today()  # Avaliar como pegar o dia da execução, pois teremos problemas no Pós acomp pois talvez a data da execução não será a mesma na qual avaliaremos a log
+#     dataCriacaoConta = payload['solicitante']['dataRegistro']
+#     dataCriacaoContaDate = datetime.datetime.strptime(dataCriacaoConta[:10], "%Y-%m-%d").date() # FORMATA A DATA EM YYYY-MM-DD
+#     ######################################################################################################################
+#     if verificaNulo(dataCriacaoConta):
+#         flagClienteNovo = 0
+#         regraClienteNovo = 1
+#     else:
+#         delta = hojeDate - dataCriacaoContaDate
+#         if delta.days <= 60:
+#             flagClienteNovo = 1
+#             regraClienteNovo = 2
+#         else:
+#             flagClienteNovo = 0
+#             regraClienteNovo = 3
 
-    payload['payloadHomol']['intermediarias']['flagClienteNovo'] = flagClienteNovo
-    payload['payloadHomol']['intermediarias']['regraflagClienteNovo'] = regraClienteNovo # questões de debug
+#     payload['payloadHomol']['intermediarias']['flagClienteNovo'] = flagClienteNovo
+#     payload['payloadHomol']['intermediarias']['regraflagClienteNovo'] = regraClienteNovo # questões de debug
 
-    return payload
+#     return payload
 
 #Não Cliente (Mar Aberto)
-def NaoCliente(payload):
-    dataCriacaoConta = payload['solicitante']['dataRegistro']
-    consumerID = payload['solicitante']['consumerID']
-    ######################################################################################################################
-    if verificaNulo(dataCriacaoConta) and  verificaNulo(consumerID):
-        flagNaoCliente = 1
-    else:
-        flagNaoCliente = 0
+# def NaoCliente(payload):
+#     dataCriacaoConta = payload['solicitante']['dataRegistro']
+#     consumerID = payload['solicitante']['consumerID']
+#     ######################################################################################################################
+#     if verificaNulo(dataCriacaoConta) and  verificaNulo(consumerID):
+#         flagNaoCliente = 1
+#     else:
+#         flagNaoCliente = 0
 
-    payload['payloadHomol']['intermediarias']['flagNaoCliente'] = flagNaoCliente
+#     payload['payloadHomol']['intermediarias']['flagNaoCliente'] = flagNaoCliente
 
+#     return payload
+
+def criaPriorizaçãoeFaixas(payload):
+    # ClienteNovo(payload)
+    # NaoCliente(payload) #
+    CriacaoModelosPriorizacao(payload)  # Modulo de priorização das variaveis gh e score
+    SemInfoScore(payload)
+    FaixaScoreInternoCurto(payload)  #alterado
+    FaixaScoreExterno(payload)
+    
     return payload
-
-
+    
+    
+    
 #Sem Informação de Score
 def SemInfoScore(payload):
-    scoreInternoLongo = payload['solicitante']['scoreInternoLongo']
-    scoreInterno = payload['solicitante']['scoreInterno']
-    flagClienteExistente = payload['payloadHomol']['intermediarias']['flagClienteExistente']
-    flagNaoCliente = payload['payloadHomol']['intermediarias']['flagNaoCliente'] 
-    flagClienteNovo = payload['payloadHomol']['intermediarias']['flagClienteNovo']
-    scoreExterno = payload['solicitante']['scoreExterno']
+
+ 
+    scoreFinal = payload['payloadHomol']['saidas']['scoreFinal']
     ######################################################################################################################
 
-    if (flagClienteExistente == 1 and 
-        (verificaNulo(scoreInternoLongo) or scoreInternoLongo <= -1 or verificaNulo(scoreInterno) or scoreInterno <= -1)
-       ):
-        semInfoScore = 1
-    elif ((flagNaoCliente == 1 or  flagClienteNovo == 1) and (verificaNulo(scoreExterno) or scoreExterno <= -1)):
+    
+    if (verificaNulo(scoreFinal) or scoreFinal <= -1):
         semInfoScore = 1
     else:
         semInfoScore = 0
 
     payload['payloadHomol']['intermediarias']['semInfoScore'] = semInfoScore
-
+    
     return payload
 
 #Valor Total Investido
@@ -718,74 +731,80 @@ def ClienteBloqueado(payload):
 def CriacaoModelosPriorizacao(payload):
     #Criação Modelos de Priorização
 
+
+## ------------------ONLINE RAVEN ----------------------------------------- ##
     #credit_appcards_blend_intern
-    ghAppcardsBlendInterno = payload['solicitante']['ghAppcardsBlendInterno']
+    ghAppcardsBlendInternoOnline = payload['solicitante']['ghAppcardsBlendInternoOnline']
     scoreAppcardsBlendInternoOnline = payload['solicitante']['scoreAppcardsBlendInternoOnline']
     
     #credit_appcards_blend_extern
-    ghAppcardsBlendExterno = payload['solicitante']['ghAppcardsBlendExterno']
+    ghAppcardsBlendExternoOnline = payload['solicitante']['ghAppcardsBlendExternoOnline']
     scoreAppcardsBlendExternoOnline = payload['solicitante']['scoreAppcardsBlendExternoOnline']
-    
+
+## ------------------------------------------------------------------------ ##
+
     #Origem Aurora
     ghAppcardsBlendIntExt = payload['solicitante']['ghBlendIntExt']
-    scoreAppcardsBlendIntExtOnline = payload['solicitante']['scoreBlendIntExtOnline']
+    scoreAppcardsBlendIntExt = payload['solicitante']['scoreBlendIntExt']
     
     #Origem Serasa
     ghAppcardsSerasa = payload['solicitante']['ghSerasa']
-    scoreAppcardsSerasaOnline = payload['solicitante']['scoreSerasaAlOnline']
+    scoreAppcardsSerasa = payload['solicitante']['scoreSerasaAl']
     
     ghFinal = "missing"
     scoreFinal = -1
-    origemModeloApplication = 'missing'   
+    origemModeloApplication = 'missing'
     
-    if ghAppcardsBlendInterno != "missing" and ghAppcardsBlendInterno != "0":
-        ghFinal = ghAppcardsBlendInterno
-        regraGhFinal = 1
-    elif (ghAppcardsBlendInterno == "missing" or ghAppcardsBlendInterno == "0") and (ghAppcardsBlendIntExt != "missing" and ghAppcardsBlendIntExt != "0"):
-        ghFinal = ghAppcardsBlendIntExt
-        regraGhFinal = 2
-    elif (ghAppcardsBlendInterno == "missing" or ghAppcardsBlendInterno == "0") and (ghAppcardsBlendIntExt == "missing" or ghAppcardsBlendIntExt == "0") and (ghAppcardsBlendExterno != "missing" and ghAppcardsBlendExterno != "0"):
-        ghFinal = ghAppcardsBlendExterno
-        regraGhFinal = 3
-    elif (ghAppcardsBlendInterno == "missing" or ghAppcardsBlendInterno == "0") and (ghAppcardsBlendIntExt == "missing" or ghAppcardsBlendIntExt == "0") and (ghAppcardsBlendExterno == "missing" or ghAppcardsBlendExterno == "0") and (ghAppcardsSerasa != "missing" and ghAppcardsSerasa != "0"):
-        ghFinal = ghAppcardsSerasa
-        regraGhFinal = 4
-    else: regraGhFinal = 5
-        
-    if scoreAppcardsBlendInternoOnline != -1:
-        scoreFinal = scoreAppcardsBlendInternoOnline
-        regraScoreFinal = 1
-        origemModeloApplication = 'Interno + Serasa + SCR'
-    elif scoreAppcardsBlendInternoOnline == -1 and scoreAppcardsBlendIntExtOnline != -1:
-        scoreFinal = scoreAppcardsBlendIntExtOnline
-        origemModeloApplication = 'Interno + Serasa'
-        regraScoreFinal = 2
-    elif scoreAppcardsBlendInternoOnline == -1 and scoreAppcardsBlendIntExtOnline == -1 and scoreAppcardsBlendExternoOnline != -1:
-        scoreFinal = scoreAppcardsBlendExternoOnline
-        origemModeloApplication = ' Serasa + SCR'
-        regraScoreFinal = 3
-    elif scoreAppcardsBlendInternoOnline == -1 and scoreAppcardsBlendIntExtOnline == -1 and scoreAppcardsBlendExternoOnline == -1 and scoreAppcardsSerasaOnline != -1:
-        scoreFinal = scoreAppcardsSerasaOnline
-        origemModeloApplication = 'Serasa'
-        regraScoreFinal = 4
-    else: regraScoreFinal = 5
-        
-        
-    # if scoreFinal == scoreAppcardsBlendInternoOnline:
-    #     origemModeloApplication = 'Interno + Serasa + SCR'
-    #     regraorigemModeloApplication = 1
-    # elif scoreFinal == scoreAppcardsBlendIntExtOnline:
-    #     origemModeloApplication = 'Interno + Serasa'
-    #     regraorigemModeloApplication = 2
-    # elif scoreFinal == scoreAppcardsBlendExternoOnline:
-    #     origemModeloApplication = ' Serasa + SCR'
-    #     regraorigemModeloApplication = 3
-    # elif scoreFinal == scoreAppcardsSerasaOnline:
-    #     origemModeloApplication = 'Serasa'
-    #     regraorigemModeloApplication = 4
-    # else: regraorigemModeloApplication = 5
+# -------------------------------- BATCH -----------------------------------#
+
+    scoreBlendFinal = payload['solicitante']['blendFinalAl']
+    ghFinalSCR = payload['solicitante']['ghFinalScr']
+    origemBlend = payload['solicitante']['origemBlend']
     
     
+    regraGhFinal = -1
+    regraScoreFinal = -1
+    # Conferir variaveis online, se elas tiverem valor -99999, usar as variaveis do batch (aurora).
+    if ghAppcardsBlendInternoOnline != "-99999" and scoreAppcardsBlendInternoOnline != -99999 and ghAppcardsBlendExternoOnline != "-99999" and scoreAppcardsBlendExternoOnline != -99999:
+        
+        if ghAppcardsBlendInternoOnline != "missing" and ghAppcardsBlendInternoOnline != "0":
+            ghFinal = ghAppcardsBlendInternoOnline
+            regraGhFinal = 1
+        elif (ghAppcardsBlendInternoOnline == "missing" or ghAppcardsBlendInternoOnline == "0") and (ghAppcardsBlendIntExt != "missing" and ghAppcardsBlendIntExt != "0" and ghAppcardsBlendIntExt != "-99999"):
+            ghFinal = ghAppcardsBlendIntExt
+            regraGhFinal = 2
+        elif (ghAppcardsBlendInternoOnline == "missing" or ghAppcardsBlendInternoOnline == "0") and (ghAppcardsBlendIntExt == "missing" or ghAppcardsBlendIntExt == "0" or ghAppcardsBlendIntExt == "-99999") and (ghAppcardsBlendExternoOnline != "missing" and ghAppcardsBlendExternoOnline != "0"):
+            ghFinal = ghAppcardsBlendExternoOnline
+            regraGhFinal = 3
+        elif (ghAppcardsBlendInternoOnline == "missing" or ghAppcardsBlendInternoOnline == "0") and (ghAppcardsBlendIntExt == "missing" or ghAppcardsBlendIntExt == "0" or ghAppcardsBlendIntExt == "-99999") and (ghAppcardsBlendExternoOnline == "missing" or ghAppcardsBlendExternoOnline == "0") and (ghAppcardsSerasa != "missing" and ghAppcardsSerasa != "0" and ghAppcardsSerasa != "-99999"):
+            ghFinal = ghAppcardsSerasa
+            regraGhFinal = 4
+        else: regraGhFinal = 5
+            
+        if scoreAppcardsBlendInternoOnline != -1 :
+            scoreFinal = scoreAppcardsBlendInternoOnline
+            regraScoreFinal = 1
+            origemModeloApplication = 'Interno + Serasa + SCR'
+        elif scoreAppcardsBlendInternoOnline == -1 and (scoreAppcardsBlendIntExt != -1 and scoreAppcardsBlendIntExt != -99999):
+            scoreFinal = scoreAppcardsBlendIntExt
+            origemModeloApplication = 'Interno + Serasa'
+            regraScoreFinal = 2
+        elif scoreAppcardsBlendInternoOnline == -1 and (scoreAppcardsBlendIntExt == -1 or scoreAppcardsBlendIntExt == -99999) and scoreAppcardsBlendExternoOnline != -1:
+            scoreFinal = scoreAppcardsBlendExternoOnline
+            origemModeloApplication = ' Serasa + SCR'
+            regraScoreFinal = 3
+        elif scoreAppcardsBlendInternoOnline == -1 and (scoreAppcardsBlendIntExt == -1 or scoreAppcardsBlendIntExt == -99999) and (scoreAppcardsBlendExternoOnline == -1) and scoreAppcardsSerasa != -1 and scoreAppcardsSerasa != -99999:
+            scoreFinal = scoreAppcardsSerasa
+            origemModeloApplication = 'Serasa'
+            regraScoreFinal = 4
+        else: regraScoreFinal = 5
+            
+    else: 
+        ghFinal = ghFinalSCR
+        scoreFinal = scoreBlendFinal
+        origemModeloApplication = origemBlend
+        
+        
     payload['payloadHomol']['saidas']['ghFinal'] = ghFinal
     payload['payloadHomol']['saidas']['scoreFinal'] = scoreFinal
     payload['payloadHomol']['saidas']['origemModeloApplication'] = origemModeloApplication
@@ -917,7 +936,7 @@ def FaixaScoreExterno(payload):
     
 def CriacaoFlagsRangesFiltros(payload): # COMO IREMOS TESTAR O TOPICO 2.1 COMO UM CONJUNTO, UMA REGRA QUE CHAMA TODAS AS FUNCOES.
 
-    # DigitoCPFConcomitanteCP(payload)
+    # DigitoCPFConcomitanteCP(payload)  #descontinuado
     RDGSmallLimits(payload)
     DataAdmissao(payload)
     DataAdmissaoMeses(payload)
@@ -926,10 +945,12 @@ def CriacaoFlagsRangesFiltros(payload): # COMO IREMOS TESTAR O TOPICO 2.1 COMO U
     ClienteMATRecorrencia(payload)
     ClienteFOPAG(payload)
     RendaInexistente(payload)
-    ClienteNovo(payload)
-    NaoCliente(payload)
+    # ClienteNovo(payload)
+    # NaoCliente(payload)
     # ScoreSerasaInvalido(payload)
-    SemInfoScore(payload)
+    #criacao dos modelos de priorizacao (ghFinal e scoreFinal). Jogado para antes do modulo sem info score.
+    # CriacaoModelosPriorizacao(payload) ### adicionado na nova versão v2 
+    # SemInfoScore(payload)   # Alterado para v2
     ValorTotalInvestido(payload)
     PercentRendaInvestimento(payload)
     InvestidorOriginal(payload)
@@ -938,16 +959,12 @@ def CriacaoFlagsRangesFiltros(payload): # COMO IREMOS TESTAR O TOPICO 2.1 COMO U
     RecorrenciaPrincipalidade(payload)
     ClienteBlindado(payload)
     ClienteBloqueado(payload)
-    #criacao dos modelos de priorizacao (ghFinal e scoreFinal)
-    # CriacaoModelosPriorizacao(payload) ### adicionado na nova versão v2 
     FaixaRendaLiquida(payload)
     FaixaRendaBruta(payload)
-    FaixaScoreInternoCurto(payload)  #alterado
-    FaixaScoreExterno(payload)   #alterado
+    # FaixaScoreInternoCurto(payload)  #alterado
+    # FaixaScoreExterno(payload)   #alterado
+    criaPriorizaçãoeFaixas(payload) # chama clienteNovo, NaoCliente, criacaoModelosPriorizacao, SemInfoScore,FaixaScoreInternoCurto e FaixaScoreExterno
 
-
-    addListaLogs(payload)
-    
     return payload
 
 ### 2 Filtros Visão Política ( Regras sem renda ) - Antigo cascata
@@ -1032,7 +1049,7 @@ def SegmentacaoNegocio(payload):
     saldoMedio = payload['solicitante']['saldoMedio']
     rendaLiquidaPicpay = payload['solicitante']['rendaLiquidaPicpay']
     flagPrincipalidadeAll = payload['solicitante']['flagPrincipalidadeAll']
-    idade = payload['idade']  #idade de solicitacao
+    idade = payload['solicitante']['idade']  #idade de solicitacao
     ######################################################################################################################  
     
     if (saldoMedio >= 100000):
@@ -1105,15 +1122,9 @@ def SegmentacaoPoliticaAntigos(payload):
 
 ### 4.3 Faixa de Risco Interno Agrupada
 def FaixaRiscoInternoAgrupada(payload):
+    
     segmentacaoPolitica = payload['payloadHomol']['intermediarias']['segmentacaoPolitica']  ## Variavel nova a ser usada na versão v2.   
-    rendaLiquidaPicpay = payload['solicitante']['rendaLiquidaPicpay']   #income_picpay
-    recorrenciaPrincipalidade = payload['payloadHomol']['intermediarias']['recorrenciaPrincipalidade']
     faixaScoreAppcardBlend = payload['payloadHomol']['intermediarias']['faixaScoreAppcardBlend']   #range_appcard_blend
-    saldoMinimoInvestidor = 100
-    saldoMinimo30d = payload['solicitante']['saldoMinimo30d']
-    MATRecorrente = payload['payloadHomol']['intermediarias']['MATRecorrente']
-    flagMAT = payload['payloadHomol']['intermediarias']['clienteMAT']
-
     ###################################################################################################################### 
     
     #"P4.3 - Alta Renda Inativo","P5.3 - Varejo+ Inativos"
@@ -1146,13 +1157,13 @@ def FaixaRiscoInternoAgrupada(payload):
         regraFaixaRiscoInternoAgrupada = 9
         
     #"P6.2 - Varejo Inativos"
-    if segmentacaoPolitica in ("P6.2 - Varejo Inativos") and faixaScoreAppcardBlend in ("R1","R2","R3"):
+    elif segmentacaoPolitica in ("P6.2 - Varejo Inativos") and faixaScoreAppcardBlend in ("R1","R2","R3"):
         faixaRiscoInternoAgrupada = 'R3'
         regraFaixaRiscoInternoAgrupada = 10
         
     #"P5.1 - Varejo+ Principalidade Renda >= 4k"
     
-    if segmentacaoPolitica in ("P5.1 - Varejo+ Principalidade Renda >= 4k") and faixaScoreAppcardBlend in ("R1","R2"):
+    elif segmentacaoPolitica in ("P5.1 - Varejo+ Principalidade Renda >= 4k") and faixaScoreAppcardBlend in ("R1","R2"):
         faixaRiscoInternoAgrupada = 'R1'
         regraFaixaRiscoInternoAgrupada = 11
     elif segmentacaoPolitica in ("P5.1 - Varejo+ Principalidade Renda >= 4k") and faixaScoreAppcardBlend == "R3":
@@ -1186,7 +1197,7 @@ def FaixaRiscoInternoAgrupada(payload):
         faixaRiscoInternoAgrupada = "R10"
         regraFaixaRiscoInternoAgrupada = 21
     else:
-        faixaRiscoInternoAgrupada == faixaScoreAppcardBlend
+        faixaRiscoInternoAgrupada = faixaScoreAppcardBlend
         regraFaixaRiscoInternoAgrupada = 22                                                 
     
     
@@ -1205,29 +1216,101 @@ def subGruposAntigo(payload):
     segmentacaoPolitica = payload['payloadHomol']['intermediarias']['segmentacaoPolitica']
     faixaRendaBruta = payload['payloadHomol']['intermediarias']['faixaRendaBruta']
     flagFuncionario = payload['solicitante']['flagFuncionario']
-    cpf6e7Digito = int(payload['payloadHomol']['intermediarias']['cpf6e7Digito'])
+    # cpf6e7DigitoInt = int(payload['payloadHomol']['intermediarias']['cpf6e7Digito']) 
+    cpf6e7Digito = int(payload['payloadHomol']['intermediarias']['cpf6e7Digito'])  #transforma pra string devido ao 0 a esquerda nas faixas
     flagCCRot = payload['solicitante']['flagCCRot']
     mediaSaldoTotal = payload['solicitante']['mediaSaldoTotal']
     ######################################################################################################################  
 
     tabelaFiltros = []
 
-    # Faixas de CPF
-    if (0 <= cpf6e7Digito <= 44):
-        faixaCPF = "0 <= ..<= 44"
-    if (45 <= cpf6e7Digito <= 89):
-        faixaCPF = "45 <= ..<= 89"
-    if (90 <= cpf6e7Digito <= 99):
-        faixaCPF = "90 <= ..<= 99"
+    # Tratamento caso o valor dos digitos do cpf venha como "0"
+    if str(cpf6e7Digito) == "0":
+        faixaCPF = "00"
+        
+        
+        
+    if ("00" <= str(cpf6e7Digito) <= "09"):
+        faixaCPF = "00 <= .. <= 09"
+    elif ("10" <= str(cpf6e7Digito) <= "19"):
+        faixaCPF = "10 <= .. <= 19"
+    elif ("20" <= str(cpf6e7Digito) <= "99"):
+        faixaCPF = "20 <= .. <= 99"
+    elif ("10" <= str(cpf6e7Digito) <= "99"):
+        faixaCPF = "10 <= .. <= 99"
+    elif ("00" <= str(cpf6e7Digito) <= "19"):
+        faixaCPF = "00 <= .. <= 19"
+    elif ("20" <= str(cpf6e7Digito) <= "99"):
+        faixaCPF = "20 <= .. <= 99"
+    elif ("00" <= str(cpf6e7Digito) <= "19"):
+        faixaCPF = "00 <= .. <= 19"
+    elif ("10" <= str(cpf6e7Digito) <= "99"):
+        faixaCPF = "10 <= .. <= 99"
+    elif ("50" <= str(cpf6e7Digito) <= "59"):
+        faixaCPF = "50 <= .. <= 59"
+    elif ("60" <= str(cpf6e7Digito) <= "99"):
+        faixaCPF = "60 <= .. <= 99"
+    elif ("00" <= str(cpf6e7Digito) <= "09"):
+        faixaCPF = "00 <= .. <= 09"
+    elif ("10" <= str(cpf6e7Digito) <= "19"):
+        faixaCPF = "10 <= .. <= 19"
+    elif ("20" <= str(cpf6e7Digito) <= "49"):
+        faixaCPF = "20 <= .. <= 49"
+    elif ("50" <= str(cpf6e7Digito) <= "59"):
+        faixaCPF = "50 <= .. <= 59"
+    elif ("60" <= str(cpf6e7Digito) <= "99"):
+        faixaCPF = "60 <= .. <= 99"
+    elif ("00" <= str(cpf6e7Digito) <= "14"):
+        faixaCPF = "00 <= .. <= 14"
+    elif ("15" <= str(cpf6e7Digito) <= "94"):
+        faixaCPF = "15 <= .. <= 94"
+    elif ("95" <= str(cpf6e7Digito) <= "99"):
+        faixaCPF = "95 <= .. <= 99"
+    elif ("00" <= str(cpf6e7Digito) <= "19"):
+        faixaCPF = "00 <= .. <= 19"
+    elif ("20" <= str(cpf6e7Digito) <= "89"):
+        faixaCPF = "20 <= .. <= 89"
+    elif ("90" <= str(cpf6e7Digito) <= "99"):
+        faixaCPF = "90 <= .. <= 99"
+    elif ("15" <= str(cpf6e7Digito) <= "94"):
+        faixaCPF = "15 <= .. <= 94"
+    elif ("10" <= str(cpf6e7Digito) <= "99"):
+        faixaCPF = "10 <= .. <= 99"
+    elif ("10" <= str(cpf6e7Digito) <= "49"):
+        faixaCPF = "10 <= .. <= 49"
+    elif ("10" <= str(cpf6e7Digito) <= "79"):
+        faixaCPF = "10 <= .. <= 79"
+    elif ("80" <= str(cpf6e7Digito) <= "99"):
+        faixaCPF = "80 <= .. <= 99"
+    elif ("00" <= str(cpf6e7Digito) <= "69"):
+        faixaCPF = "00 <= .. <= 69"
+    elif ("70" <= str(cpf6e7Digito) <= "79"):
+        faixaCPF = "70 <= .. <= 79"
 
-    if (faixaRiscoInternoAgrupada == "R4"):
-        if (0 <= cpf6e7Digito <= 49):
-            faixaCPF = "0 <= ..<= 49"
-        if (50 <= cpf6e7Digito <= 74):
-            faixaCPF = "50 <= ..<= 74"
-        if (75 <= cpf6e7Digito <= 99):
-            faixaCPF = "75 <= ..<= 99"
 
+    if (faixaRiscoInternoAgrupada == "R1"):
+        if ("00" <= str(cpf6e7Digito) <= "09"):
+            faixaCPF = "00 <= ..<= 09"
+        if (10 <= cpf6e7Digito <= 19):
+            faixaCPF = "10 <= ..<= 19"
+        if (20 <= cpf6e7Digito <= 99):
+            faixaCPF = "20 <= ..<= 99"
+        if (10 <= cpf6e7Digito <= 99):
+            faixaCPF = "10 <= ..<= 99"
+        if (10 <= cpf6e7Digito <= 79):
+            faixaCPF = "10 <= ..<= 79"
+        if (80 <= cpf6e7Digito <= 99):
+            faixaCPF = "80 <= ..<= 99"
+        if (00 <= cpf6e7Digito <= 69):
+            faixaCPF = "00 <= ..<= 69"
+        if (70 <= cpf6e7Digito <= 79):
+            faixaCPF = "70 <= ..<= 79"
+            
+    #  if (faixaRiscoInternoAgrupada == "R2"):
+         
+            
+            
+            
     # faixas de mediaSaldoTotal
     if mediaSaldoTotal >= 40000:
         mediaSaldoTotalfaixa = ">= 40000"
@@ -1240,32 +1323,38 @@ def subGruposAntigo(payload):
     if filtroNivelRangeScoreInterno.empty:
         filtroNivelRangeScoreInterno = dftabClienteAntigo.loc[(dftabClienteAntigo['rangeScoreInterno'] == "QUALQUER")]
         tabelaFiltros.append(1)
+        
     # Filtro - Nível segmentacaoPolitica
     filtroNivelSegmentacaoPolitica = filtroNivelRangeScoreInterno.loc[(filtroNivelRangeScoreInterno['segmentacaoPolitica'] == segmentacaoPolitica)]
     if filtroNivelSegmentacaoPolitica.empty:
         filtroNivelSegmentacaoPolitica = filtroNivelRangeScoreInterno.loc[(filtroNivelRangeScoreInterno['segmentacaoPolitica'] == "QUALQUER")]
         tabelaFiltros.append(2)
+        
     # Filtro - Nível faixaRendaBruta
     filtroNivelFaixaRendaBruta = filtroNivelSegmentacaoPolitica.loc[(filtroNivelSegmentacaoPolitica['faixaRendaBruta'] == faixaRendaBruta)]
     if filtroNivelFaixaRendaBruta.empty:
         filtroNivelFaixaRendaBruta = filtroNivelSegmentacaoPolitica.loc[(filtroNivelSegmentacaoPolitica['faixaRendaBruta'] == "QUALQUER")]
         tabelaFiltros.append(3)
+        
     # Filtro - Nível flagFuncionario
     filtroNivelflagFuncionario = filtroNivelFaixaRendaBruta.loc[(filtroNivelFaixaRendaBruta['flagFuncionario'] == flagFuncionario)]
     if filtroNivelflagFuncionario.empty:
         filtroNivelflagFuncionario = filtroNivelFaixaRendaBruta.loc[(filtroNivelFaixaRendaBruta['flagFuncionario'] == "QUALQUER")]
         tabelaFiltros.append(4)
-    # Filtro - Nível 5e6 Digito CPF
+        
+    # Filtro - Nível 6e7 Digito CPF
     filtroNivelCPF = filtroNivelflagFuncionario.loc[(filtroNivelflagFuncionario['cpf6e7Digito'] == faixaCPF)]
     if filtroNivelCPF.empty:
         filtroNivelCPF = filtroNivelflagFuncionario.loc[(filtroNivelflagFuncionario['cpf6e7Digito'] == "QUALQUER")]
         tabelaFiltros.append(5)
+        
     # FILTROS PARA DIFERENCIAR OS PERFIS DE INVESTIDOR
     # Filtro - rotativoCCBacen
     filtroNivelrotativoCCBacen = filtroNivelCPF.loc[(filtroNivelCPF['FLAG_CC_ROT'] == str(flagCCRot))]
     if filtroNivelrotativoCCBacen.empty:
         filtroNivelrotativoCCBacen = filtroNivelCPF.loc[(filtroNivelCPF['FLAG_CC_ROT'] == "QUALQUER")]
         tabelaFiltros.append(6)
+        
     # Filtro - mean_total_balance_d0
     filtroSaldoTotal = filtroNivelrotativoCCBacen.loc[(filtroNivelrotativoCCBacen['mean_total_balance_d0'] == mediaSaldoTotalfaixa)]
     if filtroSaldoTotal.empty:
@@ -1341,12 +1430,12 @@ def FlagAprovadoBAU(payload):
 
 # Flag Aprovado SL - Regra igual para já cliente e mar aberto
 def FlagAprovadoSL(payload):
-    aprovadoBAUAux = payload['payloadHomol']["intermediarias"]["aprovadoBAUAux"]
+    aprovadoSLAuxiliar = payload['payloadHomol']["intermediarias"]["aprovadoSLAux"] # vem da tabela
     # flagConcomitanteSLCP = payload['payloadHomol']['intermediarias']['flagConcomitanteSLCP']
     mensagemFinal = payload['payloadHomol']['saidas']['mensagemFinal'] # vem do processo de hard filters
     ######################################################################################################################  
 
-    if (mensagemFinal == "99. Accepted" and aprovadoBAUAux == 1): #and flagConcomitanteSLCP == 0
+    if (mensagemFinal == "99. Accepted" and aprovadoSLAuxiliar == 1): #and flagConcomitanteSLCP == 0
         flagAprovadoSL = 1
     else:
         flagAprovadoSL = 0
@@ -1779,7 +1868,7 @@ def validaSerasa0IF (payload):
                     
                     ## subgrupo small limits
                     if segmentacaoSubGrupo in ('VR_M_10', 'VR_I_10', 'VR_I_9', 'VR_09'):
-                        limiteSmall = payload['solicitante']['limites']['limiteDisponivel']   # Verificar se esta correto
+                        limiteSmall = payload['solicitante']['limites']['limiteDisponivel']
                     elif SegmentacaoNegocio == "Jovem Cliente" or segmentacaoPolitica == "N3 – Jovem Cliente":
                         limiteSmall = payload['solicitante']['limites']['limiteDisponivel']
 
@@ -1855,6 +1944,7 @@ def validaSerasa0IF (payload):
 
 #bacen       
 # # BACEN SEM 0IF E SMALL LIMITS
+# # BACEN SEM 0IF E SMALL LIMITS
 def validaBacen(payload):
 
     flagErroBacen = payload['flagErroBacen']
@@ -1863,10 +1953,12 @@ def validaBacen(payload):
 
     # FLEXIBILIZAÇÃO NA REGRA DE RENDA DEPENDENDO DA ETAPA A SER CHAMADA
     if (payload['etapa'] == 'BACEN M-1'):
-        percentualRenda = 50
+        percentualRendaGeral = 50
+        percentualRendaEspecifico = 50
         rendaLiquidaPicpay = payload['solicitante']['rendaLiquidaPicpayBatch'] # Renda Batch para aplicação do bacen flexibilizado
     else:
-        percentualRenda = 20
+        percentualRendaGeral = 20
+        percentualRendaEspecifico = 10
         rendaLiquidaPicpay = payload['solicitante']['rendaLiquidaPicpay'] # Renda Picpay liquida online para aplicação do bacen padrão
 
     regrasNegativasTemp = payload['payloadHomol']['saidas']['regrasNegativas'] 
@@ -2002,21 +2094,14 @@ def validaBacen(payload):
                         usoChequeEspecial = saldoBacenCheque/(limiteChequeDisponivel+saldoBacenCheque)
                     else:
                         usoChequeEspecial = 0
-                    if saldoVencido >= (rendaLiquidaPicpay*(percentualRenda/100)): 
+                    if saldoVencido >= (rendaLiquidaPicpay*(percentualRendaGeral/100)): 
                         flag_motivo_45 = 1
                         passouRegraBacen = 12                              
-                    if prejuizo >= (rendaLiquidaPicpay*(percentualRenda/100)): 
+                    if prejuizo >= (rendaLiquidaPicpay*(percentualRendaGeral/100)): 
                         flag_motivo_46 = 1
                         passouRegraBacen = 13
-                        
-                    ### 50% na etapa "BACEN M-1" e continua usando 10% nas etapas posteriores (utilizando renda recalculada raven).
-                    # REPETE if do começo da func para mudar percentualRenda de 20 para 10 caso etapa diferente de BACEN M-1
-                    if (payload['etapa'] == 'BACEN M-1'):
-                        percentualRenda = 50
-                    else:
-                        percentualRenda = 10
-                                   
-                    if creditoAVencerAdpos >= (rendaLiquidaPicpay*(percentualRenda/100)): 
+                                        
+                    if creditoAVencerAdpos >= (rendaLiquidaPicpay*(percentualRendaEspecifico/100)): 
                         flag_motivo_47 = 1
                         passouRegraBacen = 14
                     if saldoFinanciadoCartoes > 0.7 and (creditoAVencerCartao+creditoVencidoCartao) > 100: 
@@ -2025,22 +2110,26 @@ def validaBacen(payload):
                     if usoChequeEspecial > 0.9 and saldoBacenCheque > 100: 
                         flag_motivo_49 = 1
                         passouRegraBacen = 16
-                    if renegociacaoBacen >= (rendaLiquidaPicpay*(percentualRenda/100)): 
+                    if renegociacaoBacen >= (rendaLiquidaPicpay*(percentualRendaEspecifico/100)): 
                         flag_motivo_50 = 1
                         passouRegraBacen = 17
 
-
-                #testar
                 ## flag_motivo_45 e 46 foram flexibilizadas em 20%
                 if flag_motivo_45 == 1:
-                    payload['payloadHomol']['saidas']['statusDecisao'] = 'NEGADO'
-                    regrasNegativasTemp.append({'nomeRegra': 'rl_saldosVencidos','descricao': '125. Cliente com somatório de saldos vencidos (atraso > 15 dias) > = ' +     str(percentualRenda) + ' porcento da Renda Picpay'})
+                    payload['payloadHomol']['saidas']['statusDecisao'] = 'NEGADO'             	
+                    if (payload['etapa'] == 'BACEN M-1'):
+                        regrasNegativasTemp.append({'nomeRegra': 'rl_saldosVencidos','descricao': '45. Cliente com somatório de saldos vencidos (atraso > 15 dias) > = ' + str(percentualRendaGeral) + ' porcento da Renda Picpay'})
+                    else:
+                        regrasNegativasTemp.append({'nomeRegra': 'rl_saldosVencidos','descricao': '125. Cliente com somatorio de saldos vencidos (atraso > 15 dias) > = ' + str(percentualRendaGeral) + ' porcento da Renda Picpay'})
                 if flag_motivo_46 == 1:
                     payload['payloadHomol']['saidas']['statusDecisao'] = 'NEGADO'
-                    regrasNegativasTemp.append({'nomeRegra': 'rl_prejuizo','descricao': '126. Cliente com saldo em prejuízo >= ' + str(percentualRenda) + ' porcento da Renda Picpay'})                   
+                    if (payload['etapa'] == 'BACEN M-1'):
+                        regrasNegativasTemp.append({'nomeRegra': 'rl_prejuizo','descricao': '46. Cliente com saldo em prejuízo >= ' + str(percentualRendaGeral) + ' porcento da Renda Picpay'})                   
+                    else:
+                        regrasNegativasTemp.append({'nomeRegra': 'rl_prejuizo','descricao': '126. Cliente com saldo em prejuizo >= ' + str(percentualRendaGeral) + ' porcento da Renda Picpay'})                   
                 if flag_motivo_47 == 1:
                     payload['payloadHomol']['saidas']['statusDecisao'] = 'NEGADO'
-                    regrasNegativasTemp.append({'nomeRegra': 'rl_somatoriaADPOS','descricao': '47. Cliente com somatórios dos valores ADPOS ativo >= ' + str    (percentualRenda) + ' porcento da Renda Picpay'})
+                    regrasNegativasTemp.append({'nomeRegra': 'rl_somatoriaADPOS','descricao': '47. Cliente com somatórios dos valores ADPOS ativo >= ' + str(percentualRendaEspecifico) + ' porcento da Renda Picpay'})
                 if flag_motivo_48 == 1:
                     payload['payloadHomol']['saidas']['statusDecisao'] = 'NEGADO'
                     regrasNegativasTemp.append({'nomeRegra': 'rl_saldoFinanciadoCartoes','descricao': '48. Cliente com saldo financiado de cartões maior que 70%'})     
@@ -2049,7 +2138,7 @@ def validaBacen(payload):
                     regrasNegativasTemp.append({'nomeRegra': 'rl_chequeEspecial','descricao': '49. Cliente com uso do cheque especial maior que 90%'})
                 if flag_motivo_50 == 1:
                     payload['payloadHomol']['saidas']['statusDecisao'] = 'NEGADO'
-                    regrasNegativasTemp.append({'nomeRegra': 'rl_renegociacao','descricao': '50. Cliente com com renegociações >= ' + str(percentualRenda) + ' porcento da Renda Picpay'})
+                    regrasNegativasTemp.append({'nomeRegra': 'rl_renegociacao','descricao': '50. Cliente com com renegociações >= ' + str(percentualRendaEspecifico) + ' porcento da Renda Picpay'})
 
         else:
             payload['payloadHomol']['saidas']['statusDecisao'] = 'PENDENTE'

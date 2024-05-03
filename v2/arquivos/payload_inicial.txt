@@ -11,7 +11,6 @@
     "mensagemFiltro": "99. Accepted",
     "mensagemFiltroPolitica": "99. Accepted",
     "mensagemFiltroFinal": "99. Accepted",
-    "idade":30,
     "solicitante": {
         "credilink":{
             "situacaoDocumento":"REGULAR",
@@ -32,14 +31,17 @@
             "vlrMaxRestritivosBVSM2":0,
             "vlrMaxRestritivosBVSM3":0
         },
-        "ghAppcardsBlendInterno": "B",
+        "ghAppcardsBlendInternoOnline": "B",
         "scoreAppcardsBlendInternoOnline":500,
-        "ghAppcardsBlendExterno":"B",
+        "ghAppcardsBlendExternoOnline":"B",
         "scoreAppcardsBlendExternoOnline":500,
         "ghBlendIntExt":"E",
-        "scoreBlendIntExtOnline":500,
+        "scoreBlendIntExt":500,
         "ghSerasa":"F",
-        "scoreSerasaAlOnline":450,
+        "scoreSerasaAl":450,
+        "blendFinalAl":450,
+        "ghFinalScr": "E",
+        "origemBlend":"Interno + Serasa",
         "idade":30,
         "vlrMaxRestritivosSerasa90Dias":0,
         "indFNV":false,
@@ -143,7 +145,7 @@
             "aprovadoBAUAux":0,
             "aprovadoSLAux":0,
             "admissaoMeses":0,
-            "cpf5e6Digito":99,
+            "cpf6e7Digito":99,
             "faixaRendaBruta":"z. Verificar",
             "faixaRendaLiquida":"z. Verificar",
             "faixaRiscoInternoAgrupada":"R1",
@@ -160,7 +162,9 @@
             "semInfoScore":0,
             "saldoFinanciadoCartoes":0,
             "usoChequeEspecial":0,
-            "limiteFixo":0
+            "limiteFixo":0,
+            "flagNaoCliente":0,
+            "flagClienteNovo":0
         }
     }
 }
