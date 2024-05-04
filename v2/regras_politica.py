@@ -539,45 +539,43 @@ def RendaInexistente(payload):
     return payload
 
 #Cliente novo
-# def ClienteNovo(payload):
-#     hojeDate = date.today()  # Avaliar como pegar o dia da execução, pois teremos problemas no Pós acomp pois talvez a data da execução não será a mesma na qual avaliaremos a log
-#     dataCriacaoConta = payload['solicitante']['dataRegistro']
-#     dataCriacaoContaDate = datetime.datetime.strptime(dataCriacaoConta[:10], "%Y-%m-%d").date() # FORMATA A DATA EM YYYY-MM-DD
-#     ######################################################################################################################
-#     if verificaNulo(dataCriacaoConta):
-#         flagClienteNovo = 0
-#         regraClienteNovo = 1
-#     else:
-#         delta = hojeDate - dataCriacaoContaDate
-#         if delta.days <= 60:
-#             flagClienteNovo = 1
-#             regraClienteNovo = 2
-#         else:
-#             flagClienteNovo = 0
-#             regraClienteNovo = 3
+def ClienteNovo(payload):
+    hojeDate = date.today()  # Avaliar como pegar o dia da execução, pois teremos problemas no Pós acomp pois talvez a data da execução não será a mesma na qual avaliaremos a log
+    dataCriacaoConta = payload['solicitante']['dataRegistro']
+    dataCriacaoContaDate = datetime.datetime.strptime(dataCriacaoConta[:10], "%Y-%m-%d").date() # FORMATA A DATA EM YYYY-MM-DD
+    ######################################################################################################################
+    if verificaNulo(dataCriacaoConta):
+        flagClienteNovo = 0
+        regraClienteNovo = 1
+    else:
+        delta = hojeDate - dataCriacaoContaDate
+        if delta.days <= 60:
+            flagClienteNovo = 1
+            regraClienteNovo = 2
+        else:
+            flagClienteNovo = 0
+            regraClienteNovo = 3
 
-#     payload['payloadHomol']['intermediarias']['flagClienteNovo'] = flagClienteNovo
-#     payload['payloadHomol']['intermediarias']['regraflagClienteNovo'] = regraClienteNovo # questões de debug
+    payload['payloadHomol']['intermediarias']['flagClienteNovo'] = flagClienteNovo
+    payload['payloadHomol']['intermediarias']['regraflagClienteNovo'] = regraClienteNovo # questões de debug
 
-#     return payload
+    return payload
 
-#Não Cliente (Mar Aberto)
-# def NaoCliente(payload):
-#     dataCriacaoConta = payload['solicitante']['dataRegistro']
-#     consumerID = payload['solicitante']['consumerID']
-#     ######################################################################################################################
-#     if verificaNulo(dataCriacaoConta) and  verificaNulo(consumerID):
-#         flagNaoCliente = 1
-#     else:
-#         flagNaoCliente = 0
+# Não Cliente (Mar Aberto)
+def NaoCliente(payload):
+    dataCriacaoConta = payload['solicitante']['dataRegistro']
+    consumerID = payload['solicitante']['consumerID']
+    ######################################################################################################################
+    if verificaNulo(dataCriacaoConta) and  verificaNulo(consumerID):
+        flagNaoCliente = 1
+    else:
+        flagNaoCliente = 0
 
-#     payload['payloadHomol']['intermediarias']['flagNaoCliente'] = flagNaoCliente
+    payload['payloadHomol']['intermediarias']['flagNaoCliente'] = flagNaoCliente
 
-#     return payload
+    return payload
 
 def criaPriorizaçãoeFaixas(payload):
-    # ClienteNovo(payload)
-    # NaoCliente(payload) #
     CriacaoModelosPriorizacao(payload)  # Modulo de priorização das variaveis gh e score
     SemInfoScore(payload)
     FaixaScoreInternoCurto(payload)  #alterado
@@ -936,7 +934,7 @@ def FaixaScoreExterno(payload):
     
 def CriacaoFlagsRangesFiltros(payload): # COMO IREMOS TESTAR O TOPICO 2.1 COMO UM CONJUNTO, UMA REGRA QUE CHAMA TODAS AS FUNCOES.
 
-    # DigitoCPFConcomitanteCP(payload)  #descontinuado
+    # DigitoCPFConcomitanteCP(payload)  #descontinuado - gerava digitoCPFConcomitanteCP para uso na marcacaoAprovados (Concessao)
     RDGSmallLimits(payload)
     DataAdmissao(payload)
     DataAdmissaoMeses(payload)
@@ -945,12 +943,9 @@ def CriacaoFlagsRangesFiltros(payload): # COMO IREMOS TESTAR O TOPICO 2.1 COMO U
     ClienteMATRecorrencia(payload)
     ClienteFOPAG(payload)
     RendaInexistente(payload)
-    # ClienteNovo(payload)
-    # NaoCliente(payload)
-    # ScoreSerasaInvalido(payload)
-    #criacao dos modelos de priorizacao (ghFinal e scoreFinal). Jogado para antes do modulo sem info score.
-    # CriacaoModelosPriorizacao(payload) ### adicionado na nova versão v2 
-    # SemInfoScore(payload)   # Alterado para v2
+    ClienteNovo(payload)
+    NaoCliente(payload)
+    # ScoreSerasaInvalido(payload) #descontinuado
     ValorTotalInvestido(payload)
     PercentRendaInvestimento(payload)
     InvestidorOriginal(payload)
@@ -961,9 +956,9 @@ def CriacaoFlagsRangesFiltros(payload): # COMO IREMOS TESTAR O TOPICO 2.1 COMO U
     ClienteBloqueado(payload)
     FaixaRendaLiquida(payload)
     FaixaRendaBruta(payload)
-    # FaixaScoreInternoCurto(payload)  #alterado
-    # FaixaScoreExterno(payload)   #alterado
-    criaPriorizaçãoeFaixas(payload) # chama clienteNovo, NaoCliente, criacaoModelosPriorizacao, SemInfoScore,FaixaScoreInternoCurto e FaixaScoreExterno
+    
+     #Criacao dos modelos de priorizacao (ghFinal e scoreFinal)
+    criaPriorizaçãoeFaixas(payload) # chama criacaoModelosPriorizacao, SemInfoScore,FaixaScoreInternoCurto e FaixaScoreExterno
 
     return payload
 
@@ -1228,8 +1223,6 @@ def subGruposAntigo(payload):
     if str(cpf6e7Digito) == "0":
         faixaCPF = "00"
         
-        
-        
     if ("00" <= str(cpf6e7Digito) <= "09"):
         faixaCPF = "00 <= .. <= 09"
     elif ("10" <= str(cpf6e7Digito) <= "19"):
@@ -1430,8 +1423,8 @@ def FlagAprovadoBAU(payload):
 
 # Flag Aprovado SL - Regra igual para já cliente e mar aberto
 def FlagAprovadoSL(payload):
-    aprovadoSLAuxiliar = payload['payloadHomol']["intermediarias"]["aprovadoSLAux"] # vem da tabela
-    # flagConcomitanteSLCP = payload['payloadHomol']['intermediarias']['flagConcomitanteSLCP']
+    aprovadoSLAuxiliar = payload['payloadHomol']["intermediarias"]["aprovadoSLAux"]
+    
     mensagemFinal = payload['payloadHomol']['saidas']['mensagemFinal'] # vem do processo de hard filters
     ######################################################################################################################  
 
@@ -1465,18 +1458,13 @@ def LimiteFinal(payload):
     else:
         limiteFinal = min(max(rendaLiquidaPicpay*alavancagem,limitePiso),limiteTeto)
         limiteFinal = (round(limiteFinal/50))*50
-        
-        
+            
         ## adicionado na v2    
         if 3600 <= limiteFinal <= 4000:
             limiteFinal = 4000  #saida ou intermediaria?
         elif 9500 <= limiteFinal <= 10000:
             limiteFinal = 10000
     
-
-
-        
-        
     payload['payloadHomol']['saidas']['limiteFinal'] = limiteFinal
 
     return payload
@@ -1772,19 +1760,22 @@ def validaDadosCadastrais (payload):
 
 ## Serasa DCO e Etapa BACEN DCO
 #serasa
+
 def validaSerasa0IF (payload):
     rendaLiquidaPicpay = payload['solicitante']['rendaLiquidaPicpay']
     flagErroSerasa = payload['flagErroSerasa']
     marcacaoMesa = payload['marcacaoMesa']
     numeroDocumento = payload['solicitante']['numeroDocumento']
-    #elegivelSmallLimit = payload['solicitante']['elegivelSmallLimit']
+    
     qtdIF = payload['solicitante']['qtdIF']
     limitePoliticaConcessao = payload['limitePoliticaConcessao']
     limiteDisponivel = payload['solicitante']['limites']['limiteDisponivel']
     
+    segmentacaoNegocio = payload['payloadHomol']['intermediarias']['segmentacaoNegocio']
     segmentacaoSubGrupo = payload['payloadHomol']['intermediarias']['segmentacao']
     segmentacaoPolitica = payload['payloadHomol']['intermediarias']['segmentacaoPolitica']
     
+    passouLimiteSmall = 0
     passou0IF = 0
     passouRegrasSerasa = 0
     regrasNegativasTemp = payload['payloadHomol']['saidas']['regrasNegativas']
@@ -1857,21 +1848,25 @@ def validaSerasa0IF (payload):
                     elif cpf6e67igito >= 80 and cpf6e67igito <= 94: grupoSmall = "GRUPO 200"
                     else: grupoSmall = "SEM GRUPO"
 
-                    if grupoSmall == "GRUPO 100": limiteSmall = 100
-                    elif grupoSmall == "GRUPO 200": limiteSmall = 200
-                    else: limiteSmall = round(max(min(0.3*rendaLiquidaPicpay, 1200), 300)/50)*50
+                    if segmentacaoSubGrupo in ('VR_M_10', 'VR_I_10', 'VR_I_9', 'VR_09'):
+                        limiteSmall = limitePoliticaConcessao 
+                        passouLimiteSmall = 1
+                    elif segmentacaoNegocio == "Jovem Cliente" or segmentacaoPolitica == "N3 – Jovem Cliente":
+                        limiteSmall = limitePoliticaConcessao
+                        passouLimiteSmall = 2
+                    elif grupoSmall == "GRUPO 100": 
+                        limiteSmall = 100
+                        passouLimiteSmall = 3
+                    elif grupoSmall == "GRUPO 200": 
+                        limiteSmall = 200
+                        passouLimiteSmall = 4
+                    else: 
+                        limiteSmall = round(max(min(0.3*rendaLiquidaPicpay, 1200), 300)/50)*50
+                        passouLimiteSmall = 5
 
                     if qtdIF == 0: flagSemIF = True
                     else: flagSemIF = False
                     
-                    
-                    
-                    ## subgrupo small limits
-                    if segmentacaoSubGrupo in ('VR_M_10', 'VR_I_10', 'VR_I_9', 'VR_09'):
-                        limiteSmall = payload['solicitante']['limites']['limiteDisponivel']
-                    elif SegmentacaoNegocio == "Jovem Cliente" or segmentacaoPolitica == "N3 – Jovem Cliente":
-                        limiteSmall = payload['solicitante']['limites']['limiteDisponivel']
-
                     flag_motivo_41 = 0
                     flag_motivo_42 = 0
                     for listaRestritivosSerasa in payload['solicitante']['listaRestritivosSerasa']:
@@ -1939,6 +1934,7 @@ def validaSerasa0IF (payload):
     payload['payloadHomol']['saidas']['regrasNegativas'] = regrasNegativasTemp
     payload['payloadHomol']['intermediarias']['passou0IF'] = passou0IF
     payload['payloadHomol']['intermediarias']['passouRegrasSerasa'] = passouRegrasSerasa
+    payload['payloadHomol']['intermediarias']['passouLimiteSmall'] = passouLimiteSmall
 
     return payload
 
@@ -2200,7 +2196,7 @@ def etapaFiltrosPolitica(payload):
         else:
             payload['payloadHomol']['saidas']['etapa'] = "FIM"
 
-    addListaLogs(payload) 
+    # addListaLogs(payload) 
     return payload
 
 def etapaBacenFlex(payload):
@@ -2217,7 +2213,7 @@ def etapaBacenFlex(payload):
         else:
             payload['payloadHomol']['saidas']['etapa'] = "FIM"
 
-    addListaLogs(payload) 
+    # addListaLogs(payload) 
     return payload
 
 def etapapoliticaConcessao(payload):
