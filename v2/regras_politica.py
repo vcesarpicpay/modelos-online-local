@@ -52,10 +52,16 @@ def execucaoEndToEnd (payload_entrada):
 def execucaoModular (payload_entrada, modulo):
     
     lista_payloads = payload_entrada
-
+    
     lista_resultado = []
-
+    cont = 0 
     for payload in lista_payloads:
+        cont+=1
+        # print(cont)
+
+        if cont == 42:
+            print(json.dumps(payload,indent=4))
+  
         payload = modulo(payload)
         lista_resultado.append(payload)
 
@@ -587,11 +593,8 @@ def criaPriorizaçãoeFaixas(payload):
     
 #Sem Informação de Score
 def SemInfoScore(payload):
-
- 
     scoreFinal = payload['payloadHomol']['saidas']['scoreFinal']
     ######################################################################################################################
-
     
     if (verificaNulo(scoreFinal) or scoreFinal <= -1):
         semInfoScore = 1
@@ -798,6 +801,8 @@ def CriacaoModelosPriorizacao(payload):
         else: regraScoreFinal = 5
             
     else: 
+        regraGhFinal = 6
+        regraScoreFinal = 6
         ghFinal = ghFinalSCR
         scoreFinal = scoreBlendFinal
         origemModeloApplication = origemBlend
@@ -971,7 +976,7 @@ def FiltroVisaoPolitica(payload):
     # serasaInvalido = payload['payloadHomol']['intermediarias']['serasaInvalido']
     hardFilter = payload['payloadHomol']['saidas']['mensagemFiltro'] # Variável de Hard Filter - Essa variável é de um RMA separado de concessão
     semInfoScore = payload['payloadHomol']['intermediarias']['semInfoScore']
-    #regrasNegativas = payload['payloadHomol']['saidas']['regrasNegativas']
+    regrasNegativas = payload['payloadHomol']['saidas']['regrasNegativas']
     rendaLiquidaPicpay = payload['solicitante']['rendaLiquidaPicpayBatch']
     ######################################################################################################################  
 
@@ -992,27 +997,27 @@ def FiltroVisaoPolitica(payload):
     if (flagCartaoCreditoContratado == 1):
         mensagemFiltroPolitica = '97. PPCard Credito Contratado'
         statusDecisao = "NEGADO"
-        #regrasNegativas.append({'nomeRegra': 'FiltroVisaoPolitica','descricao': mensagemFiltroPolitica})
+        regrasNegativas.append({'nomeRegra': 'filtrosPolitica','descricao': '141. PPCard Credito Contratado'})
         passouRegraFiltros = 1
     elif (flagLimiteGarantidoContratado == 1):
         mensagemFiltroPolitica = '98. LG Contratado'
         statusDecisao = "NEGADO"
-        #regrasNegativas.append({'nomeRegra': 'FiltroVisaoPolitica','descricao': mensagemFiltroPolitica})
+        regrasNegativas.append({'nomeRegra': 'filtrosPolitica','descricao': '142. LG Contratado'})
         passouRegraFiltros = 2
     # elif (flagHardFilter == 0 and serasaInvalido == 1 and flagBlindados == 0):
     #     mensagemFiltroPolitica = '26. Score <= 454'
     #     statusDecisao = "NEGADO"
-        #regrasNegativas.append({'nomeRegra': 'FiltroVisaoPolitica','descricao': mensagemFiltroPolitica})
+        #regrasNegativas.append({'nomeRegra': 'filtrosPolitica','descricao': 'x'})
         passouRegraFiltros = 3
     elif (flagHardFilter == 0 and semInfoScore == 1 and flagBlindados == 0):
         mensagemFiltroPolitica = '27. Score Invalido Concessao'
         statusDecisao = "NEGADO"
-        #regrasNegativas.append({'nomeRegra': 'FiltroVisaoPolitica','descricao': mensagemFiltroPolitica})
+        regrasNegativas.append({'nomeRegra': 'filtrosPolitica','descricao': '143. Score Invalido Concessao'})
         passouRegraFiltros = 4
     elif (flagHardFilter == 0 and flagBlocklist == 1 and flagBlindados == 0):
         mensagemFiltroPolitica = '29. BlockList Concessao'
         statusDecisao = "NEGADO"
-        #regrasNegativas.append({'nomeRegra': 'FiltroVisaoPolitica','descricao': mensagemFiltroPolitica})
+        regrasNegativas.append({'nomeRegra': 'filtrosPolitica','descricao': '144. BlockList Concessao'})
         passouRegraFiltros = 5
     elif (flagBlindados ==  1 and flagCartaoCreditoContratado == 0 and flagLimiteGarantidoContratado == 1):
         mensagemFiltroPolitica = '99. Accepted'
@@ -1211,107 +1216,299 @@ def subGruposAntigo(payload):
     segmentacaoPolitica = payload['payloadHomol']['intermediarias']['segmentacaoPolitica']
     faixaRendaBruta = payload['payloadHomol']['intermediarias']['faixaRendaBruta']
     flagFuncionario = payload['solicitante']['flagFuncionario']
-    # cpf6e7DigitoInt = int(payload['payloadHomol']['intermediarias']['cpf6e7Digito']) 
-    cpf6e7Digito = int(payload['payloadHomol']['intermediarias']['cpf6e7Digito'])  #transforma pra string devido ao 0 a esquerda nas faixas
+    cpf6e7Digito = int(payload['payloadHomol']['intermediarias']['cpf6e7Digito']) 
     flagCCRot = payload['solicitante']['flagCCRot']
     mediaSaldoTotal = payload['solicitante']['mediaSaldoTotal']
     ######################################################################################################################  
 
     tabelaFiltros = []
 
-    # Tratamento caso o valor dos digitos do cpf venha como "0"
+    # faixaCPF = 'QUALQUER'
+
+    #Tratamento para digito 0
     if str(cpf6e7Digito) == "0":
-        faixaCPF = "00"
+        cpf6e7Digito = "00"
         
-    if ("00" <= str(cpf6e7Digito) <= "09"):
-        faixaCPF = "00 <= .. <= 09"
-    elif ("10" <= str(cpf6e7Digito) <= "19"):
-        faixaCPF = "10 <= .. <= 19"
-    elif ("20" <= str(cpf6e7Digito) <= "99"):
-        faixaCPF = "20 <= .. <= 99"
-    elif ("10" <= str(cpf6e7Digito) <= "99"):
-        faixaCPF = "10 <= .. <= 99"
-    elif ("00" <= str(cpf6e7Digito) <= "19"):
-        faixaCPF = "00 <= .. <= 19"
-    elif ("20" <= str(cpf6e7Digito) <= "99"):
-        faixaCPF = "20 <= .. <= 99"
-    elif ("00" <= str(cpf6e7Digito) <= "19"):
-        faixaCPF = "00 <= .. <= 19"
-    elif ("10" <= str(cpf6e7Digito) <= "99"):
-        faixaCPF = "10 <= .. <= 99"
-    elif ("50" <= str(cpf6e7Digito) <= "59"):
-        faixaCPF = "50 <= .. <= 59"
-    elif ("60" <= str(cpf6e7Digito) <= "99"):
-        faixaCPF = "60 <= .. <= 99"
-    elif ("00" <= str(cpf6e7Digito) <= "09"):
-        faixaCPF = "00 <= .. <= 09"
-    elif ("10" <= str(cpf6e7Digito) <= "19"):
-        faixaCPF = "10 <= .. <= 19"
-    elif ("20" <= str(cpf6e7Digito) <= "49"):
-        faixaCPF = "20 <= .. <= 49"
-    elif ("50" <= str(cpf6e7Digito) <= "59"):
-        faixaCPF = "50 <= .. <= 59"
-    elif ("60" <= str(cpf6e7Digito) <= "99"):
-        faixaCPF = "60 <= .. <= 99"
-    elif ("00" <= str(cpf6e7Digito) <= "14"):
-        faixaCPF = "00 <= .. <= 14"
-    elif ("15" <= str(cpf6e7Digito) <= "94"):
-        faixaCPF = "15 <= .. <= 94"
-    elif ("95" <= str(cpf6e7Digito) <= "99"):
-        faixaCPF = "95 <= .. <= 99"
-    elif ("00" <= str(cpf6e7Digito) <= "19"):
-        faixaCPF = "00 <= .. <= 19"
-    elif ("20" <= str(cpf6e7Digito) <= "89"):
-        faixaCPF = "20 <= .. <= 89"
-    elif ("90" <= str(cpf6e7Digito) <= "99"):
-        faixaCPF = "90 <= .. <= 99"
-    elif ("15" <= str(cpf6e7Digito) <= "94"):
-        faixaCPF = "15 <= .. <= 94"
-    elif ("10" <= str(cpf6e7Digito) <= "99"):
-        faixaCPF = "10 <= .. <= 99"
-    elif ("10" <= str(cpf6e7Digito) <= "49"):
-        faixaCPF = "10 <= .. <= 49"
-    elif ("10" <= str(cpf6e7Digito) <= "79"):
-        faixaCPF = "10 <= .. <= 79"
-    elif ("80" <= str(cpf6e7Digito) <= "99"):
-        faixaCPF = "80 <= .. <= 99"
-    elif ("00" <= str(cpf6e7Digito) <= "69"):
-        faixaCPF = "00 <= .. <= 69"
-    elif ("70" <= str(cpf6e7Digito) <= "79"):
-        faixaCPF = "70 <= .. <= 79"
+    elif str(cpf6e7Digito) in ("1","2","3","4","5","6","7","8","9"):
+        cpf6e7Digito = "0" + str(cpf6e7Digito)
+        
+    ## Criacao das Faixas de CPF de acordo com a segmentacao e faixa
+    if segmentacaoPolitica in ("P1 - Funcionarios","P2 - FOPAG","P3 - Investidor Alta Renda"):
+        faixaCPF = 'QUALQUER'
 
+    elif segmentacaoPolitica == 'P4.1 - Alta Renda Principalidade':
+        if '00' <= str(cpf6e7Digito) <= '09':
+            faixaCPF = '00<=.. <=09'
+        elif '10' <= str(cpf6e7Digito) <= '19':
+            faixaCPF = '10<= ..<=19'
+        elif '20' <= str(cpf6e7Digito) <= '99':
+            faixaCPF = '20<= ..<=99'
+        else:
+            faixaCPF = 'QUALQUER'   ## OK VALIDADO
 
-    if (faixaRiscoInternoAgrupada == "R1"):
-        if ("00" <= str(cpf6e7Digito) <= "09"):
-            faixaCPF = "00 <= ..<= 09"
-        if (10 <= cpf6e7Digito <= 19):
-            faixaCPF = "10 <= ..<= 19"
-        if (20 <= cpf6e7Digito <= 99):
-            faixaCPF = "20 <= ..<= 99"
-        if (10 <= cpf6e7Digito <= 99):
-            faixaCPF = "10 <= ..<= 99"
-        if (10 <= cpf6e7Digito <= 79):
-            faixaCPF = "10 <= ..<= 79"
-        if (80 <= cpf6e7Digito <= 99):
-            faixaCPF = "80 <= ..<= 99"
-        if (00 <= cpf6e7Digito <= 69):
-            faixaCPF = "00 <= ..<= 69"
-        if (70 <= cpf6e7Digito <= 79):
-            faixaCPF = "70 <= ..<= 79"
+    elif segmentacaoPolitica == 'P4.2 - Alta Renda MAT':
+        if '00' <= str(cpf6e7Digito) <= '09':
+            faixaCPF = '00<=.. <=09'
+        elif '10' <= str(cpf6e7Digito) <= '19':
+            faixaCPF = '10<= ..<=19'
+        elif '20' <= str(cpf6e7Digito) <= '99':
+            faixaCPF = '20<= ..<=99'
+        else:
+            faixaCPF = 'QUALQUER' ## OK VALIDADO
+
+    elif segmentacaoPolitica == 'P4.3 - Alta Renda Inativo':
+        if faixaRiscoInternoAgrupada == 'R5':
+            if '00' <= str(cpf6e7Digito) <= '19':
+                faixaCPF = '00<=.. <=19'
+            elif '20' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '20<=.. <=99'
+        else:
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00<=.. <=09'
+            elif '10' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '10<= ..<=99'
+            else:
+                faixaCPF = 'QUALQUER'  ## OK VALIDADO
+
+    elif segmentacaoPolitica == 'P5.1 - Varejo+ Principalidade Renda >= 4k':
+        if '00' <= str(cpf6e7Digito) <= '09':
+            faixaCPF = '00<=.. <=09'
+        elif '10' <= str(cpf6e7Digito) <= '19':
+            faixaCPF = '10<= ..<=19'
+        elif '20' <= str(cpf6e7Digito) <= '99':
+            faixaCPF = '20<= ..<=99'
+        else:
+            faixaCPF = 'QUALQUER' ## OK VALIDADO
+
+    elif segmentacaoPolitica == 'P5.2 - Varejo+ MAT':
+        if faixaRiscoInternoAgrupada == 'R5':
+            if '00' <= str(cpf6e7Digito) <= '19':
+                faixaCPF = '00<= ..<=19'
+            elif '20' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '20<= ..<=99'
+        else:
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00<=.. <=09'
+            elif '10' <= str(cpf6e7Digito) <= '19':
+                faixaCPF = '10<= ..<=19'
+            elif '20' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '20<= ..<=99'
+            else:
+                faixaCPF = 'QUALQUER'  ## OK VALIDADO
+
+    elif segmentacaoPolitica == 'P5.3 - Varejo+ Inativos':
+        if faixaRiscoInternoAgrupada in ('R1','R2','R3','R4'):
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00<=.. <=09'
+            elif '10' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '10<=.. <=99'
+        elif faixaRiscoInternoAgrupada == 'R5':
+            if '00' <= str(cpf6e7Digito) <= '19':
+                faixaCPF = '00<= ..<=19'
+            elif '20' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '20<= ..<=99'
+        else:
+                faixaCPF = 'QUALQUER'  ## OK VALIDADO
+
+    elif segmentacaoPolitica == 'P5.4 - Varejo+ Principalidade Renda < 4k':
+        
+        if faixaRiscoInternoAgrupada == 'R5':
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00 <= ..<= 09'
+            elif '10' <= str(cpf6e7Digito) <= '19':
+                faixaCPF = '10 <= ..<= 19'
+            elif '20' <= str(cpf6e7Digito) <= '49':
+                faixaCPF = '20 <= ..<= 49'
+            elif '50' <= str(cpf6e7Digito) <= '59':
+                faixaCPF = '50 <=.. <=59'
+            elif '60' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '60 <=.. <=99'
+                
+        elif faixaRiscoInternoAgrupada in ('R6','R7'):
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00 <= ..<= 09'
+            elif '10' <= str(cpf6e7Digito) <= '19':
+                faixaCPF = '10 <= ..<= 19'
+            elif '20' <= str(cpf6e7Digito) <= '49':
+                faixaCPF = '20 <= ..<= 49'
+            elif '50' <= str(cpf6e7Digito) <= '59':
+                faixaCPF = '50 <= ..<= 59'
+            elif '60' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '60 <= ..<= 99'
             
-    #  if (faixaRiscoInternoAgrupada == "R2"):
-         
+        elif faixaRiscoInternoAgrupada in ('R8','R9','R10'):
+            if '00' <= str(cpf6e7Digito) <= '14':
+                faixaCPF = '00 <= ..<= 14'
+            elif '15' <= str(cpf6e7Digito) <= '94':
+                faixaCPF = '15 <= ..<= 94'
+            elif '95' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '95 <= ..<= 99'
+
+        else:
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00<=.. <=09'
+            elif '10' <= str(cpf6e7Digito) <= '19':
+                faixaCPF = '10<= ..<=19'
+            elif '20' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '20<= ..<=99'   ## OK VALIDADO
+
             
+
+    elif segmentacaoPolitica == 'P6.1 - Varejo MAT':
+        if faixaRiscoInternoAgrupada == 'R5':
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00 <= ..<= 09'
+            elif '10' <= str(cpf6e7Digito) <= '19':
+                faixaCPF = '10 <= ..<= 19'
+            elif '20' <= str(cpf6e7Digito) <= '49':
+                faixaCPF = '20 <= ..<= 49'
+            elif '50' <= str(cpf6e7Digito) <= '59':
+                faixaCPF = '50 <= ..<= 59'
+            elif '60' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '60 <= ..<= 99'
+        elif faixaRiscoInternoAgrupada == "R6":
+            if '00' <= str(cpf6e7Digito) <= '19':
+                faixaCPF = '00 <= ..<= 19'
+            elif '20' <= str(cpf6e7Digito) <= '89':
+                faixaCPF = '20 <= ..<= 89'
+            elif '90' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '90 <= ..<= 99'
+
+        elif faixaRiscoInternoAgrupada == "R7":
+            if '00' <= str(cpf6e7Digito) <= '14':
+                faixaCPF = '00 <= ..<= 14'
+            elif '15' <= str(cpf6e7Digito) <= '94':
+                faixaCPF = '15 <= ..<= 94'
+            elif '95' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '95 <= ..<= 99'
+
+        elif faixaRiscoInternoAgrupada in ("R8","R9"):
+            if '00' <= str(cpf6e7Digito) <= '14':
+                faixaCPF = '00 <= ..<= 14'
+            elif '15' <= str(cpf6e7Digito) <= '94':
+                faixaCPF = '15 <= ..<= 94'
+            elif '95' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '95 <= ..<= 99'
+        elif faixaRiscoInternoAgrupada == "R10":
+            if '00' <= str(cpf6e7Digito) <= '14':
+                faixaCPF = '00 <= ..<= 14'
+            elif '15' <= str(cpf6e7Digito) <= '94':
+                faixaCPF = '15 <= .. <=94'
+            elif '95' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '95 <= ..<= 99'
+        else: 
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00<=.. <=09'
+            elif '10' <= str(cpf6e7Digito) <= '19':
+                faixaCPF = '10<= ..<=19'
+            elif '20' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '20<=.. <=99'    ## OK VALIDADO
             
+
+    elif segmentacaoPolitica == 'P6.2 - Varejo Inativos':
+
+        if faixaRiscoInternoAgrupada == 'R5':
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00 <= ..<= 09'
+            elif '10' <= str(cpf6e7Digito) <= '49':
+                faixaCPF = '10 <= ..<= 49'
+            elif '50' <= str(cpf6e7Digito) <= '59':
+                faixaCPF = '50 <= ..<= 59'
+            elif '60' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '60 <= ..<= 99'
+
+        elif faixaRiscoInternoAgrupada in ('R6','R7','R8','R9','R10'):
+            if '00' <= str(cpf6e7Digito) <= '14':
+                faixaCPF = '00 <= ..<= 14'
+            elif '15' <= str(cpf6e7Digito) <= '94':
+                faixaCPF = '15 <= ..<= 94'
+            elif '95' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '95 <= ..<= 99'
+        else:
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00<=.. <=09'
+            elif '10' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '10 <= ..<= 99'         ## OK VALIDADO
             
-    # faixas de mediaSaldoTotal
+    elif segmentacaoPolitica == 'P7.1 – Jovem Cliente Principalidade':
+
+        if faixaRiscoInternoAgrupada in ('R1','R2'):
+            if '00' <= str(cpf6e7Digito) <= '09':
+                faixaCPF = '00 <= ..<= 09'
+            elif '10' <= str(cpf6e7Digito) <= '79':
+                faixaCPF = '10 <= ..<= 79'
+            elif '80' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '80 <= ..<= 99'
+        else:
+            if '00' <= str(cpf6e7Digito) <= '14':
+                faixaCPF = '00 <= ..<= 14'
+            elif '15' <= str(cpf6e7Digito) <= '94':
+                faixaCPF = '15 <= ..<= 94'
+            elif '95' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '95 <= ..<= 99'          ## OK VALIDADO
+
+    elif segmentacaoPolitica == 'P7.2 – Jovem Cliente MAT':
+
+        if faixaRiscoInternoAgrupada in ('R1','R2'):
+            if '00' <= str(cpf6e7Digito) <= '69':
+                faixaCPF = '00 <= ..<= 69'
+            elif '70' <= str(cpf6e7Digito) <= '79':
+                faixaCPF = '70 <= ..<= 79'
+            elif '80' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '80 <= ..<= 99'
+
+        elif faixaRiscoInternoAgrupada in ('R3','R4','R5','R6','R7','R8'):
+            if '00' <= str(cpf6e7Digito) <= '79':
+                faixaCPF = '00 <= ..<= 79'
+            elif '80' <= str(cpf6e7Digito) <= '94':
+                faixaCPF = '80 <= ..<= 94'
+            elif '95' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '95 <= ..<= 99'
+        else:
+            if '00' <= str(cpf6e7Digito) <= '14':
+                faixaCPF = '00 <= ..<= 14'
+            elif '15' <= str(cpf6e7Digito) <= '94':
+                faixaCPF = '15 <= ..<= 94'
+            elif '95' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '95 <= ..<= 99'
+
+    elif segmentacaoPolitica == 'P7.3 – Jovem Cliente Inativos':
+        if faixaRiscoInternoAgrupada in ('R1','R2'):
+            if '00' <= str(cpf6e7Digito) <= '69':
+                faixaCPF = '00 <= ..<= 69'
+            elif '70' <= str(cpf6e7Digito) <= '79':
+                faixaCPF = '70 <= ..<= 79'
+            elif '80' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '80 <= ..<= 99'
+
+        elif faixaRiscoInternoAgrupada in ('R3','R4','R5','R6'):
+            if '00' <= str(cpf6e7Digito) <= '79':
+                faixaCPF = '00 <= ..<= 79'
+            elif '80' <= str(cpf6e7Digito) <= '94':
+                faixaCPF = '80 <= ..<= 94'
+            elif '95' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '95 <= ..<= 99'
+
+        else:
+            if '00' <= str(cpf6e7Digito) <= '14':
+                faixaCPF = '00 <= ..<= 14'
+            elif '15' <= str(cpf6e7Digito) <= '94':
+                faixaCPF = '15 <= ..<= 94'
+            elif '95' <= str(cpf6e7Digito) <= '99':
+                faixaCPF = '95 <= ..<= 99'
+            else:
+                faixaCPF = 'QUALQUER'
+    else:
+        faixaCPF = 'QUALQUER'
+        
+    #Faixas de mediaSaldoTotal
+
     if mediaSaldoTotal >= 40000:
         mediaSaldoTotalfaixa = ">= 40000"
     else:
         mediaSaldoTotalfaixa = "< 40000"
 
-
-    # Filtro - Nível rangeScoreInterno
+        # Filtro - Nível rangeScoreInterno
     filtroNivelRangeScoreInterno = dftabClienteAntigo.loc[(dftabClienteAntigo['rangeScoreInterno'] == faixaRiscoInternoAgrupada)]
     if filtroNivelRangeScoreInterno.empty:
         filtroNivelRangeScoreInterno = dftabClienteAntigo.loc[(dftabClienteAntigo['rangeScoreInterno'] == "QUALQUER")]
@@ -1461,7 +1658,7 @@ def LimiteFinal(payload):
             
         ## adicionado na v2    
         if 3600 <= limiteFinal <= 4000:
-            limiteFinal = 4000  #saida ou intermediaria?
+            limiteFinal = 4000
         elif 9500 <= limiteFinal <= 10000:
             limiteFinal = 10000
     
@@ -1476,16 +1673,16 @@ def SegmentacaoPoliticaMarAberto(payload):
     FoPag = payload['payloadHomol']['intermediarias']['clienteFoPag']  
     rendaLiquidaPicpay = payload['solicitante']['rendaLiquidaPicpay']
     flagClienteExistente = payload['payloadHomol']['intermediarias']['flagClienteExistente']
-    idade = payload['idade']  #idade de solicitacao
+    idade = payload['solicitante']['idade']  #idade de solicitacao
     flagFuncionario = payload['solicitante']['flagFuncionario'] # is_employee
     ######################################################################################################################  
     
     if flagClienteExistente == 0:
         if (flagFuncionario == 1):
-            segmentacaoPolitica = "N1.1 - FUNCIONARIO"
+            segmentacaoPolitica = "N1.1 – Funcionario"
         elif (FoPag == 1):
             segmentacaoPolitica = "N1.2 – FOPAG"
-        elif (idade in (18,19)):
+        elif (idade in [18,19]):
             segmentacaoPolitica = "N3 – Jovem Cliente"
         elif (rendaLiquidaPicpay < 3442.37):
             segmentacaoPolitica = "N2.1 - Varejo"
@@ -1506,98 +1703,180 @@ def SegmentacaoPoliticaMarAberto(payload):
 
 ### 5.3 Sub Gruposs ( Caselas de Clientes Novos e Mar aberto )
 def SubGruposMarAberto(payload):
-    faixaScoreExterno = payload['payloadHomol']['intermediarias']['faixaScoreExterno'] #rangeScoreInterno
+    faixaScoreExterno = payload['payloadHomol']['intermediarias']['faixaScoreExterno']
     segmentacaoPolitica = payload['payloadHomol']['intermediarias']['segmentacaoPolitica']
-    faixaRendaLiquida = payload['payloadHomol']['intermediarias']['faixaRendaLiquida']
+    faixaRendaBruta = payload['payloadHomol']['intermediarias']['faixaRendaBruta']
     dataAdmissaoMeses = payload['payloadHomol']['intermediarias']['admissaoMeses']
+    flagFuncionario = payload['solicitante']['flagFuncionario']
     cpf6e7Digito = int(payload['payloadHomol']['intermediarias']['cpf6e7Digito'])
     ######################################################################################################################  
 
     tabelaFiltros = []
 
-    # Faixas de CPF - No Público Mar Aberto temos faixas especificas para alguns scores.
-    if (faixaScoreExterno == "R5"):
-        if (0 <= cpf6e7Digito <= 44):
-            faixaCPF = "0 <= ..<= 44"
-        if (45 <= cpf6e7Digito <= 89):
-            faixaCPF = "45 <= ..<= 89"
-        if (90 <= cpf6e7Digito <= 99):
-            faixaCPF = "90 <= ..<= 99"
-    elif (faixaScoreExterno == "R6"):
-        if (0 <= cpf6e7Digito <= 40):
-            faixaCPF = "0 <= ..<= 40"
-        if (41 <= cpf6e7Digito <= 81):
-            faixaCPF = "41 <= ..<= 81"
-        if (82 <= cpf6e7Digito <= 89):
-            faixaCPF = "82 <= ..<= 89"
-        if (90 <= cpf6e7Digito <= 99):
-            faixaCPF = "90 <= ..<= 99"
-    elif (faixaScoreExterno == "R7"):
-        if (0 <= cpf6e7Digito <= 38):
-            faixaCPF = "0 <= ..<= 38"
-        if (39 <= cpf6e7Digito <= 79):
-            faixaCPF = "39 <= ..<= 79"
-        if (80 <= cpf6e7Digito <= 89):
-            faixaCPF = "80 <= ..<= 89"
-        if (90 <= cpf6e7Digito <= 99):
-            faixaCPF = "90 <= ..<= 99"
-    elif (faixaScoreExterno == "R8"):
-        if (0 <= cpf6e7Digito <= 39):
-            faixaCPF = "0 <= ..<= 39"
-        if (40 <= cpf6e7Digito <= 81):
-            faixaCPF = "40 <= ..<= 81"
-        if (82 <= cpf6e7Digito <= 89):
-            faixaCPF = "82 <= ..<= 89"
-        if (90 <= cpf6e7Digito <= 99):
-            faixaCPF = "90 <= ..<= 99"
-    elif (faixaScoreExterno == "R9"):
-        if (0 <= cpf6e7Digito <= 40):
-            faixaCPF = "0 <= ..<= 40"
-        if (41 <= cpf6e7Digito <= 82):
-            faixaCPF = "41 <= ..<= 82"
-        if (83 <= cpf6e7Digito <= 89):
-            faixaCPF = "83 <= ..<= 89"
-        if (90 <= cpf6e7Digito <= 99):
-            faixaCPF = "90 <= ..<= 99"
-    elif (faixaScoreExterno == "R10"):
-        if (0 <= cpf6e7Digito <= 26):
-            faixaCPF = "0 <= ..<= 26"
-        if (27 <= cpf6e7Digito <= 53):
-            faixaCPF = "27 <= ..<= 53"
-        if (54 <= cpf6e7Digito <= 59):
-            faixaCPF = "54 <= ..<= 59"
-        if (60 <= cpf6e7Digito <= 99):
-            faixaCPF = "60 <= ..<= 99"
+    if segmentacaoPolitica == "N2.1 - Varejo":
+        if (faixaScoreExterno == "R1"):
+            if (20 <= cpf6e7Digito <= 99):
+                faixaCPF = "20<=.. <=99"
+                passoufaixaCPF = 1
+            elif (10 <= cpf6e7Digito <= 19):
+                faixaCPF = "10<=.. <=19"
+                passoufaixaCPF = 2
+            elif (0 <= cpf6e7Digito <= 9):
+                faixaCPF = "00<=.. <=09"
+                passoufaixaCPF = 3
+            else:
+                faixaCPF = "QUALQUER"
+        elif (faixaScoreExterno == "R5"):
+            if (20 <= cpf6e7Digito <= 89):
+                faixaCPF = "20 <= ..<= 89"
+                passoufaixaCPF = 4
+            elif (0 <= cpf6e7Digito <= 19):
+                faixaCPF = "00 <= ..<= 19"
+                passoufaixaCPF = 5
+            elif (90 <= cpf6e7Digito <= 99):
+                faixaCPF = "90 <= ..<= 99"
+                passoufaixaCPF = 6
+            else:
+                faixaCPF = "QUALQUER"
+                passoufaixaCPF = 7
+        elif (faixaScoreExterno in ["R6","R7","R8","R9"]):
+            if (15 <= cpf6e7Digito <= 94):
+                faixaCPF = "15 <= ..<= 94"
+                passoufaixaCPF = 8
+            elif (0 <= cpf6e7Digito <= 14):
+                faixaCPF = "00 <= ..<= 14"
+                passoufaixaCPF = 9
+            elif (95 <= cpf6e7Digito <= 99):
+                faixaCPF = "95 <= ..<= 99"
+                passoufaixaCPF = 10
+            else:
+                faixaCPF = "QUALQUER"
+                passoufaixaCPF = 11
+        else:
+            faixaCPF = "QUALQUER"
+            passoufaixaCPF = 12
+
+    elif segmentacaoPolitica == "N2.2 - Varejo+":
+        if (faixaScoreExterno in ["R1","R2"]):
+            if (20 <= cpf6e7Digito <= 99):
+                faixaCPF = "20<=.. <=99"
+                passoufaixaCPF = 13
+            elif (10 <= cpf6e7Digito <= 19):
+                faixaCPF = "10<=.. <=19"
+                passoufaixaCPF = 14
+            elif (0 <= cpf6e7Digito <= 9):
+                faixaCPF = "00<=.. <=09"
+                passoufaixaCPF = 15
+            else:
+                faixaCPF = "QUALQUER"
+                passoufaixaCPF = 16
+        else:
+            faixaCPF = "QUALQUER"
+            passoufaixaCPF = 17
+
+    elif segmentacaoPolitica == "N2.3 - Alta Renda":
+        if (faixaScoreExterno in ["R1","R2"]):
+            if (20 <= cpf6e7Digito <= 99):
+                faixaCPF = "20<=.. <=99"
+                passoufaixaCPF = 18
+            elif (10 <= cpf6e7Digito <= 19):
+                faixaCPF = "10<=.. <=19"
+                passoufaixaCPF = 19
+            elif (0 <= cpf6e7Digito <= 9):
+                faixaCPF = "00<=.. <=09"
+                passoufaixaCPF = 20
+            else:
+                faixaCPF = "QUALQUER"
+                passoufaixaCPF = 21
+        else:
+            faixaCPF = "QUALQUER"
+            passoufaixaCPF = 22
+
+    elif segmentacaoPolitica == "N3 – Jovem Cliente":
+        if (faixaScoreExterno in ["R1","R2"]):
+            if (0 <= cpf6e7Digito <= 69):
+                faixaCPF = "00 <= ..<= 69"
+                passoufaixaCPF = 23
+            elif (70 <= cpf6e7Digito <= 79):
+                faixaCPF = "70 <= ..<= 79"
+                passoufaixaCPF = 24
+            elif (80 <= cpf6e7Digito <= 99):
+                faixaCPF = "80 <= ..<= 99"
+                passoufaixaCPF = 25
+            else:
+                faixaCPF = "QUALQUER"
+                passoufaixaCPF = 26
+        elif (faixaScoreExterno in ["R3","R4","R5","R6"]):
+            if (0 <= cpf6e7Digito <= 79):
+                faixaCPF = "00 <= ..<= 79"
+                passoufaixaCPF = 27
+            elif (80 <= cpf6e7Digito <= 94):
+                faixaCPF = "80 <= ..<= 94"
+                passoufaixaCPF = 28
+            elif (95 <= cpf6e7Digito <= 99):
+                faixaCPF = "95 <= ..<= 99"
+                passoufaixaCPF = 29
+            else:
+                faixaCPF = "QUALQUER"
+                passoufaixaCPF = 30
+        elif (faixaScoreExterno in ["R7","R8"]):
+            if (0 <= cpf6e7Digito <= 14):
+                faixaCPF = "00 <= ..<= 14"
+                passoufaixaCPF = 31
+            elif (15 <= cpf6e7Digito <= 94):
+                faixaCPF = "15 <= ..<= 94"
+                passoufaixaCPF = 32
+            elif (95 <= cpf6e7Digito <= 99):
+                faixaCPF = "95 <= ..<= 99"
+                passoufaixaCPF = 33
+            else:
+                faixaCPF = "QUALQUER"
+                passoufaixaCPF = 34
+        else:
+            faixaCPF = "QUALQUER"
+            passoufaixaCPF = 35
     else:
-         faixaCPF = "QUALQUER"
+        faixaCPF = "QUALQUER"
+        passoufaixaCPF = 36
 
     # Primeiro Filtro - Nível faixaScoreExterno
     filtroNivelRangeScoreExterno = dftabClienteMarAberto.loc[(dftabClienteMarAberto['rangeScoreExterno'] == faixaScoreExterno)]
     if filtroNivelRangeScoreExterno.empty:
         filtroNivelRangeScoreExterno = dftabClienteMarAberto.loc[(dftabClienteMarAberto['rangeScoreExterno'] == "QUALQUER")]
         tabelaFiltros.append(1)
+
     # Segundo Filtro - Nível segmentacaoPolitica
     filtroNivelSegmentacaoPolitica = filtroNivelRangeScoreExterno.loc[(filtroNivelRangeScoreExterno['segmentacaoPolitica'] == segmentacaoPolitica)]
     if filtroNivelSegmentacaoPolitica.empty:
         filtroNivelSegmentacaoPolitica = filtroNivelRangeScoreExterno.loc[(filtroNivelRangeScoreExterno['segmentacaoPolitica'] == "QUALQUER")]
         tabelaFiltros.append(2)
+
     # Terceiro Filtro - Nível faixaRenda
-    filtroNivelFaixaRenda = filtroNivelSegmentacaoPolitica.loc[(filtroNivelSegmentacaoPolitica['faixaRendaLiquida'] == faixaRendaLiquida)]
+    filtroNivelFaixaRenda = filtroNivelSegmentacaoPolitica.loc[(filtroNivelSegmentacaoPolitica['faixaRendaBruta'] == faixaRendaBruta)]
     if filtroNivelFaixaRenda.empty:
-        filtroNivelFaixaRenda = filtroNivelSegmentacaoPolitica.loc[(filtroNivelSegmentacaoPolitica['faixaRendaLiquida'] == "QUALQUER")]
+        filtroNivelFaixaRenda = filtroNivelSegmentacaoPolitica.loc[(filtroNivelSegmentacaoPolitica['faixaRendaBruta'] == "QUALQUER")]
         tabelaFiltros.append(3)
-    # Quarto Filtro - Nível dataAdmissaoMeses
-    filtroNiveldataAdmissaoMeses = filtroNivelFaixaRenda.loc[(filtroNivelFaixaRenda['dataAdmissaoMeses'].str.strip() == str(dataAdmissaoMeses))]
-    if filtroNiveldataAdmissaoMeses.empty:
-        filtroNiveldataAdmissaoMeses = filtroNivelFaixaRenda.loc[(filtroNivelFaixaRenda['dataAdmissaoMeses'] == "QUALQUER")]
+
+    # Quarto Filtro - Nível flagFuncionario
+    filtroNivelFlagFuncionario = filtroNivelFaixaRenda.loc[(filtroNivelFaixaRenda['flagFuncionario'] == flagFuncionario)]
+    if filtroNivelFlagFuncionario.empty:
+        filtroNivelFlagFuncionario = filtroNivelFaixaRenda.loc[(filtroNivelFaixaRenda['flagFuncionario'] == "QUALQUER")]
         tabelaFiltros.append(4)
+        
+    # Quarto Filtro - Nível dataAdmissaoMeses
+    filtroNiveldataAdmissaoMeses = filtroNivelFlagFuncionario.loc[(filtroNivelFlagFuncionario['dataAdmissaoMeses'].str.strip() == str(dataAdmissaoMeses))]
+    if filtroNiveldataAdmissaoMeses.empty:
+        filtroNiveldataAdmissaoMeses = filtroNivelFlagFuncionario.loc[(filtroNivelFlagFuncionario['dataAdmissaoMeses'] == "QUALQUER")]
+        tabelaFiltros.append(5)
+
     # Quinto Filtro - Nível 5e6 Digito CPF
     filtroNivelCPF = filtroNiveldataAdmissaoMeses.loc[(filtroNiveldataAdmissaoMeses['cpf6e7Digito'] == faixaCPF)]
     if filtroNivelCPF.empty:
         filtroNivelCPF = filtroNiveldataAdmissaoMeses.loc[(filtroNiveldataAdmissaoMeses['cpf6e7Digito'] == "QUALQUER")]
-        tabelaFiltros.append(5)
+        tabelaFiltros.append(6)
 
     linha_tab = filtroNivelCPF
+
     # Teste para ver se após filtrar na tabela o cliente foi encontrado
     if linha_tab.empty:
         segmentacao = "0"
@@ -1618,17 +1897,17 @@ def SubGruposMarAberto(payload):
         aprovadoSLAux       = linha_tab.iloc[0]['isApprovedSmallLimits']
         cenario             = linha_tab.iloc[0]['cenario']
 
-    payload['payloadHomol']["intermediarias"]["segmentacao"]    = str(segmentacao)           
-    payload['payloadHomol']["intermediarias"]["alavancagem"]    = float(alavancagem)            
-    payload['payloadHomol']["intermediarias"]["limiteTeto"]     = float(limiteTeto)        
-    payload['payloadHomol']["intermediarias"]["limitePiso"]     = float(limitePiso) 
-    payload['payloadHomol']["intermediarias"]["limiteFixo"]     = int((str(limiteFixo).replace("QUALQUER","0")))        
-    payload['payloadHomol']["intermediarias"]["aprovadoBAUAux"] = int(aprovadoBAUAux)         
-    payload['payloadHomol']["intermediarias"]["aprovadoSLAux"]  = int(aprovadoSLAux)         
-    payload['payloadHomol']["intermediarias"]["cenario"]        = int(cenario)    
-    payload['payloadHomol']['intermediarias']['tabelaFiltros']  = tabelaFiltros    
-    
-    
+    payload['payloadHomol']["intermediarias"]["segmentacao"]        = str(segmentacao)           
+    payload['payloadHomol']["intermediarias"]["alavancagem"]        = float(alavancagem)            
+    payload['payloadHomol']["intermediarias"]["limiteTeto"]         = float(limiteTeto)        
+    payload['payloadHomol']["intermediarias"]["limitePiso"]         = float(limitePiso) 
+    payload['payloadHomol']["intermediarias"]["limiteFixo"]         = int((str(limiteFixo).replace("QUALQUER","0")))        
+    payload['payloadHomol']["intermediarias"]["aprovadoBAUAux"]     = int(aprovadoBAUAux)         
+    payload['payloadHomol']["intermediarias"]["aprovadoSLAux"]      = int(aprovadoSLAux)         
+    payload['payloadHomol']["intermediarias"]["cenario"]            = int(cenario)    
+    payload['payloadHomol']['intermediarias']['tabelaFiltros']      = tabelaFiltros    
+    payload['payloadHomol']['intermediarias']['faixaCPFMarAberto']  = faixaCPF
+    payload['payloadHomol']['intermediarias']['passoufaixaCPF']     = passoufaixaCPF
 
     return payload
 
@@ -2185,7 +2464,7 @@ def etapaFiltrosPolitica(payload):
                 payload['payloadHomol']['saidas']['statusDecisao'] = 'PENDENTE'
                 payload['payloadHomol']['saidas']['regrasNegativas'].append({'nomeRegra': 'erroChamadaBureau','descricao': '76. Erro Chamada Bureaus - Validações Internas'})                
         if (payload['payloadHomol']['saidas']['statusDecisao'] == 'APROVADO'):
-            CriacaoFlagsRangesFiltros(payload)  #calculos intermediarios (etapa filtro politica) no RMA
+            CriacaoFlagsRangesFiltros(payload) 
             FiltroVisaoPolitica(payload)
 
         DefineFlagRenda(payload)
@@ -2222,16 +2501,19 @@ def etapapoliticaConcessao(payload):
             CriacaoFlagsRangesFiltros(payload)
             SegmentacaoNegocio(payload)
             # SegmentacaoRisco(payload)       // Nao utilizado na nova versão  
-            FaixaRiscoInternoAgrupada(payload)
+           
 
             if (payload['payloadHomol']['intermediarias']['flagClienteExistente'] == 1):
                 SegmentacaoPoliticaAntigos(payload)
-                # DefinicaoGruposAntigo(payload)   // Nao utilizado na nova versão  
+                # DefinicaoGruposAntigo(payload)   // Nao utilizado na nova versão
+                FaixaRiscoInternoAgrupada(payload) 
                 subGruposAntigo(payload)
+
             else:
                 SegmentacaoPoliticaMarAberto(payload)
                 # DefinicaoGruposMarAberto(payload)
                 SubGruposMarAberto(payload)
+
 
             MarcacoesAprovados(payload)
             LimiteFinal(payload)
